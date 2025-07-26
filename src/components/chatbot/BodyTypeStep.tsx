@@ -1,5 +1,10 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
+import mesomorphMale from "@/assets/body-types/mesomorph-male.jpg";
+import skinnyFatMale from "@/assets/body-types/skinny-fat-male.jpg";
+import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
+import overweightFemale from "@/assets/body-types/overweight-female.jpg";
+import thinFemale from "@/assets/body-types/thin-female.jpg";
 
 interface BodyTypeStepProps {
   gender?: 'uomo' | 'donna';
@@ -11,12 +16,12 @@ export const BodyTypeStep = ({ gender, onNext }: BodyTypeStepProps) => {
     { 
       type: "mesomorfo", 
       description: "Fisico atletico naturale, facilità a costruire muscoli",
-      icon: "💪"
+      image: mesomorphMale
     },
     { 
       type: "skinny fat", 
       description: "Magro ma con grasso localizzato, poca massa muscolare",
-      icon: "🤷‍♂️"
+      image: skinnyFatMale
     }
   ];
 
@@ -24,17 +29,17 @@ export const BodyTypeStep = ({ gender, onNext }: BodyTypeStepProps) => {
     { 
       type: "ginoide", 
       description: "Accumulo di grasso su fianchi e cosce",
-      icon: "🍐"
+      image: gynoidFemale
     },
     { 
       type: "grassa", 
       description: "Sovrappeso generalizzato",
-      icon: "⚖️"
+      image: overweightFemale
     },
     { 
       type: "magra", 
       description: "Corporatura esile, difficoltà ad aumentare peso",
-      icon: "🌿"
+      image: thinFemale
     }
   ];
 
@@ -51,21 +56,25 @@ export const BodyTypeStep = ({ gender, onNext }: BodyTypeStepProps) => {
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="grid md:grid-cols-2 gap-6">
         {bodyTypes.map((bodyType) => (
           <div
             key={bodyType.type}
-            className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-fitness-orange transition-colors cursor-pointer"
+            className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-fitness-orange hover:shadow-lg transition-all duration-300 cursor-pointer group"
             onClick={() => onNext({ bodyType: bodyType.type })}
           >
-            <div className="flex items-center space-x-4">
-              <span className="text-3xl">{bodyType.icon}</span>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-800 capitalize">
-                  {bodyType.type}
-                </h3>
-                <p className="text-gray-600">{bodyType.description}</p>
-              </div>
+            <div className="aspect-[4/5] overflow-hidden">
+              <img 
+                src={bodyType.image} 
+                alt={bodyType.type}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800 capitalize mb-2">
+                {bodyType.type}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{bodyType.description}</p>
             </div>
           </div>
         ))}
