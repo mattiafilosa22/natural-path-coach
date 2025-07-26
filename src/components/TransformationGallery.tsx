@@ -5,37 +5,37 @@ import womanAfter from "@/assets/woman-after.jpg";
 
 export const TransformationGallery = () => {
   const transformations = [
-    { before: manBefore, after: manAfter, title: "Marco - 3 mesi" },
-    { before: womanBefore, after: womanAfter, title: "Sara - 4 mesi" }
+    { image: manBefore, text: "Prima" },
+    { image: manAfter, text: "Dopo" },
+    { image: womanBefore, text: "Prima" },
+    { image: womanAfter, text: "Dopo" },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-      {transformations.map((transformation, index) => (
-        <div key={index} className="space-y-4">
-          <div className="relative">
-            <img
-              src={transformation.before}
-              alt={`${transformation.title} - Prima`}
-              className="w-full h-48 md:h-64 object-cover rounded-lg shadow-lg"
-            />
-            <div className="absolute top-2 left-2 bg-fitness-orange text-white px-2 py-1 rounded text-sm font-semibold">
-              PRIMA
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto justify-center">
+      {transformations.map((transformation, index) => {
+        const bannerClass =
+          transformation?.text === "Prima"
+            ? "bg-fitness-orange"
+            : "bg-green-500";
+        return (
+          <div key={index} className="space-y-2 relative">
+            <div className="relative">
+              <img
+                src={transformation.image}
+                alt={transformation.text}
+                className="w-64 h-72 md:h-72 object-cover rounded-lg shadow-lg"
+              />
+
+              <div
+                className={`"absolute top-2 left-2 ${bannerClass} text-white px-2 py-1 rounded text-xs font-semibold"`}
+              >
+                {transformation.text}
+              </div>
             </div>
           </div>
-          <div className="relative">
-            <img
-              src={transformation.after}
-              alt={`${transformation.title} - Dopo`}
-              className="w-full h-48 md:h-64 object-cover rounded-lg shadow-lg"
-            />
-            <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-semibold">
-              DOPO
-            </div>
-          </div>
-          <p className="text-center font-semibold text-fitness-orange">{transformation.title}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

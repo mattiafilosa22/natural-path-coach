@@ -7,14 +7,14 @@ interface TargetingStepProps {
 
 export const TargetingStep = ({ onNext }: TargetingStepProps) => {
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-8 text-center space-y-8">
+    <div className="flex flex-col items-center justify-center px-4  min-h-screen text-center space-y-8">
       <div className="max-w-4xl space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-          Sei un ragazzo di 30 anni 
+          Sei un ragazzo di 30 anni
           <br />
           con la pancetta?
         </h1>
-        
+
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-4">
           <p className="text-xl md:text-2xl text-white font-medium">
             ✓ Ti senti insicuro quando ti guardi allo specchio?
@@ -36,7 +36,7 @@ export const TargetingStep = ({ onNext }: TargetingStepProps) => {
         <TransformationGallery />
       </div>
 
-      <FitnessButton 
+      <FitnessButton
         onClick={onNext}
         size="lg"
         className="text-xl px-12 py-8"
