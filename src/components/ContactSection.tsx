@@ -202,12 +202,15 @@ const ContactSection = () => {
               <p className="mb-6 opacity-90">
                 Valuteremo insieme i tuoi obiettivi e creeremo il piano perfetto per te.
               </p>
-              <Button
+                <Button
+                asChild
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-primary text-primary-glow"
-              >
-                Prenota Ora
-              </Button>
+                >
+                <a href="/funnel" target="_blank">
+                  Prenota Ora
+                </a>
+                </Button>
             </CardContent>
           </Card>
         </div>

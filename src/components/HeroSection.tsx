@@ -28,11 +28,23 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
+              asChild
               variant="outline"
               className="border-white font-bold text-primary-glow hover:bg-white hover:text-foreground animate-slide-up"
               style={{ animationDelay: "0.2s" }}
             >
+              <a
+              href="#contact"
+              onClick={e => {
+                e.preventDefault();
+                const el = document.getElementById("contact");
+                if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              >
               Scopri di Più
+              </a>
             </Button>
           </div>
         </div>

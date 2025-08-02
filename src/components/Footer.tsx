@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">Link Utili</h4>
             <ul className="space-y-2 text-white/80">
               <li>
@@ -44,7 +44,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Legal */}
           <div>
@@ -71,7 +71,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60 flex items-center justify-center gap-2">
-            © 2024 Marco Del Moro Personal Trainer
+            © 2025 Marco Del Moro Personal Trainer
           </p>
         </div>
       </div>
