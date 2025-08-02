@@ -12,30 +12,32 @@ export const TransformationGallery = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto justify-center">
-      {transformations.map((transformation, index) => {
-        const bannerClass =
-          transformation?.text === "Prima"
-            ? "bg-fitness-orange"
-            : "bg-green-500";
-        return (
-          <div key={index} className="space-y-2 relative">
-            <div className="relative">
-              <img
-                src={transformation.image}
-                alt={transformation.text}
-                className="w-64 h-72 md:h-72 object-cover rounded-lg shadow-lg"
-              />
+    <div className="overflow-x-auto">
+      <div className="flex gap-4 pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:max-w-2xl sm:mx-auto sm:justify-center">
+        {transformations.map((transformation, index) => {
+          const bannerClass =
+            transformation?.text === "Prima"
+              ? "bg-fitness-orange"
+              : "bg-green-500";
+          return (
+            <div key={index} className="flex-shrink-0 space-y-2 relative sm:flex-shrink">
+              <div className="relative">
+                <img
+                  src={transformation.image}
+                  alt={transformation.text}
+                  className="w-64 h-72 md:h-72 object-cover rounded-lg shadow-lg"
+                />
 
-              <div
-                className={`"absolute top-2 left-2 ${bannerClass} text-white px-2 py-1 rounded text-xs font-semibold"`}
-              >
-                {transformation.text}
+                <div
+                  className={`absolute top-2 left-2 ${bannerClass} text-white px-2 py-1 rounded text-xs font-semibold`}
+                >
+                  {transformation.text}
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

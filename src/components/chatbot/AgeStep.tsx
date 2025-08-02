@@ -3,9 +3,10 @@ import { ChatbotData } from "@/types/funnel";
 
 interface AgeStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
+  onBack: () => void;
 }
 
-export const AgeStep = ({ onNext }: AgeStepProps) => {
+export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
   const ageRanges = [
     "14-20 anni",
     "21-35 anni", 
@@ -34,6 +35,15 @@ export const AgeStep = ({ onNext }: AgeStepProps) => {
             {range}
           </FitnessButton>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onBack}
+          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+        >
+          ← Indietro
+        </button>
       </div>
     </div>
   );

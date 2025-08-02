@@ -3,11 +3,11 @@ export const ThankYouStep = () => {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8 text-center">
       <div className="max-w-2xl space-y-8">
         <div className="text-6xl mb-8">🎉</div>
-        
+
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
           Grazie!
         </h1>
-        
+
         <div className="space-y-4">
           <p className="text-xl text-gray-600">
             La tua consulenza è stata prenotata con successo.
@@ -31,6 +31,15 @@ export const ThankYouStep = () => {
         <p className="text-sm text-gray-500">
           Non vedi l'email? Controlla anche la cartella spam.
         </p>
+
+        <div className="flex justify-center mt-8">
+          <a
+            href="/"
+            className="px-8 py-3 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors inline-block"
+          >
+            🏠 Torna alla Homepage
+          </a>
+        </div>
       </div>
     </div>
   );

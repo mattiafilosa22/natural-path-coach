@@ -3,9 +3,10 @@ import { ChatbotData } from "@/types/funnel";
 
 interface FrequencyStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
+  onBack: () => void;
 }
 
-export const FrequencyStep = ({ onNext }: FrequencyStepProps) => {
+export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
   const frequencies = [
     { 
       freq: "1-2 allenamenti a settimana", 
@@ -56,6 +57,15 @@ export const FrequencyStep = ({ onNext }: FrequencyStepProps) => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onBack}
+          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+        >
+          ← Indietro
+        </button>
       </div>
     </div>
   );

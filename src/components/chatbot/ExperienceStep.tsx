@@ -3,9 +3,10 @@ import { ChatbotData } from "@/types/funnel";
 
 interface ExperienceStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
+  onBack: () => void;
 }
 
-export const ExperienceStep = ({ onNext }: ExperienceStepProps) => {
+export const ExperienceStep = ({ onNext, onBack }: ExperienceStepProps) => {
   const experienceLevels = [
     { 
       level: "nessuna" as const, 
@@ -60,6 +61,15 @@ export const ExperienceStep = ({ onNext }: ExperienceStepProps) => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onBack}
+          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+        >
+          ← Indietro
+        </button>
       </div>
     </div>
   );

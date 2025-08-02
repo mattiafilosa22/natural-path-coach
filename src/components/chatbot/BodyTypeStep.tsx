@@ -9,9 +9,10 @@ import thinFemale from "@/assets/body-types/thin-female.jpg";
 interface BodyTypeStepProps {
   gender?: 'uomo' | 'donna';
   onNext: (data: Partial<ChatbotData>) => void;
+  onBack: () => void;
 }
 
-export const BodyTypeStep = ({ gender, onNext }: BodyTypeStepProps) => {
+export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
   const maleBodyTypes = [
     { 
       type: "mesomorfo", 
@@ -78,6 +79,15 @@ export const BodyTypeStep = ({ gender, onNext }: BodyTypeStepProps) => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onBack}
+          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+        >
+          ← Indietro
+        </button>
       </div>
     </div>
   );

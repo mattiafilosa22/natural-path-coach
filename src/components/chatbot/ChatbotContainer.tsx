@@ -10,9 +10,10 @@ import { GoalStep } from "./GoalStep";
 
 interface ChatbotContainerProps {
   onComplete: (data: ChatbotData) => void;
+  onBack: () => void;
 }
 
-export const ChatbotContainer = ({ onComplete }: ChatbotContainerProps) => {
+export const ChatbotContainer = ({ onComplete, onBack }: ChatbotContainerProps) => {
   const [currentStep, setCurrentStep] = useState<ChatbotStep>('gender');
   const [data, setData] = useState<ChatbotData>({});
 
@@ -58,14 +59,45 @@ export const ChatbotContainer = ({ onComplete }: ChatbotContainerProps) => {
     }
   };
 
+  const handleBack = () => {
+    switch (currentStep) {
+      case 'age':
+        setCurrentStep('gender');
+        break;
+      case 'bodyType':
+        setCurrentStep('age');
+        break;
+      case 'experience':
+        setCurrentStep('bodyType');
+        break;
+      case 'trainingType':
+        setCurrentStep('experience');
+        break;
+      case 'frequency':
+        setCurrentStep('trainingType');
+        break;
+      case 'goal':
+        if (data.experience === 'nessuna') {
+          setCurrentStep('experience');
+        } else {
+          setCurrentStep('frequency');
+        }
+        break;
+      case 'gender':
+        // Se siamo al primo step del chatbot, torniamo al step precedente del funnel
+        onBack();
+        break;
+    }
+  };
+
   const stepComponents = {
-    gender: <GenderStep onNext={handleNext} />,
-    age: <AgeStep onNext={handleNext} />,
-    bodyType: <BodyTypeStep gender={data.gender} onNext={handleNext} />,
-    experience: <ExperienceStep onNext={handleNext} />,
-    trainingType: <TrainingTypeStep onNext={handleNext} />,
-    frequency: <FrequencyStep onNext={handleNext} />,
-    goal: <GoalStep onNext={handleNext} />
+    gender: <GenderStep onNext={handleNext} onBack={handleBack} />,
+    age: <AgeStep onNext={handleNext} onBack={handleBack} />,
+    bodyType: <BodyTypeStep gender={data.gender} onNext={handleNext} onBack={handleBack} />,
+    experience: <ExperienceStep onNext={handleNext} onBack={handleBack} />,
+    trainingType: <TrainingTypeStep onNext={handleNext} onBack={handleBack} />,
+    frequency: <FrequencyStep onNext={handleNext} onBack={handleBack} />,
+    goal: <GoalStep onNext={handleNext} onBack={handleBack} />
   };
 
   return (

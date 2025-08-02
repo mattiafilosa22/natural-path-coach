@@ -3,9 +3,10 @@ import { ChatbotData } from "@/types/funnel";
 
 interface GenderStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
+  onBack: () => void;
 }
 
-export const GenderStep = ({ onNext }: GenderStepProps) => {
+export const GenderStep = ({ onNext, onBack }: GenderStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
@@ -31,6 +32,15 @@ export const GenderStep = ({ onNext }: GenderStepProps) => {
         >
           👩 Donna
         </FitnessButton>
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onBack}
+          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+        >
+          ← Indietro
+        </button>
       </div>
     </div>
   );

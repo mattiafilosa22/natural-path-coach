@@ -29,6 +29,26 @@ const Funnel = () => {
     }
   };
 
+  const handleStepBack = () => {
+    switch (currentStep) {
+      case 'targeting':
+        setCurrentStep('hook');
+        break;
+      case 'promise':
+        setCurrentStep('targeting');
+        break;
+      case 'chatbot':
+        setCurrentStep('promise');
+        break;
+      case 'result':
+        setCurrentStep('chatbot');
+        break;
+      case 'thankyou':
+        setCurrentStep('result');
+        break;
+    }
+  };
+
   const handleChatbotComplete = (data: ChatbotData) => {
     setChatbotData(data);
     setCurrentStep('result');
@@ -39,13 +59,13 @@ const Funnel = () => {
       case 'hook':
         return <HookStep onNext={handleStepNext} />;
       case 'targeting':
-        return <TargetingStep onNext={handleStepNext} />;
+        return <TargetingStep onNext={handleStepNext} onBack={handleStepBack} />;
       case 'promise':
-        return <PromiseStep onNext={handleStepNext} />;
+        return <PromiseStep onNext={handleStepNext} onBack={handleStepBack} />;
       case 'chatbot':
-        return <ChatbotContainer onComplete={handleChatbotComplete} />;
+        return <ChatbotContainer onComplete={handleChatbotComplete} onBack={handleStepBack} />;
       case 'result':
-        return <ResultStep chatbotData={chatbotData} onNext={handleStepNext} />;
+        return <ResultStep chatbotData={chatbotData} onNext={handleStepNext} onBack={handleStepBack} />;
       case 'thankyou':
         return <ThankYouStep />;
       default:

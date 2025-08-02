@@ -3,9 +3,10 @@ import { TransformationGallery } from "@/components/TransformationGallery";
 
 interface PromiseStepProps {
   onNext: () => void;
+  onBack: () => void;
 }
 
-export const PromiseStep = ({ onNext }: PromiseStepProps) => {
+export const PromiseStep = ({ onNext, onBack }: PromiseStepProps) => {
   return (
     <div className="flex flex-col items-center justify-center px-4 min-h-screen text-center space-y-8">
       <div className="max-w-4xl space-y-6">
@@ -40,17 +41,30 @@ export const PromiseStep = ({ onNext }: PromiseStepProps) => {
         </p>
       </div>
 
-      <div className="w-full">
+      <div className="w-full hidden md:block">
         <TransformationGallery />
       </div>
 
-      <FitnessButton
-        onClick={onNext}
-        size="lg"
-        className="text-xl px-12 py-8"
-      >
-        Inizia il Questionario →
-      </FitnessButton>
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <button
+          onClick={onBack}
+          className="px-8 py-3 text-white border border-white/30 rounded-full hover:bg-white/10 transition-colors"
+        >
+          ← Indietro
+        </button>
+        
+        <FitnessButton
+          onClick={onNext}
+          size="lg"
+          className="text-xl px-12 py-8"
+        >
+          Inizia il Questionario →
+        </FitnessButton>
+      </div>
+
+      <div className="w-full block md:hidden">
+        <TransformationGallery />
+      </div>
     </div>
   );
 };

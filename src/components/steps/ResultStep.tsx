@@ -5,38 +5,39 @@ import { ChatbotData } from "@/types/funnel";
 interface ResultStepProps {
   chatbotData: ChatbotData;
   onNext: () => void;
+  onBack: () => void;
 }
 
-export const ResultStep = ({ chatbotData, onNext }: ResultStepProps) => {
+export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => {
   const [showCalendly, setShowCalendly] = useState(false);
 
   const generatePersonalizedResult = () => {
     const { gender, ageRange, bodyType, experience, goal } = chatbotData;
-    
+
     let result = `Perfetto! Basandoci sulle tue risposte, abbiamo creato un programma personalizzato per `;
-    
+
     if (gender === 'uomo') {
       result += `un uomo `;
     } else {
       result += `una donna `;
     }
-    
+
     if (ageRange) {
       result += `di ${ageRange} `;
     }
-    
+
     if (bodyType) {
       result += `con fisico ${bodyType} `;
     }
-    
+
     result += `che vuole ${goal}.`;
-    
+
     if (experience === 'nessuna') {
       result += ` \n\nEssendo alle prime armi, abbiamo progettato un programma graduale che ti permetterà di imparare i fondamentali senza rischi.`;
     } else {
       result += ` \n\nCon la tua esperienza ${experience}, potremo utilizzare tecniche più avanzate per massimizzare i risultati.`;
     }
-    
+
     return result;
   };
 
@@ -53,7 +54,7 @@ export const ResultStep = ({ chatbotData, onNext }: ResultStepProps) => {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
             Il Tuo Programma è Pronto! 🎯
           </h1>
-          
+
           <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed whitespace-pre-line">
               {generatePersonalizedResult()}
@@ -98,13 +99,22 @@ export const ResultStep = ({ chatbotData, onNext }: ResultStepProps) => {
             <p className="text-xl font-semibold text-gray-700">
               Prenota ora la tua consulenza gratuita per ricevere il programma!
             </p>
-            <FitnessButton 
-              onClick={handleCalendlyClick}
-              size="lg"
-              className="text-xl px-12 py-8"
-            >
-              Prenota Consulenza Gratuita →
-            </FitnessButton>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <button
+                onClick={onBack}
+                className="px-8 py-3 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+              >
+                ← Indietro
+              </button>
+
+              <FitnessButton
+                onClick={handleCalendlyClick}
+                size="lg"
+                className="text-xl px-6 py-6 sm:px-12 sm:py-8"
+              >
+                Prenota Consulenza Gratuita →
+              </FitnessButton>
+            </div>
           </div>
         ) : (
           <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
@@ -112,10 +122,10 @@ export const ResultStep = ({ chatbotData, onNext }: ResultStepProps) => {
               Grazie! 🙏
             </h3>
             <p className="text-lg text-green-600">
-              Ti abbiamo reindirizzato a Calendly per prenotare la tua consulenza gratuita. 
+              Ti abbiamo reindirizzato a Calendly per prenotare la tua consulenza gratuita.
               Riceverai tutti i dettagli del programma via email dopo la prenotazione.
             </p>
-            <FitnessButton 
+            <FitnessButton
               onClick={onNext}
               className="mt-6"
             >

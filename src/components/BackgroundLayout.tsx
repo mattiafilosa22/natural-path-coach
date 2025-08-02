@@ -10,18 +10,18 @@ export const BackgroundLayout = ({ children, showOverlay = true }: BackgroundLay
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${trainerBackground})` }}
       />
-      
+
       {/* Orange Overlay */}
       {showOverlay && (
         <div className="absolute inset-0 bg-fitness-overlay" />
       )}
-      
+
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 min-h-screen flex flex-col py-6 py-md-0">
         {children}
       </div>
     </div>
