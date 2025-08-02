@@ -18,13 +18,13 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simulate form submission
     toast({
       title: "Messaggio inviato!",
       description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
     });
-    
+
     // Reset form
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
@@ -71,7 +71,7 @@ const ContactSection = () => {
             Inizia la Tua <span className="text-primary">Trasformazione</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pronto a raggiungere i tuoi obiettivi? Contattami per una consulenza gratuita 
+            Pronto a raggiungere i tuoi obiettivi? Contattami per una consulenza gratuita
             e iniziamo insieme il tuo percorso verso una vita più sana.
           </p>
         </div>
@@ -99,7 +99,7 @@ const ContactSection = () => {
                       className="border-muted focus:border-primary"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="email">Email *</Label>
                     <Input
@@ -145,7 +145,7 @@ const ContactSection = () => {
                 <Button type="submit" variant="hero" className="w-full">
                   Invia Richiesta
                 </Button>
-                
+
                 <p className="text-sm text-muted-foreground text-center">
                   Ti ricontatterò entro 24 ore per fissare la tua consulenza gratuita
                 </p>
@@ -158,15 +158,15 @@ const ContactSection = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold mb-4">Come Raggiungermi</h3>
               <p className="text-muted-foreground">
-                Scegli il metodo che preferisci per metterti in contatto. 
+                Scegli il metodo che preferisci per metterti in contatto.
                 Sono sempre disponibile per rispondere alle tue domande!
               </p>
             </div>
 
             <div className="grid gap-6">
               {contactInfo.map((info, index) => (
-                <Card 
-                  key={index} 
+                <Card
+                  key={index}
                   className={`border-none bg-white/30 backdrop-blur-sm hover:shadow-primary transition-all duration-300 ${
                     info.action ? 'cursor-pointer hover:scale-105' : ''
                   }`}
@@ -190,23 +190,26 @@ const ContactSection = () => {
             </div>
 
             {/* CTA Box */}
-            <Card className="border-none bg-gradient-primary text-white">
-              <CardContent className="p-8 text-center">
-                <h4 className="text-2xl font-bold mb-4">
-                  Prima Consulenza Gratuita!
-                </h4>
-                <p className="mb-6 opacity-90">
-                  Valuteremo insieme i tuoi obiettivi e creeremo il piano perfetto per te.
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-primary"
-                >
-                  Prenota Ora
-                </Button>
-              </CardContent>
-            </Card>
+
           </div>
+        </div>
+        <div className="mt-12">
+          <Card className="border-none bg-gradient-primary text-white w-full">
+            <CardContent className="p-8 text-center">
+              <h4 className="text-2xl font-bold mb-4">
+                Prima Consulenza Gratuita!
+              </h4>
+              <p className="mb-6 opacity-90">
+                Valuteremo insieme i tuoi obiettivi e creeremo il piano perfetto per te.
+              </p>
+              <Button
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-primary text-primary-glow"
+              >
+                Prenota Ora
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
