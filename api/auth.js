@@ -1,30 +1,28 @@
 export default function handler(req, res) {
-  const authHeader = req.headers.authorization;
+  const auth = req.headers.authorization;
 
-  if (!authHeader) {
+  if (!auth) {
     res.statusCode = 401;
-    res.setHeader('WWW-Authenticate', 'Basic realm="Protected"');
-    res.end('Authentication required');
+    res.setHeader('WWW-Authenticate', 'Basic realm="Secure Area"');
+    res.end('Auth required');
     return;
   }
 
-  const [scheme, encoded] = authHeader.split(' ');
+  const [scheme, encoded] = auth.split(' ');
   if (scheme !== 'Basic') {
     res.statusCode = 400;
     res.end('Invalid auth scheme');
     return;
   }
 
-  const decoded = Buffer.from(encoded, 'base64').toString();
-  const [username, password] = decoded.split(':');
+  const [user, pass] = Buffer.from(encoded, 'base64').toString().split(':');
 
-  if (username === 'marco' && password === 'delmoro123') {
-    // Password corretta → lascia passare
-    return res.status(200).end();
+  if (user === 'marco' && pass === 'delmoro123') {
+    // Accesso consentito → redirect alla home (o alla rotta richiesta)
+    res.writeHead(302, { Location: '/' }).end();
+  } else {
+    res.statusCode = 401;
+    res.setHeader('WWW-Authenticate', 'Basic realm="Secure Area"');
+    res.end('Access denied');
   }
-
-  // Password errata
-  res.statusCode = 401;
-  res.setHeader('WWW-Authenticate', 'Basic realm="Protected"');
-  res.end('Access denied');
 }

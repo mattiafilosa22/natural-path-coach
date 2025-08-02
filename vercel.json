@@ -2,7 +2,10 @@
   "routes": [
     {
       "src": "/(.*)",
-      "middlewarePath": "auth"
+      "headers": {
+        "www-authenticate": "Basic realm='Secure Area'"
+      },
+      "dest": "/api/auth"
     }
   ]
 }
