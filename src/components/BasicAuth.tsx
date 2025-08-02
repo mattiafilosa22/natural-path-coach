@@ -53,6 +53,10 @@ const BasicAuth: React.FC<BasicAuthProps> = ({ children }) => {
         <h2 style={{ marginBottom: "24px" }}>Accesso Protetto</h2>
         <input
           type="text"
+          name="username"
+          id="username"
+          autoComplete="username"
+          autoFocus
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -64,10 +68,14 @@ const BasicAuth: React.FC<BasicAuthProps> = ({ children }) => {
             border: "none",
             marginBottom: "16px",
             fontSize: "16px",
+            color: "#333",
           }}
         />
         <input
           type="password"
+          name="password"
+          id="password"
+          autoComplete="current-password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -79,6 +87,7 @@ const BasicAuth: React.FC<BasicAuthProps> = ({ children }) => {
             border: "none",
             marginBottom: "16px",
             fontSize: "16px",
+            color: "#333",
           }}
         />
         {error && (
