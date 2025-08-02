@@ -26,9 +26,9 @@ export const PromiseStep = ({ onNext }: PromiseStepProps) => {
             <p className="text-xl text-white font-medium">
               🔬 Metodi scientificamente provati
             </p>
-            <p className="text-xl text-white font-medium">
+            {/* <p className="text-xl text-white font-medium">
               ⚡ Risultati visibili in 6 settimane
-            </p>
+            </p> */}
             <p className="text-xl text-white font-medium">
               🎯 Programma personalizzato per te
             </p>
