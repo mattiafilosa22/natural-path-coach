@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FitnessButton } from "@/components/FitnessButton";
 import { SecondaryButton } from "@/components/SecondaryButton";
 import { ChatbotData } from "@/types/funnel";
@@ -15,7 +14,6 @@ export const ResultStep = ({
   onNext,
   onBack,
 }: ResultStepProps) => {
-  const [showCalendly, setShowCalendly] = useState(false);
 
   const generatePersonalizedResult = () => {
     const { gender, ageRange, bodyType, experience, goal } = chatbotData;
@@ -35,9 +33,10 @@ export const ResultStep = ({
   };
 
   const handleCalendlyClick = () => {
-    setShowCalendly(true);
     // Here you would integrate with Calendly
     window.open("https://calendly.com/your-calendar", "_blank");
+    // Go directly to thank you page
+    onNext();
   };
 
   return (
@@ -50,49 +49,27 @@ export const ResultStep = ({
           {generatePersonalizedResult()}
         </div>
 
-        {!showCalendly ? (
-          <div className="space-y-4">
-            <p className="text-xl font-semibold text-gray-700">
-              Prenota ora la tua{" "}
-              <span className="text-fitness-orange font-bold">
-                consulenza gratuita!
-              </span>
-              {/* {" "} */}
-              {/* per ricevere il{" "}
-              <span className="text-fitness-orange font-bold">programma</span>! */}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <SecondaryButton onClick={onBack} variant="light" size="lg">
-                ← Indietro
-              </SecondaryButton>
+        <div className="space-y-4">
+          <p className="text-xl font-semibold text-gray-700">
+            Prenota ora la tua{" "}
+            <span className="text-fitness-orange font-bold">
+              consulenza gratuita!
+            </span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <SecondaryButton onClick={onBack} variant="light" size="lg">
+              ← Indietro
+            </SecondaryButton>
 
-              <FitnessButton
-                onClick={handleCalendlyClick}
-                size="lg"
-                className="text-xl px-6 py-6 sm:px-12 sm:py-8"
-              >
-                Prenota Consulenza Gratuita
-              </FitnessButton>
-            </div>
-          </div>
-        ) : (
-          <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-green-700 mb-4">
-              🎯 Trasformazione Garantita
-            </h3>
-            <p className="text-lg text-green-600">
-              Ti abbiamo reindirizzato a{" "}
-              <span className="font-bold">Calendly</span> per prenotare la tua{" "}
-              <span className="font-bold">consulenza gratuita</span>. Riceverai
-              tutti i dettagli del{" "}
-              <span className="font-bold">programma via email</span> dopo la
-              prenotazione.
-            </p>
-            <FitnessButton onClick={onNext} className="mt-6">
-              Continua
+            <FitnessButton
+              onClick={handleCalendlyClick}
+              size="lg"
+              className="text-xl px-6 py-6 sm:px-12 sm:py-8"
+            >
+              Prenota Consulenza Gratuita
             </FitnessButton>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
