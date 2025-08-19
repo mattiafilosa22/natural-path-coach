@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FitnessButton } from "@/components/FitnessButton";
 import { SecondaryButton } from "@/components/SecondaryButton";
 import { ChatbotData } from "@/types/funnel";
-import { generateParagraph } from "@/hooks/generate-response";
+import { generateObjective, generateSolution } from "@/hooks/generate-response";
 
 interface ResultStepProps {
   chatbotData: ChatbotData;
@@ -10,88 +10,92 @@ interface ResultStepProps {
   onBack: () => void;
 }
 
-export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => {
+export const ResultStep = ({
+  chatbotData,
+  onNext,
+  onBack,
+}: ResultStepProps) => {
   const [showCalendly, setShowCalendly] = useState(false);
 
   const generatePersonalizedResult = () => {
     const { gender, ageRange, bodyType, experience, goal } = chatbotData;
-    const objective = generateParagraph(bodyType);
+    const objective = generateObjective(bodyType);
+    const solution = generateSolution(bodyType);
 
-    let result = `Perfetto! Basandoci sulle tue risposte, abbiamo creato un programma personalizzato per `;
-
-    if (gender === 'uomo') {
-      result += `un uomo `;
-    } else {
-      result += `una donna `;
-    }
-
-    if (ageRange) {
-      result += `di ${ageRange} `;
-    }
-
-    if (bodyType) {
-      result += `con fisico ${bodyType} `;
-    }
-
-    result += `che vuole ${goal}.`;
-
-    if (experience === 'nessuna') {
-      result += ` \n\nEssendo alle prime armi, abbiamo progettato un programma graduale che ti permetterà di imparare i fondamentali senza rischi.`;
-    } else {
-      result += ` \n\nCon la tua esperienza ${experience}, potremo utilizzare tecniche più avanzate per massimizzare i risultati.`;
-    }
-
-    return objective;
+    return (
+      <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
+        <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-4">
+          {objective}
+        </p>
+        <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+          {solution}
+        </p>
+      </div>
+    );
   };
 
   const handleCalendlyClick = () => {
     setShowCalendly(true);
     // Here you would integrate with Calendly
-    window.open('https://calendly.com/your-calendar', '_blank');
+    window.open("https://calendly.com/your-calendar", "_blank");
   };
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8">
       <div className="max-w-3xl w-full text-center space-y-8">
         <div className="space-y-6">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
             Il Tuo Programma Personalizzato è Pronto!
           </h1>
 
-          <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-              {generatePersonalizedResult()}
-            </p>
-          </div>
+          {generatePersonalizedResult()}
 
           <div className="bg-white border-2 border-fitness-orange rounded-2xl p-8 space-y-4">
-                        <h3 className="text-xl font-bold text-fitness-orange">
+            <h3 className="text-xl font-bold text-fitness-orange">
               Cosa Include il Tuo Programma Gratuito:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span><span className="font-bold">Piano di allenamento</span> 6 settimane</span>
+                <span>
+                  <span className="font-bold">Piano di allenamento</span> 6
+                  settimane
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span><span className="font-bold">Schede personalizzate</span></span>
+                <span>
+                  <span className="font-bold">Schede personalizzate</span>
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span><span className="font-bold">Video tutorial</span> esercizi</span>
+                <span>
+                  <span className="font-bold">Video tutorial</span> esercizi
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span><span className="font-bold">Consulenza iniziale gratuita</span></span>
+                <span>
+                  <span className="font-bold">
+                    Consulenza iniziale gratuita
+                  </span>
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span><span className="font-bold">Supporto WhatsApp</span></span>
+                <span>
+                  <span className="font-bold">Supporto WhatsApp</span>
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Metodi <span className="font-bold text-fitness-orange">100% Natural</span></span>
+                <span>
+                  Metodi{" "}
+                  <span className="font-bold text-fitness-orange">
+                    100% Natural
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -100,14 +104,15 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
         {!showCalendly ? (
           <div className="space-y-4">
             <p className="text-xl font-semibold text-gray-700">
-              Prenota ora la tua <span className="text-fitness-orange font-bold">consulenza gratuita</span> per ricevere il <span className="text-fitness-orange font-bold">programma</span>!
+              Prenota ora la tua{" "}
+              <span className="text-fitness-orange font-bold">
+                consulenza gratuita
+              </span>{" "}
+              per ricevere il{" "}
+              <span className="text-fitness-orange font-bold">programma</span>!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <SecondaryButton
-                onClick={onBack}
-                variant="light"
-                size="lg"
-              >
+              <SecondaryButton onClick={onBack} variant="light" size="lg">
                 ← Indietro
               </SecondaryButton>
 
@@ -122,17 +127,18 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
           </div>
         ) : (
           <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
-                        <h3 className="text-xl font-bold text-green-700 mb-4">
+            <h3 className="text-xl font-bold text-green-700 mb-4">
               🎯 Trasformazione Garantita
             </h3>
             <p className="text-lg text-green-600">
-              Ti abbiamo reindirizzato a <span className="font-bold">Calendly</span> per prenotare la tua <span className="font-bold">consulenza gratuita</span>.
-              Riceverai tutti i dettagli del <span className="font-bold">programma via email</span> dopo la prenotazione.
+              Ti abbiamo reindirizzato a{" "}
+              <span className="font-bold">Calendly</span> per prenotare la tua{" "}
+              <span className="font-bold">consulenza gratuita</span>. Riceverai
+              tutti i dettagli del{" "}
+              <span className="font-bold">programma via email</span> dopo la
+              prenotazione.
             </p>
-            <FitnessButton
-              onClick={onNext}
-              className="mt-6"
-            >
+            <FitnessButton onClick={onNext} className="mt-6">
               Continua
             </FitnessButton>
           </div>
