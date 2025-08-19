@@ -19,10 +19,10 @@ export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Qual è la tua fascia d'età?
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-base text-gray-600">
           L'età influenza il tipo di allenamento più adatto a te
         </p>
       </div>
@@ -32,7 +32,7 @@ export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
           <FitnessButton
             key={range}
             onClick={() => onNext({ ageRange: range })}
-            className="h-16 text-lg"
+            className="h-16 text-base"
           >
             {range}
           </FitnessButton>

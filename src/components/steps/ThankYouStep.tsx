@@ -6,21 +6,21 @@ export const ThankYouStep = () => {
       <div className="max-w-2xl space-y-8">
         <div className="text-6xl mb-8">🎉</div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           Grazie!
         </h1>
 
         <div className="space-y-4">
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             La tua <span className="font-bold text-fitness-orange">consulenza è stata prenotata</span> con successo.
           </p>
-          <p className="text-lg text-gray-600">
+          <p className="text-base text-gray-600">
             Riceverai una <span className="font-bold text-fitness-orange">email di conferma</span> con tutti i dettagli e il link per il tuo <span className="font-bold text-fitness-orange">programma personalizzato</span>.
           </p>
         </div>
 
         <div className="bg-fitness-orange/10 rounded-2xl p-6">
-          <h3 className="text-xl font-bold text-fitness-orange mb-2">
+          <h3 className="text-lg font-bold text-fitness-orange mb-2">
             Cosa succede ora?
           </h3>
           <div className="space-y-2 text-gray-700">

@@ -52,19 +52,19 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8">
       <div className="max-w-3xl w-full text-center space-y-8">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-            Il Tuo <span className="text-fitness-orange">Programma è Pronto</span>! 🎯
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Il Tuo Programma Personalizzato è Pronto!
           </h1>
 
           <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed whitespace-pre-line">
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
               {generatePersonalizedResult()}
             </p>
           </div>
 
           <div className="bg-white border-2 border-fitness-orange rounded-2xl p-8 space-y-4">
-            <h3 className="text-2xl font-bold text-fitness-orange">
-              Cosa Include il Tuo <span className="text-fitness-orange">Programma Gratuito</span>:
+                        <h3 className="text-xl font-bold text-fitness-orange">
+              Cosa Include il Tuo Programma Gratuito:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
               <div className="flex items-center space-x-3">
@@ -114,14 +114,14 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
                 size="lg"
                 className="text-xl px-6 py-6 sm:px-12 sm:py-8"
               >
-                Prenota Consulenza Gratuita 
+                Prenota Consulenza Gratuita
               </FitnessButton>
             </div>
           </div>
         ) : (
           <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-green-700 mb-4">
-              Grazie! 🙏
+                        <h3 className="text-xl font-bold text-green-700 mb-4">
+              🎯 Trasformazione Garantita
             </h3>
             <p className="text-lg text-green-600">
               Ti abbiamo reindirizzato a <span className="font-bold">Calendly</span> per prenotare la tua <span className="font-bold">consulenza gratuita</span>.

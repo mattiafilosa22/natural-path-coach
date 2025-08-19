@@ -33,10 +33,10 @@ export const TrainingTypeStep = ({ onNext, onBack }: TrainingTypeStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Dove ti alleni principalmente?
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-base text-gray-600">
           Adatteremo gli esercizi al tuo ambiente di allenamento
         </p>
       </div>
@@ -51,7 +51,7 @@ export const TrainingTypeStep = ({ onNext, onBack }: TrainingTypeStepProps) => {
             <div className="flex items-center space-x-4">
               <span className="text-3xl">{training.icon}</span>
               <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-800">
+                <h3 className="text-lg font-bold text-gray-800">
                   {training.title}
                 </h3>
                 <p className="text-gray-600">{training.description}</p>

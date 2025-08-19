@@ -33,10 +33,10 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Quante volte a settimana puoi allenarti?
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-base text-gray-600">
           La frequenza determina l'intensità del programma
         </p>
       </div>
@@ -51,7 +51,7 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
             <div className="flex items-center space-x-4">
               <span className="text-3xl">{frequency.icon}</span>
               <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-800">
+                <h3 className="text-lg font-bold text-gray-800">
                   {frequency.title}
                 </h3>
                 <p className="text-gray-600">{frequency.description}</p>
