@@ -1,3 +1,5 @@
+import { SecondaryButton } from "@/components/SecondaryButton";
+
 export const ThankYouStep = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8 text-center">
@@ -33,12 +35,13 @@ export const ThankYouStep = () => {
         </p>
 
         <div className="flex justify-center mt-8">
-          <a
-            href="/"
-            className="px-8 py-3 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors inline-block"
+          <SecondaryButton
+            onClick={() => window.location.href = "/"}
+            variant="light"
+            size="lg"
           >
             🏠 Torna alla Homepage
-          </a>
+          </SecondaryButton>
         </div>
       </div>
     </div>

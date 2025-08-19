@@ -1,6 +1,8 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
 
+import { SecondaryButton } from "@/components/SecondaryButton";
+
 interface ExperienceStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
   onBack: () => void;
@@ -64,12 +66,12 @@ export const ExperienceStep = ({ onNext, onBack }: ExperienceStepProps) => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <button
+        <SecondaryButton
           onClick={onBack}
-          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+          variant="light"
         >
-          Indietro
-        </button>
+          ← Indietro
+        </SecondaryButton>
       </div>
     </div>
   );

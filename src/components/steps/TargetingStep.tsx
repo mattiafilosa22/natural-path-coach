@@ -1,4 +1,5 @@
 import { FitnessButton } from "@/components/FitnessButton";
+import { SecondaryButton } from "@/components/SecondaryButton";
 import { TransformationGallery } from "@/components/TransformationGallery";
 
 interface TargetingStepProps {
@@ -43,12 +44,13 @@ export const TargetingStep = ({ onNext, onBack }: TargetingStepProps) => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <button
+        <SecondaryButton
           onClick={onBack}
-          className="px-8 py-3 text-white border border-white/30 rounded-full hover:bg-white/10 transition-colors"
+          variant="dark"
+          size="lg"
         >
-          Indietro
-        </button>
+          ← Indietro
+        </SecondaryButton>
 
         <FitnessButton
           onClick={onNext}

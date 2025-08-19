@@ -6,6 +6,8 @@ import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
 import overweightFemale from "@/assets/body-types/overweight-female.jpg";
 import thinFemale from "@/assets/body-types/thin-female.jpg";
 
+import { SecondaryButton } from "@/components/SecondaryButton";
+
 interface BodyTypeStepProps {
   gender?: "uomo" | "donna";
   onNext: (data: Partial<ChatbotData>) => void;
@@ -94,12 +96,12 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <button
+        <SecondaryButton
           onClick={onBack}
-          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+          variant="light"
         >
-          Indietro
-        </button>
+          ← Indietro
+        </SecondaryButton>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FitnessButton } from "@/components/FitnessButton";
+import { SecondaryButton } from "@/components/SecondaryButton";
 import { ChatbotData } from "@/types/funnel";
 
 interface ResultStepProps {
@@ -100,12 +101,13 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
               Prenota ora la tua <span className="text-fitness-orange font-bold">consulenza gratuita</span> per ricevere il <span className="text-fitness-orange font-bold">programma</span>!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <button
+              <SecondaryButton
                 onClick={onBack}
-                className="px-8 py-3 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+                variant="light"
+                size="lg"
               >
-                Indietro
-              </button>
+                ← Indietro
+              </SecondaryButton>
 
               <FitnessButton
                 onClick={handleCalendlyClick}
