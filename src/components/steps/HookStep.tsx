@@ -12,12 +12,12 @@ export const HookStep = ({ onNext }: HookStepProps) => {
         <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
           Trasforma il Tuo Corpo
           <br />
-          <span className="text-fitness-white">100% Natural</span>
+          <span className="text-fitness-white">in modo 100% naturale</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-white font-medium max-w-2xl mx-auto">
-          Scopri come ottenere risultati straordinari in 6 settimane
-          con il nostro programma di allenamento gratuito
+          Scopri come ottenere risultati straordinari con un <span className="underline font-bold">metodo naturale</span> , <span className="underline font-bold">sano</span> e <span className="underline font-bold">sostenibile</span>.
+          <br />Progettato per durare nel tempo e senza effetto yo-yo, senza frustrazione e senza rischi per la tua salute.
         </p>
       </div>
 
@@ -27,7 +27,7 @@ export const HookStep = ({ onNext }: HookStepProps) => {
 
       <div className="space-y-4">
         <p className="text-lg text-white font-semibold">
-          Questi sono solo alcuni dei risultati ottenuti dai nostri clienti
+          Questi sono solo alcuni dei risultati ottenuti dai miei clienti
         </p>
 
         <FitnessButton
@@ -35,7 +35,7 @@ export const HookStep = ({ onNext }: HookStepProps) => {
           size="lg"
           className="text-xl px-12 py-8"
         >
-          Scopri Come Iniziare →
+          Scopri l'allenamento adatto al tuo tipo di fisico →
         </FitnessButton>
       </div>
     </div>

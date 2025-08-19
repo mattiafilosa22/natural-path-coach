@@ -8,10 +8,10 @@ interface AgeStepProps {
 
 export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
   const ageRanges = [
-    "14-20 anni",
-    "21-35 anni", 
-    "36-50 anni",
-    "51-80 anni"
+    "18-25 anni",
+    "25-40 anni",
+    "40-50 anni",
+    "51 o più anni"
   ];
 
   return (

@@ -7,44 +7,54 @@ import overweightFemale from "@/assets/body-types/overweight-female.jpg";
 import thinFemale from "@/assets/body-types/thin-female.jpg";
 
 interface BodyTypeStepProps {
-  gender?: 'uomo' | 'donna';
+  gender?: "uomo" | "donna";
   onNext: (data: Partial<ChatbotData>) => void;
   onBack: () => void;
 }
 
 export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
   const maleBodyTypes = [
-    { 
-      type: "mesomorfo", 
-      description: "Fisico atletico naturale, facilità a costruire muscoli",
-      image: mesomorphMale
+    {
+      type: "mesomorfo",
+      description:
+        "Bassa percentuale di massa grassa, elevata percentuale di massa muscolare, ottima struttura scheletrica con spalle larga, vita e fianchi stretti",
+      image: mesomorphMale,
     },
-    { 
-      type: "skinny fat", 
-      description: "Magro ma con grasso localizzato, poca massa muscolare",
-      image: skinnyFatMale
-    }
+    {
+      type: "Ectomorfo",
+      description:
+        "Struttura esile e longilinea, con difficoltà ad aumentare massa muscolare e grasso corporeo. Arti lunghi e sottili, spalle strette e metabolismo veloce",
+      image: mesomorphMale,
+    },
+    {
+      type: "Endomorfo",
+      description:
+        "Struttura rotondeggiante, spalle strette rispetto ai fianchi, tessuti molli, alta percentuale di massa grassa. Struttura ossea robusta",
+      image: mesomorphMale,
+    },
+    {
+      type: "skinny fat",
+      description:
+        "Magra o normopeso, ma una percentuale di grasso relativamente alta e una bassa massa muscolare: aspetto magro ma poco definito",
+      image: skinnyFatMale,
+    },
   ];
 
   const femaleBodyTypes = [
-    { 
-      type: "ginoide", 
-      description: "Accumulo di grasso su fianchi e cosce",
-      image: gynoidFemale
+    {
+      type: "ginoide",
+      description:
+        "Comunemente detta a pera caratterizzata da una maggiore accumulazione di grasso nella parte inferiore del corpo, in particolare fianchi, glutei e cosce. Caratteristiche: - distribuzione del grasso_ predominante nella parte inferiore del corpo da ombelico in giu, con fianchi, glutei e cosce sempre più ampi rispetto alla parte superiore. Forma del corpo: la silhoutte ricorda una pera con una parte inferiore più voluminosa rispetto alla parte superiore. Predisposizione ad inestetismi: maggiore tendenza alla cellulite, ritenzione idrica e gambi pesanti. Aspetti ormonali: profilo estrogenico con maggiore sensibilità ai recettori ormonali nella parte inferiore del corpo. Muscolatura: tendenza ad accumulare massa muscolare su cosce e glutei, a volte anche sulla parte anteriore della cosce",
+      image: gynoidFemale,
     },
-    { 
-      type: "grassa", 
-      description: "Sovrappeso generalizzato",
-      image: overweightFemale
+    {
+      type: "Androide",
+      description: "Caratterizzata da una distribuzione del grasso corporeo che tende ad accumularsi principalmente nella parte superiore del corpo, come addome, petto, schiena e braccia, mentre le gambe tendono a rimanere più magre. QQuesto tipo di conformazione è spesso associato alla forma di una mela, da qui il termine 'corpo a mela'. Caratteristiche distribuzione del grasso: accumulo di grasso si concentra nella parte superiore con una maggiore circonferenza vita e fianchi, con meno grasso su gambe e glutei. Forma del corpo: il corpo più apparire più a 'mela' o a 'triangolo inverso' con spalle più larghe e fianchi più stretti. Punto vita: tende ad essere meno definito rispetto ad altri tipi di corporatura. Gambe: possono apparire più snelle e sottili rispetto al resto del corpo.",
+      image: overweightFemale,
     },
-    { 
-      type: "magra", 
-      description: "Corporatura esile, difficoltà ad aumentare peso",
-      image: thinFemale
-    }
   ];
 
-  const bodyTypes = gender === 'uomo' ? maleBodyTypes : femaleBodyTypes;
+  const bodyTypes = gender === "uomo" ? maleBodyTypes : femaleBodyTypes;
 
   return (
     <div className="text-center space-y-8">
@@ -65,8 +75,8 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
             onClick={() => onNext({ bodyType: bodyType.type })}
           >
             <div className="aspect-[4/5] overflow-hidden">
-              <img 
-                src={bodyType.image} 
+              <img
+                src={bodyType.image}
                 alt={bodyType.type}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -75,7 +85,9 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
               <h3 className="text-xl font-bold text-gray-800 capitalize mb-2">
                 {bodyType.type}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{bodyType.description}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {bodyType.description}
+              </p>
             </div>
           </div>
         ))}

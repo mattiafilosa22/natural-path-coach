@@ -11,20 +11,24 @@ export const TargetingStep = ({ onNext, onBack }: TargetingStepProps) => {
     <div className="flex flex-col items-center justify-center px-4  min-h-screen text-center space-y-8">
       <div className="max-w-4xl space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-          Sei un ragazzo di 30 anni
-          <br />
-          con la pancetta?
+          Hai queste caratteristiche?
         </h1>
 
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-4">
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Ti senti insicuro quando ti guardi allo specchio?
+            ✓ Hai tra i 18 e 50 anni
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Hai provato diete e allenamenti senza risultati?
+            ✓ Hai già provato palestra, dieta, motivazione
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Vuoi un fisico scolpito ma non sai da dove iniziare?
+            ✓ Ma ogni volta qualcosa si spezza: ti blocchi, molli, i risultati non arrivano
+          </p>
+          <p className="text-xl md:text-2xl text-white font-medium">
+            ✓ Ti sembra di fare tutto "giusto", ma il tuo corpo resta fermo
+          </p>
+          <p className="text-xl md:text-2xl text-white font-medium">
+            ✓ Cerchi un metodo efficace, ma che sia anche naturale, sostenibile e che non ti faccia mai più perdere i risultati ottenuti
           </p>
         </div>
 
@@ -45,7 +49,7 @@ export const TargetingStep = ({ onNext, onBack }: TargetingStepProps) => {
         >
           ← Indietro
         </button>
-        
+
         <FitnessButton
           onClick={onNext}
           size="lg"

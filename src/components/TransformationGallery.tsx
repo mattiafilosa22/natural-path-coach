@@ -5,10 +5,10 @@ import womanAfter from "@/assets/woman-after.jpg";
 
 export const TransformationGallery = () => {
   const transformations = [
-    { image: manBefore, text: "Prima" },
-    { image: manAfter, text: "Dopo" },
-    { image: womanBefore, text: "Prima" },
-    { image: womanAfter, text: "Dopo" },
+    { image: manBefore, text: "Prima", description: '25 gennaio 2025' },
+    { image: manAfter, text: "Dopo", description: '15 maggio 2025' },
+    { image: womanBefore, text: "Prima", description: '10 luglio 2024' },
+    { image: womanAfter, text: "Dopo", description: '04 aprile 2025' },
   ];
 
   return (
@@ -33,6 +33,9 @@ export const TransformationGallery = () => {
                 >
                   {transformation.text}
                 </div>
+              </div>
+              <div>
+                <p className="text-white">{transformation.description}</p>
               </div>
             </div>
           );
