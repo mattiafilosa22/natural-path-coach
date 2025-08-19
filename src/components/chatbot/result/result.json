@@ -1,0 +1,102 @@
+{
+  "bodyTypes": [
+    {
+      "type": "ectomorfo",
+      "objective": "Aumentare massa e perdere massa muscolare. Riempire braccia, spalle e petto, aumentare circonferenza torace e cosce. Ottenere un fisico muscoloso e più pesante rimanendo definito",
+      "solution": {
+        "training": [
+          "Allenarsi per aumentare la forza inserendo esercizi multiarticolari pesanti con bilanciere: panca piana, stacco da terra, military press, chin up zavorrate, dip zavorrate",
+          "Lavori di ipertrofia pura da 8-12 ripetizioni sfruttando macchinari e manubri"
+        ],
+        "nutrition": "Impostare con un biologo nutrizionista un regime alimentare ipercalorico per aumentare di peso (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)",
+        "cardio": {
+          "preferred": "Preferire cardio LISS di breve/media durata",
+          "avoid": "Evitare cardio ad altissima intensità e troppo prolungato",
+          "ideal": "1/2 sessioni di cardio settimanale da 30-40 minuti"
+        },
+        "avoid": [
+          "Allenamenti a circuito",
+          "Allenamenti endurance",
+          "Allenamenti a ripetizioni troppo alte"
+        ]
+      }
+    },
+    {
+      "type": "endomorfo",
+      "objective": "Perdere massa grassa e aumentare massa muscolare. Obiettivo: definizione",
+      "solution": {
+        "training": [
+          "Allenamento con i pesi da 3-5 volte a settimana alternando lavori di forza e lavori di ipertrofia",
+          "Inserire lavori ad altissime ripetizione",
+          "Inserire lavori a circuito",
+          "Inserire sessioni di cardio HIT all'interno degli allenamenti o LISS staccato dagli allenamenti"
+        ],
+        "nutrition": "Impostare un regime alimentare ipocalorico per perdita di grasso con un biologo nutrizionista (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)",
+        "monitoring": "Monitorare circonferenze corporeo e peso corporeo per valutare l'andamento del rapporto tra massa grassa e massa muscolare"
+      }
+    },
+    {
+      "type": "skinny-fat",
+      "objective": "Ricomposizione corporea. Lo skinny fat non può inizialmente pensare di intraprendere un percorso di massa perché presenta una massa grassa già troppo elevata, allo stesso tempo però non può intraprendere una vera e propria definizione perché rischierebbe di andare in sottopeso, di conseguenza è fondamentale in questo caso procedere con una ricomposizione",
+      "solution": {
+        "training": [
+          "Allenamento della forza sfruttando i multi-articolari con bilanciere. Esempio: panca piana, military press, chin-up zavorrate, dip zavorrate, stacco da terra e squat",
+          "Allenare ipertrofia con bilanciere e macchinari con serie tra le 8 e 15 ripetizioni",
+          "Inserire lavori metabolici o a circuito (HIIT)",
+          "Allenamenti da 3-5 volte a settimane alternando forza, ipertrofia e metabolico"
+        ],
+        "nutrition": "Impostare regime alimentare normocalorico per mantenimento del peso (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)"
+      }
+    },
+    {
+      "type": "mesomorfo",
+      "objective": "Sei fortunato ma puoi puntare più in alto",
+      "solution": {
+        "training": [
+          "Concentrati su lavori di ipertrofia pura",
+          "Inserisci una componente di forza senza eccedere",
+          "Il tuo lavoro, se il tuo fine è estetico, deve essere quanto più specifico possibile per l'ipertrofia muscolare",
+          "Sfrutta tanto i macchinari"
+        ],
+        "nutrition": "Regime alimentare ipercalorico, se l'obiettivo è aumentare la massa muscolare, ipocalorico, per una definizione estrema. (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)",
+        "goal": "Crescerai comunque, il tuo obiettivo è preservare la longevità atletica il più possibile"
+      }
+    },
+    {
+      "type": "ginoide",
+      "objective": "Sgonfiare le gambe e riproporzionare la parte alta ottenendo un fisico a clessidra",
+      "solution": {
+        "training": [
+          "Utilizza esercizi dinamici che richiedano un intervento del polpaccio e un utilizzo dell'articolazione della caviglia",
+          "Utilizza esercizi su piani declinati, esempio: pressa 45° o pressa verticale",
+          "Concentrati su esercizi per la catena posteriore; femorali e glutei, come stacco rumeno, stacco a gambe tese, step-up ecc",
+          "Utilizza calf raises e deflusso gambe a fine allenamento (ottima anche la camminata in salita per favorire il deflusso dei liquidi)",
+          "Alterna esercizi per la parte alta con esercizi per le gambe nella stessa seduta"
+        ],
+        "avoid": [
+          "Esercizi che comprimano troppo la parte bassa, come hip trust o squat profondo",
+          "Troppi esercizi per i quadricipiti"
+        ],
+        "nutrition": "Regime alimentare ipocalorico/normocalorico per la perdita di grasso (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)"
+      }
+    },
+    {
+      "type": "androide",
+      "objective": "Sgonfiare le gambe e riproporzionare la parte alta ottenendo un fisico a clessidra",
+      "solution": {
+        "training": [
+          "Utilizza esercizi dinamici che richiedano un intervento del polpaccio e un utilizzo dell'articolazione della caviglia",
+          "Utilizza esercizi su piani declinati, esempio: pressa 45° o pressa verticale",
+          "Concentrati su esercizi per la catena posteriore; femorali e glutei, come stacco rumeno, stacco a gambe tese, step-up ecc",
+          "Utilizza calf raises e deflusso gambe a fine allenamento (ottima anche la camminata in salita per favorire il deflusso dei liquidi)",
+          "Alterna esercizi per la parte alta con esercizi per le gambe nella stessa seduta"
+        ],
+        "avoid": [
+          "Esercizi che comprimano troppo la parte bassa, come hip trust o squat profondo",
+          "Troppi esercizi per i quadricipiti"
+        ],
+        "nutrition": "Regime alimentare ipocalorico/normocalorico per la perdita di grasso (obbligatorio: rivolgersi ad una figura specializzata quale medico dietologo, biologo nutrizionista, dietista)"
+      }
+    }
+  ]
+}

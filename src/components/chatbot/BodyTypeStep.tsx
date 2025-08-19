@@ -18,26 +18,46 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
   const maleBodyTypes = [
     {
       type: "mesomorfo",
-      description:
-        "Bassa percentuale di massa grassa, elevata percentuale di massa muscolare, ottima struttura scheletrica con spalle larga, vita e fianchi stretti",
+      shortDescription: "Fisico atletico e naturalmente muscoloso",
+      characteristics: [
+        "Bassa percentuale di massa grassa",
+        "Elevata percentuale di massa muscolare",
+        "Spalle larghe, vita e fianchi stretti",
+        "Ottima struttura scheletrica"
+      ],
       image: mesomorphMale,
     },
     {
-      type: "Ectomorfo",
-      description:
-        "Struttura esile e longilinea, con difficoltà ad aumentare massa muscolare e grasso corporeo. Arti lunghi e sottili, spalle strette e metabolismo veloce",
+      type: "ectomorfo",
+      shortDescription: "Fisico snello e longilinea",
+      characteristics: [
+        "Struttura esile con arti lunghi",
+        "Difficoltà ad aumentare massa",
+        "Spalle strette e metabolismo veloce",
+        "Naturalmente magro"
+      ],
       image: mesomorphMale,
     },
     {
-      type: "Endomorfo",
-      description:
-        "Struttura rotondeggiante, spalle strette rispetto ai fianchi, tessuti molli, alta percentuale di massa grassa. Struttura ossea robusta",
+      type: "endomorfo",
+      shortDescription: "Fisico robusto con tendenza ad ingrassare",
+      characteristics: [
+        "Struttura rotondeggiante",
+        "Spalle strette rispetto ai fianchi",
+        "Alta percentuale di massa grassa",
+        "Tessuti molli e struttura ossea robusta"
+      ],
       image: mesomorphMale,
     },
     {
-      type: "skinny fat",
-      description:
-        "Magra o normopeso, ma una percentuale di grasso relativamente alta e una bassa massa muscolare: aspetto magro ma poco definito",
+      type: "skinny-fat",
+      shortDescription: "Magro ma con poca definizione muscolare",
+      characteristics: [
+        "Peso normale ma grasso alto",
+        "Bassa massa muscolare",
+        "Aspetto magro ma poco definito",
+        "Metabolismo rallentato"
+      ],
       image: skinnyFatMale,
     },
   ];
@@ -45,13 +65,28 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
   const femaleBodyTypes = [
     {
       type: "ginoide",
-      description:
-        "Comunemente detta a pera caratterizzata da una maggiore accumulazione di grasso nella parte inferiore del corpo, in particolare fianchi, glutei e cosce. Caratteristiche: - distribuzione del grasso_ predominante nella parte inferiore del corpo da ombelico in giu, con fianchi, glutei e cosce sempre più ampi rispetto alla parte superiore. Forma del corpo: la silhoutte ricorda una pera con una parte inferiore più voluminosa rispetto alla parte superiore. Predisposizione ad inestetismi: maggiore tendenza alla cellulite, ritenzione idrica e gambi pesanti. Aspetti ormonali: profilo estrogenico con maggiore sensibilità ai recettori ormonali nella parte inferiore del corpo. Muscolatura: tendenza ad accumulare massa muscolare su cosce e glutei, a volte anche sulla parte anteriore della cosce",
+      shortDescription: "Corpo a pera - accumulo nella parte inferiore",
+      characteristics: [
+        "Distribuzione del grasso predominante da ombelico in giù",
+        "Fianchi, glutei e cosce sempre più ampi rispetto alla parte superiore",
+        "Silhouette a pera con parte inferiore più voluminosa",
+        "Maggiore tendenza a cellulite, ritenzione idrica e gambe pesanti",
+        "Profilo estrogenico con sensibilità ai recettori nella parte inferiore",
+        "Tendenza ad accumulare massa muscolare su cosce e glutei"
+      ],
       image: gynoidFemale,
     },
     {
-      type: "Androide",
-      description: "Caratterizzata da una distribuzione del grasso corporeo che tende ad accumularsi principalmente nella parte superiore del corpo, come addome, petto, schiena e braccia, mentre le gambe tendono a rimanere più magre. QQuesto tipo di conformazione è spesso associato alla forma di una mela, da qui il termine 'corpo a mela'. Caratteristiche distribuzione del grasso: accumulo di grasso si concentra nella parte superiore con una maggiore circonferenza vita e fianchi, con meno grasso su gambe e glutei. Forma del corpo: il corpo più apparire più a 'mela' o a 'triangolo inverso' con spalle più larghe e fianchi più stretti. Punto vita: tende ad essere meno definito rispetto ad altri tipi di corporatura. Gambe: possono apparire più snelle e sottili rispetto al resto del corpo.",
+      type: "androide",
+      shortDescription: "Corpo a mela - accumulo nella parte superiore",
+      characteristics: [
+        "Distribuzione del grasso su addome, petto, schiena e braccia",
+        "Gambe tendono a rimanere più magre",
+        "Forma a 'mela' o 'triangolo inverso' con spalle più larghe",
+        "Maggiore circonferenza vita e fianchi",
+        "Punto vita meno definito rispetto ad altri tipi di corporatura",
+        "Gambe appaiono più snelle e sottili rispetto al resto del corpo"
+      ],
       image: overweightFemale,
     },
   ];
@@ -87,19 +122,24 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
               <h3 className="text-lg font-bold text-gray-800 capitalize mb-2">
                 {bodyType.type}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {bodyType.description}
+              <p className="text-fitness-orange text-sm font-medium mb-3">
+                {bodyType.shortDescription}
               </p>
+              <ul className="text-gray-600 text-sm space-y-2">
+                {bodyType.characteristics.map((characteristic, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-fitness-orange mr-3 flex-shrink-0 mt-0.5">•</span>
+                    <span className="leading-relaxed">{characteristic}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
       </div>
 
       <div className="flex justify-center mt-6">
-        <SecondaryButton
-          onClick={onBack}
-          variant="light"
-        >
+        <SecondaryButton onClick={onBack} variant="light">
           ← Indietro
         </SecondaryButton>
       </div>

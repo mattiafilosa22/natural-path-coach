@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FitnessButton } from "@/components/FitnessButton";
 import { SecondaryButton } from "@/components/SecondaryButton";
 import { ChatbotData } from "@/types/funnel";
+import { generateParagraph } from "@/hooks/generate-response";
 
 interface ResultStepProps {
   chatbotData: ChatbotData;
@@ -14,6 +15,7 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
 
   const generatePersonalizedResult = () => {
     const { gender, ageRange, bodyType, experience, goal } = chatbotData;
+    const objective = generateParagraph(bodyType);
 
     let result = `Perfetto! Basandoci sulle tue risposte, abbiamo creato un programma personalizzato per `;
 
@@ -39,7 +41,7 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
       result += ` \n\nCon la tua esperienza ${experience}, potremo utilizzare tecniche più avanzate per massimizzare i risultati.`;
     }
 
-    return result;
+    return objective;
   };
 
   const handleCalendlyClick = () => {
