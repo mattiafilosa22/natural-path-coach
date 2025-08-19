@@ -25,10 +25,10 @@ export const ResultStep = ({
     return (
       <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
         <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-4">
-          {objective}
+          <span dangerouslySetInnerHTML={{ __html: objective }} />
         </p>
         <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-          {solution}
+          <span dangerouslySetInnerHTML={{ __html: solution }} />
         </p>
       </div>
     );
@@ -47,58 +47,7 @@ export const ResultStep = ({
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
             Il Tuo Programma Personalizzato è Pronto!
           </h1>
-
           {generatePersonalizedResult()}
-
-          <div className="bg-white border-2 border-fitness-orange rounded-2xl p-8 space-y-4">
-            <h3 className="text-xl font-bold text-fitness-orange">
-              Cosa Include il Tuo Programma Gratuito:
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  <span className="font-bold">Piano di allenamento</span> 6
-                  settimane
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  <span className="font-bold">Schede personalizzate</span>
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  <span className="font-bold">Video tutorial</span> esercizi
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  <span className="font-bold">
-                    Consulenza iniziale gratuita
-                  </span>
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  <span className="font-bold">Supporto WhatsApp</span>
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-fitness-orange">✓</span>
-                <span>
-                  Metodi{" "}
-                  <span className="font-bold text-fitness-orange">
-                    100% Natural
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {!showCalendly ? (
@@ -106,10 +55,11 @@ export const ResultStep = ({
             <p className="text-xl font-semibold text-gray-700">
               Prenota ora la tua{" "}
               <span className="text-fitness-orange font-bold">
-                consulenza gratuita
-              </span>{" "}
-              per ricevere il{" "}
-              <span className="text-fitness-orange font-bold">programma</span>!
+                consulenza gratuita!
+              </span>
+              {/* {" "} */}
+              {/* per ricevere il{" "}
+              <span className="text-fitness-orange font-bold">programma</span>! */}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               <SecondaryButton onClick={onBack} variant="light" size="lg">
