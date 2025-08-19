@@ -10,10 +10,10 @@ export const ThankYouStep = () => {
 
         <div className="space-y-4">
           <p className="text-xl text-gray-600">
-            La tua consulenza è stata prenotata con successo.
+            La tua <span className="font-bold text-fitness-orange">consulenza è stata prenotata</span> con successo.
           </p>
           <p className="text-lg text-gray-600">
-            Riceverai una email di conferma con tutti i dettagli e il link per il tuo programma personalizzato.
+            Riceverai una <span className="font-bold text-fitness-orange">email di conferma</span> con tutti i dettagli e il link per il tuo <span className="font-bold text-fitness-orange">programma personalizzato</span>.
           </p>
         </div>
 
@@ -22,9 +22,9 @@ export const ThankYouStep = () => {
             Cosa succede ora?
           </h3>
           <div className="space-y-2 text-gray-700">
-            <p>📧 Controlla la tua email per la conferma</p>
-            <p>📅 Prepara le tue domande per la consulenza</p>
-            <p>💪 Preparati a iniziare la tua trasformazione!</p>
+            <p>📧 Controlla la tua <span className="font-bold">email</span> per la conferma</p>
+            <p>📅 Prepara le tue <span className="font-bold">domande</span> per la consulenza</p>
+            <p>💪 Preparati a iniziare la tua <span className="font-bold text-fitness-orange">trasformazione</span>!</p>
           </div>
         </div>
 

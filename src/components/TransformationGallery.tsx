@@ -25,7 +25,7 @@ export const TransformationGallery = () => {
                 <img
                   src={transformation.image}
                   alt={transformation.text}
-                  className="w-64 h-72 md:h-72 object-cover rounded-lg shadow-lg"
+                  className="w-72 h-80 md:w-80 md:h-96 object-cover rounded-lg shadow-lg"
                 />
 
                 <div

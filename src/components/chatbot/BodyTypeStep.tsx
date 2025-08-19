@@ -98,7 +98,7 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
           onClick={onBack}
           className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
         >
-          ← Indietro
+          Indietro
         </button>
       </div>
     </div>

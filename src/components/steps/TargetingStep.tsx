@@ -16,24 +16,24 @@ export const TargetingStep = ({ onNext, onBack }: TargetingStepProps) => {
 
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-4">
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Hai tra i 18 e 50 anni
+            ✓ Hai tra i <span className="text-fitness-white font-bold">18 e 50 anni</span>
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Hai già provato palestra, dieta, motivazione
+            ✓ Hai già provato <span className="text-fitness-white font-bold">palestra, dieta, motivazione</span>
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Ma ogni volta qualcosa si spezza: ti blocchi, molli, i risultati non arrivano
+            ✓ Ma ogni volta qualcosa si spezza: <span className="text-fitness-white font-bold">ti blocchi, molli, i risultati non arrivano</span>
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Ti sembra di fare tutto "giusto", ma il tuo corpo resta fermo
+            ✓ Ti sembra di fare tutto "giusto", ma <span className="text-fitness-white font-bold">il tuo corpo resta fermo</span>
           </p>
           <p className="text-xl md:text-2xl text-white font-medium">
-            ✓ Cerchi un metodo efficace, ma che sia anche naturale, sostenibile e che non ti faccia mai più perdere i risultati ottenuti
+            ✓ Cerchi un <span className="text-fitness-white font-bold">metodo efficace</span>, ma che sia anche <span className="text-fitness-white font-bold">naturale, sostenibile</span> e che non ti faccia mai più perdere i risultati ottenuti
           </p>
         </div>
 
         <h2 className="text-3xl md:text-4xl font-bold text-fitness-white">
-          IO SO COME RISOLVERE IL TUO PROBLEMA
+          <span className="text-fitness-white">IO SO COME RISOLVERE</span> IL TUO <span className="text-fitness-white">PROBLEMA</span>
         </h2>
       </div>
 
@@ -47,15 +47,15 @@ export const TargetingStep = ({ onNext, onBack }: TargetingStepProps) => {
           onClick={onBack}
           className="px-8 py-3 text-white border border-white/30 rounded-full hover:bg-white/10 transition-colors"
         >
-          ← Indietro
+          Indietro
         </button>
 
         <FitnessButton
           onClick={onNext}
           size="lg"
-          className="text-xl px-12 py-8"
+          className="text-lg md:text-xl px-8 md:px-12 py-6 md:py-8"
         >
-          Dimmi Come Fare →
+          Dimmi Come Fare 
         </FitnessButton>
       </div>
 

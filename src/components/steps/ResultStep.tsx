@@ -52,7 +52,7 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
       <div className="max-w-3xl w-full text-center space-y-8">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-            Il Tuo Programma è Pronto! 🎯
+            Il Tuo <span className="text-fitness-orange">Programma è Pronto</span>! 🎯
           </h1>
 
           <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">
@@ -63,32 +63,32 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
 
           <div className="bg-white border-2 border-fitness-orange rounded-2xl p-8 space-y-4">
             <h3 className="text-2xl font-bold text-fitness-orange">
-              Cosa Include il Tuo Programma Gratuito:
+              Cosa Include il Tuo <span className="text-fitness-orange">Programma Gratuito</span>:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Piano di allenamento 6 settimane</span>
+                <span><span className="font-bold">Piano di allenamento</span> 6 settimane</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Schede personalizzate</span>
+                <span><span className="font-bold">Schede personalizzate</span></span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Video tutorial esercizi</span>
+                <span><span className="font-bold">Video tutorial</span> esercizi</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Consulenza iniziale gratuita</span>
+                <span><span className="font-bold">Consulenza iniziale gratuita</span></span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Supporto WhatsApp</span>
+                <span><span className="font-bold">Supporto WhatsApp</span></span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-fitness-orange">✓</span>
-                <span>Metodi 100% Natural</span>
+                <span>Metodi <span className="font-bold text-fitness-orange">100% Natural</span></span>
               </div>
             </div>
           </div>
@@ -97,14 +97,14 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
         {!showCalendly ? (
           <div className="space-y-4">
             <p className="text-xl font-semibold text-gray-700">
-              Prenota ora la tua consulenza gratuita per ricevere il programma!
+              Prenota ora la tua <span className="text-fitness-orange font-bold">consulenza gratuita</span> per ricevere il <span className="text-fitness-orange font-bold">programma</span>!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               <button
                 onClick={onBack}
                 className="px-8 py-3 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
               >
-                ← Indietro
+                Indietro
               </button>
 
               <FitnessButton
@@ -112,7 +112,7 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
                 size="lg"
                 className="text-xl px-6 py-6 sm:px-12 sm:py-8"
               >
-                Prenota Consulenza Gratuita →
+                Prenota Consulenza Gratuita 
               </FitnessButton>
             </div>
           </div>
@@ -122,8 +122,8 @@ export const ResultStep = ({ chatbotData, onNext, onBack }: ResultStepProps) => 
               Grazie! 🙏
             </h3>
             <p className="text-lg text-green-600">
-              Ti abbiamo reindirizzato a Calendly per prenotare la tua consulenza gratuita.
-              Riceverai tutti i dettagli del programma via email dopo la prenotazione.
+              Ti abbiamo reindirizzato a <span className="font-bold">Calendly</span> per prenotare la tua <span className="font-bold">consulenza gratuita</span>.
+              Riceverai tutti i dettagli del <span className="font-bold">programma via email</span> dopo la prenotazione.
             </p>
             <FitnessButton
               onClick={onNext}
