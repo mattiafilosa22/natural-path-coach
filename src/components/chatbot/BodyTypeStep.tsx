@@ -4,8 +4,8 @@ import mesomorphMale from "@/assets/body-types/mesomorph-male.jpg";
 import skinnyFatMale from "@/assets/body-types/skinny-fat-male.jpg";
 import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
 import overweightFemale from "@/assets/body-types/overweight-female.jpg";
-import thinFemale from "@/assets/body-types/thin-female.jpg";
-
+import endomorphMale from "@/assets/body-types/endomorfo.png";
+import ectomorphMale from "@/assets/body-types/ectomorph.png";
 import { SecondaryButton } from "@/components/SecondaryButton";
 
 interface BodyTypeStepProps {
@@ -36,7 +36,7 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
         "Spalle strette e metabolismo veloce",
         "Naturalmente magro"
       ],
-      image: mesomorphMale,
+      image: ectomorphMale,
     },
     {
       type: "endomorfo",
@@ -47,7 +47,7 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
         "Alta percentuale di massa grassa",
         "Tessuti molli e struttura ossea robusta"
       ],
-      image: mesomorphMale,
+      image: endomorphMale,
     },
     {
       type: "skinny-fat",
