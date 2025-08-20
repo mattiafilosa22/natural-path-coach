@@ -55,7 +55,7 @@ const ServicesSection = () => {
                 <CardTitle className="services-title-card text-xl group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-base">
+                <CardDescription className="text-base services-description-card">
                   {service.description}
                 </CardDescription>
               </CardHeader>

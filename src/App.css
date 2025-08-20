@@ -2,3 +2,8 @@
   min-height: 56px;
   max-height: 56px;
 }
+
+.services-description-card {
+  min-height: 96px;
+  max-height: 96px;
+}
