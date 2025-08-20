@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -15,18 +16,51 @@ const ContactSection = () => {
     phone: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    toast({
-      title: "Messaggio inviato!",
-      description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
-    });
+    try {
+      // Initialize EmailJS
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
-    // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
+      // Template parameters che verranno inviati alle email
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Non fornito',
+        message: formData.message,
+        to_email: 'marcodelmoro50@gmail.com, mattiafilosa93@gmail.com',
+        reply_to: formData.email,
+      };
+
+      // Invia email usando EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      toast({
+        title: "Messaggio inviato!",
+        description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", phone: "", message: "" });
+
+    } catch (error) {
+      console.error('Errore nell\'invio dell\'email:', error);
+      toast({
+        title: "Errore nell'invio",
+        description: "Si è verificato un errore. Riprova più tardi o contattaci direttamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -142,8 +176,13 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" className="w-full">
-                  Invia Richiesta
+                <Button
+                  type="submit"
+                  variant="hero"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Invio in corso..." : "Invia Richiesta"}
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center">
