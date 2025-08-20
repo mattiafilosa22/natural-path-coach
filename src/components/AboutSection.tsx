@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Award, Heart, Zap } from "lucide-react";
+import Marco from "@/assets/marco-del-moro.jpg";
 
 const AboutSection = () => {
   const stats = [
@@ -68,7 +69,7 @@ const AboutSection = () => {
           {/* Right Content - Image */}
           <div className="flex justify-center">
             <img
-              src="/src/assets/marco-del-moro.jpeg"
+              src={Marco}
               alt="Marco Del Moro"
               className="rounded-2xl shadow-2xl w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover"
             />
