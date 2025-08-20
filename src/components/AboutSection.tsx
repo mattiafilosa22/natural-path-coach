@@ -26,18 +26,22 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6">
-              Sono Marco Del Moro, personal trainer certificato con una passione
-              per aiutare le persone a trasformare la loro vita attraverso il
-              fitness. Con oltre 5 anni di esperienza nel settore, ho aiutato
-              centinaia di clienti a raggiungere i loro obiettivi di salute e
-              benessere.
+              Ciao, sono Marco Del Moro. Se sei qui, è probabile che anche tu ti
+              sia guardato allo specchio pensando: 'Potrei essere meglio di
+              così'. Quel percorso l'ho fatto prima di te. Ho vissuto la
+              frustrazione di un corpo che non risponde e l'ho trasformata in un
+              metodo scientifico, senza scorciatoie.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8">
-              Il mio approccio si basa su allenamenti personalizzati, supporto
-              nutrizionale e motivazione costante. Credo che ogni persona sia
-              unica e meriti un piano di allenamento su misura per le proprie
-              esigenze e obiettivi.
+              Ti porto indietro nel tempo, in un mondo senza doping. Nel tardo
+              '800, Eugene Sandow era celebre per il suo fisico potente e
+              armonico, costruito solo con disciplina, bilancieri e
+              alimentazione basilare. Non esistevano steroidi né diete
+              drastiche. Il suo segreto era un metodo. Oggi ti fanno credere che
+              sia impossibile ottenere quei risultati in modo naturale, perché è
+              più facile venderti una scorciatoia che insegnarti il percorso
+              vero. Io ho scelto di insegnare quel percorso.
             </p>
 
             {/* Qualifications */}
@@ -55,34 +59,19 @@ const AboutSection = () => {
             </div>
 
             <Button asChild variant="cta" className="px-8">
-              <a href="/funnel" target="_blank">Scopri il Mio Metodo</a>
+              <a href="/funnel" target="_blank">
+                Il Percorso RECOMP 365
+              </a>
             </Button>
           </div>
 
-          {/* Right Content - Stats */}
-          <div className="bg-gradient-primary rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-8 text-center">
-              Risultati che Parlano
-            </h3>
-
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-white/80 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-              <p className="text-white/90 italic text-center">
-                "La mia missione è aiutarti a scoprire la versione migliore di
-                te stesso. Insieme possiamo raggiungere qualsiasi obiettivo!"
-              </p>
-              <p className="text-center mt-4 font-semibold">- Marco Del Moro</p>
-            </div>
+          {/* Right Content - Image */}
+          <div className="flex justify-center">
+            <img
+              src="/src/assets/marco-del-moro.jpeg"
+              alt="Marco Del Moro"
+              className="rounded-2xl shadow-2xl w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover"
+            />
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ interface ChatbotContainerProps {
 export const ChatbotContainer = ({ onComplete, onBack }: ChatbotContainerProps) => {
   const [currentStep, setCurrentStep] = useState<ChatbotStep>('gender');
   const [data, setData] = useState<ChatbotData>({});
-
+  console.log("data", data);
   const updateData = (newData: Partial<ChatbotData>) => {
     setData(prev => ({ ...prev, ...newData }));
   };
@@ -105,10 +105,10 @@ export const ChatbotContainer = ({ onComplete, onBack }: ChatbotContainerProps) 
       <div className="max-w-2xl w-full space-y-6">
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 rounded-full h-2">
-          <div 
+          <div
             className="bg-fitness-orange h-2 rounded-full transition-all duration-300"
-            style={{ 
-              width: `${(Object.keys(stepComponents).indexOf(currentStep) + 1) / Object.keys(stepComponents).length * 100}%` 
+            style={{
+              width: `${(Object.keys(stepComponents).indexOf(currentStep) + 1) / Object.keys(stepComponents).length * 100}%`
             }}
           />
         </div>

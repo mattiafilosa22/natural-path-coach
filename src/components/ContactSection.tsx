@@ -46,19 +46,19 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Telefono",
-      content: "+39 342 123 4567",
-      action: "tel:+393421234567"
+      content: "+39 347 930 9018",
+      action: "tel:+393479309018"
     },
     {
       icon: MapPin,
       title: "Palestra",
-      content: "Via Fitness 123, Milano",
-      action: "https://maps.google.com"
+      content: "FM Fitness, Viale Giovanni Amendola, 12, 57025 Piombino LI",
+      action: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x12d623cd78127ec3:0x40abbeadb2278cb3?sa=X&ved=1t:8290&ictx=111"
     },
     {
       icon: Clock,
       title: "Orari",
-      content: "Lun-Ven: 6:00-22:00\nSab-Dom: 8:00-20:00",
+      content: "Lun-Ven: 08:00-20:00\nSab: 09:00-13:00",
       action: null
     }
   ];

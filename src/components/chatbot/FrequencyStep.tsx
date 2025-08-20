@@ -1,6 +1,8 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
 
+import { SecondaryButton } from "@/components/SecondaryButton";
+
 interface FrequencyStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
   onBack: () => void;
@@ -31,10 +33,10 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Quante volte a settimana puoi allenarti?
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-base text-gray-600">
           La frequenza determina l'intensità del programma
         </p>
       </div>
@@ -49,7 +51,7 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
             <div className="flex items-center space-x-4">
               <span className="text-3xl">{frequency.icon}</span>
               <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-800">
+                <h3 className="text-lg font-bold text-gray-800">
                   {frequency.title}
                 </h3>
                 <p className="text-gray-600">{frequency.description}</p>
@@ -60,12 +62,12 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <button
+        <SecondaryButton
           onClick={onBack}
-          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+          variant="light"
         >
           ← Indietro
-        </button>
+        </SecondaryButton>
       </div>
     </div>
   );

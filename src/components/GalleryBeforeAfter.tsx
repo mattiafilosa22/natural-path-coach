@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import manAfter from "@/assets/man-after.jpg";
+import manFirst from "@/assets/before-after/man-first.jpg";
+import womanFirst from "@/assets/before-after/woman-first.jpg";
 
 interface Transformation {
   id: number;
@@ -20,42 +21,42 @@ const GalleryBeforeAfter: React.FC = () => {
   const transformations: Transformation[] = [
     {
       id: 1,
-      image: manAfter,
+      image: manFirst,
       description: "Trasformazione straordinaria in 4 mesi",
       timeframe: "4 mesi",
       details: "Perdita di 15kg e guadagno massa muscolare",
     },
     {
       id: 2,
-      image:manAfter,
+      image: womanFirst,
       description: "Risultati incredibili in 6 mesi",
       timeframe: "6 mesi",
       details: "Definizione muscolare e tonificazione completa",
     },
     {
       id: 3,
-      image: manAfter,
+      image: manFirst,
       description: "Cambio radicale in 3 mesi",
       timeframe: "3 mesi",
       details: "Perdita di 12kg e miglioramento posturale",
     },
     {
       id: 4,
-      image: manAfter,
+      image: womanFirst,
       description: "Trasformazione completa in 8 mesi",
       timeframe: "8 mesi",
       details: "Ricomposizione corporea totale",
     },
     {
       id: 5,
-      image:manAfter,
+      image: manFirst,
       description: "Risultati visibili in 5 mesi",
       timeframe: "5 mesi",
       details: "Aumento massa magra e definizione",
     },
     {
       id: 6,
-      image:manAfter,
+      image: womanFirst,
       description: "Cambiamento incredibile in 7 mesi",
       timeframe: "7 mesi",
       details: "Perdita di 20kg e tonificazione muscolare",

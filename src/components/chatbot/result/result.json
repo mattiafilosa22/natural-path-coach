@@ -1,0 +1,34 @@
+{
+  "bodyTypes": [
+    {
+      "type": "ectomorfo",
+      "objective": "Aumentare massa e perdere massa muscolare. Riempire braccia, spalle e petto, aumentare circonferenza torace e cosce. Ottenere un fisico muscoloso e più pesante rimanendo definito",
+      "solution": "Per il tuo tipo di corpo ectomorfo, la strategia migliore è concentrarsi sull'aumento della forza con esercizi multiarticolari pesanti come panca piana, stacco da terra, military press, chin up e dip zavorrate. Integra lavori di ipertrofia pura da 8-12 ripetizioni usando macchinari e manubri. Dal punto di vista nutrizionale, è fondamentale impostare con un biologo nutrizionista un regime alimentare ipercalorico per aumentare di peso. Per il cardio, preferisci sessioni LISS di breve/media durata (1-2 volte a settimana da 30-40 minuti) ed evita cardio ad altissima intensità e troppo prolungato. Da evitare: allenamenti a circuito, endurance e a ripetizioni troppo alte."
+    },
+    {
+      "type": "endomorfo",
+      "objective": "Perdere massa grassa e aumentare massa muscolare. Obiettivo: definizione",
+      "solution": "Per il tipo endomorfo, l'approccio ideale prevede allenamento con i pesi da 3-5 volte a settimana alternando lavori di forza e ipertrofia. Inserisci lavori ad altissime ripetizioni, allenamenti a circuito e sessioni di cardio HIT durante gli allenamenti o LISS separato dagli allenamenti. È essenziale impostare un regime alimentare ipocalorico per la perdita di grasso con un biologo nutrizionista (obbligatorio rivolgersi a figure specializzate come medico dietologo, biologo nutrizionista, dietista). Monitora costantemente circonferenze corporee e peso per valutare l'andamento del rapporto tra massa grassa e massa muscolare."
+    },
+    {
+      "type": "skinny-fat",
+      "objective": "Ricomposizione corporea. Lo skinny fat non può inizialmente pensare di intraprendere un percorso di massa perché presenta una massa grassa già troppo elevata, allo stesso tempo però non può intraprendere una vera e propria definizione perché rischierebbe di andare in sottopeso, di conseguenza è fondamentale in questo caso procedere con una ricomposizione",
+      "solution": "Per la ricomposizione corporea dello skinny-fat, concentrati sull'allenamento della forza sfruttando esercizi multiarticolari con bilanciere come panca piana, military press, chin-up zavorrate, dip zavorrate, stacco da terra e squat. Integra lavori di ipertrofia con bilanciere e macchinari con serie tra 8 e 15 ripetizioni, e inserisci lavori metabolici o a circuito (HIIT). Programma allenamenti da 3-5 volte a settimana alternando forza, ipertrofia e metabolico. Dal punto di vista nutrizionale, imposta un regime alimentare normocalorico per il mantenimento del peso (obbligatorio rivolgersi a figure specializzate come medico dietologo, biologo nutrizionista, dietista)."
+    },
+    {
+      "type": "mesomorfo",
+      "objective": "Come mesomorfo sei fortunato ma puoi puntare più in alto!",
+      "solution": "Concentrati su lavori di ipertrofia pura e inserisci una componente di forza senza eccedere. Se il tuo fine è estetico, il lavoro deve essere quanto più specifico possibile per l'ipertrofia muscolare, sfruttando tanto i macchinari. Dal punto di vista nutrizionale, imposta un regime alimentare ipercalorico se l'obiettivo è aumentare la massa muscolare, o ipocalorico per una definizione estrema (obbligatorio rivolgersi a figure specializzate come medico dietologo, biologo nutrizionista, dietista). Crescerai comunque, il tuo obiettivo è preservare la longevità atletica il più possibile."
+    },
+    {
+      "type": "ginoide",
+      "objective": "Sgonfiare le gambe e riproporzionare la parte alta ottenendo un fisico a clessidra",
+      "solution": "Per il tipo ginoide, l'obiettivo è sgonfiare le gambe e riproporzionare la parte alta per ottenere un fisico a clessidra. Utilizza esercizi dinamici che richiedano intervento del polpaccio e utilizzo dell'articolazione della caviglia, ed esercizi su piani declinati come pressa 45° o pressa verticale. Concentrati su esercizi per la catena posteriore (femorali e glutei) come stacco rumeno, stacco a gambe tese, step-up. Utilizza calf raises e deflusso gambe a fine allenamento, ottima anche la camminata in salita per favorire il deflusso dei liquidi. Alterna esercizi per la parte alta con esercizi per le gambe nella stessa seduta. Evita esercizi che comprimano troppo la parte bassa come hip thrust o squat profondo, e limita gli esercizi per i quadricipiti. Imposta un regime alimentare ipocalorico/normocalorico per la perdita di grasso (obbligatorio rivolgersi a figure specializzate come medico dietologo, biologo nutrizionista, dietista)."
+    },
+    {
+      "type": "androide",
+      "objective": "Sgonfiare le gambe e riproporzionare la parte alta ottenendo un fisico a clessidra",
+      "solution": "Per il tipo androide, l'obiettivo è sgonfiare le gambe e riproporzionare la parte alta per ottenere un fisico a clessidra. Utilizza esercizi dinamici che richiedano intervento del polpaccio e utilizzo dell'articolazione della caviglia, ed esercizi su piani declinati come pressa 45° o pressa verticale. Concentrati su esercizi per la catena posteriore (femorali e glutei) come stacco rumeno, stacco a gambe tese, step-up. Utilizza calf raises e deflusso gambe a fine allenamento, ottima anche la camminata in salita per favorire il deflusso dei liquidi. Alterna esercizi per la parte alta con esercizi per le gambe nella stessa seduta. Evita esercizi che comprimano troppo la parte bassa come hip thrust o squat profondo, e limita gli esercizi per i quadricipiti. Imposta un regime alimentare ipocalorico/normocalorico per la perdita di grasso (obbligatorio rivolgersi a figure specializzate come medico dietologo, biologo nutrizionista, dietista)."
+    }
+  ]
+}

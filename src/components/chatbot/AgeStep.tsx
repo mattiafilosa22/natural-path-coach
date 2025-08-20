@@ -1,6 +1,8 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
 
+import { SecondaryButton } from "@/components/SecondaryButton";
+
 interface AgeStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
   onBack: () => void;
@@ -8,19 +10,19 @@ interface AgeStepProps {
 
 export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
   const ageRanges = [
-    "14-20 anni",
-    "21-35 anni", 
-    "36-50 anni",
-    "51-80 anni"
+    "18-25 anni",
+    "25-40 anni",
+    "40-50 anni",
+    "51 o più anni"
   ];
 
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Qual è la tua fascia d'età?
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-base text-gray-600">
           L'età influenza il tipo di allenamento più adatto a te
         </p>
       </div>
@@ -30,7 +32,7 @@ export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
           <FitnessButton
             key={range}
             onClick={() => onNext({ ageRange: range })}
-            className="h-16 text-lg"
+            className="h-16 text-base"
           >
             {range}
           </FitnessButton>
@@ -38,12 +40,12 @@ export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
       </div>
 
       <div className="flex justify-center mt-6">
-        <button
+        <SecondaryButton
           onClick={onBack}
-          className="px-6 py-2 text-gray-600 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+          variant="light"
         >
           ← Indietro
-        </button>
+        </SecondaryButton>
       </div>
     </div>
   );

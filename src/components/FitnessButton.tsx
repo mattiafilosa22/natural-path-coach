@@ -9,10 +9,10 @@ interface FitnessButtonProps {
   size?: "default" | "sm" | "lg";
 }
 
-export const FitnessButton = ({ 
-  children, 
-  onClick, 
-  className, 
+export const FitnessButton = ({
+  children,
+  onClick,
+  className,
   disabled = false,
   size = "default"
 }: FitnessButtonProps) => {
@@ -22,7 +22,7 @@ export const FitnessButton = ({
       disabled={disabled}
       size={size}
       className={cn(
-        "bg-fitness-white text-fitness-orange border-2 border-fitness-orange font-semibold hover:bg-fitness-orange hover:text-fitness-white transition-all duration-300 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl",
+        "bg-fitness-white text-fitness-orange border-2 border-fitness-orange font-semibold hover:bg-fitness-orange hover:text-fitness-white transition-all duration-300 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl whitespace-normal text-center leading-tight",
         className
       )}
     >
