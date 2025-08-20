@@ -17,12 +17,57 @@ const ContactSection = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState(""); // Anti-spam honeypot
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      // Anti-spam check: se honeypot è compilato, è spam
+      if (honeypot) {
+        console.log('Spam detected via honeypot');
+        toast({
+          title: "Errore nell'invio",
+          description: "Si è verificato un errore. Riprova più tardi.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Validation check: campi obbligatori
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        toast({
+          title: "Campi obbligatori",
+          description: "Compila tutti i campi obbligatori.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast({
+          title: "Email non valida",
+          description: "Inserisci un indirizzo email valido.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Rate limiting: prevent rapid submissions
+      const lastSubmission = localStorage.getItem('lastFormSubmission');
+      const now = Date.now();
+      if (lastSubmission && (now - parseInt(lastSubmission)) < 30000) { // 30 secondi
+        toast({
+          title: "Invio troppo frequente",
+          description: "Attendi almeno 30 secondi tra un invio e l'altro.",
+          variant: "destructive"
+        });
+        return;
+      }
+
       // Initialize EmailJS
       emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
@@ -48,8 +93,12 @@ const ContactSection = () => {
         description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
       });
 
+      // Salva timestamp per rate limiting
+      localStorage.setItem('lastFormSubmission', now.toString());
+
       // Reset form
       setFormData({ name: "", email: "", phone: "", message: "" });
+      setHoneypot(""); // Reset honeypot
 
     } catch (error) {
       console.error('Errore nell\'invio dell\'email:', error);
@@ -120,6 +169,17 @@ const ContactSection = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - invisibile agli utenti, visibile ai bot */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  style={{ display: 'none', visibility: 'hidden', position: 'absolute', left: '-9999px' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nome Completo *</Label>
