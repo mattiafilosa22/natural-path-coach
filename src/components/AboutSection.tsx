@@ -65,30 +65,13 @@ const AboutSection = () => {
             </Button>
           </div>
 
-          {/* Right Content - Stats */}
-          <div className="bg-gradient-primary rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-8 text-center">
-              Risultati che Parlano
-            </h3>
-
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-white/80 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-              <p className="text-white/90 italic text-center">
-                "La mia missione è aiutarti a scoprire la versione migliore di
-                te stesso. Insieme possiamo raggiungere qualsiasi obiettivo!"
-              </p>
-              <p className="text-center mt-4 font-semibold">- Marco Del Moro</p>
-            </div>
+          {/* Right Content - Image */}
+          <div className="flex justify-center">
+            <img
+              src="/src/assets/marco-del-moro.jpeg"
+              alt="Marco Del Moro"
+              className="rounded-2xl shadow-2xl w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover"
+            />
           </div>
         </div>
       </div>
