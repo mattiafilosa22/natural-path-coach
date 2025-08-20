@@ -26,18 +26,22 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6">
-              Sono Marco Del Moro, personal trainer certificato con una passione
-              per aiutare le persone a trasformare la loro vita attraverso il
-              fitness. Con oltre 5 anni di esperienza nel settore, ho aiutato
-              centinaia di clienti a raggiungere i loro obiettivi di salute e
-              benessere.
+              Ciao, sono Marco Del Moro. Se sei qui, è probabile che anche tu ti
+              sia guardato allo specchio pensando: 'Potrei essere meglio di
+              così'. Quel percorso l'ho fatto prima di te. Ho vissuto la
+              frustrazione di un corpo che non risponde e l'ho trasformata in un
+              metodo scientifico, senza scorciatoie.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8">
-              Il mio approccio si basa su allenamenti personalizzati, supporto
-              nutrizionale e motivazione costante. Credo che ogni persona sia
-              unica e meriti un piano di allenamento su misura per le proprie
-              esigenze e obiettivi.
+              Ti porto indietro nel tempo, in un mondo senza doping. Nel tardo
+              '800, Eugene Sandow era celebre per il suo fisico potente e
+              armonico, costruito solo con disciplina, bilancieri e
+              alimentazione basilare. Non esistevano steroidi né diete
+              drastiche. Il suo segreto era un metodo. Oggi ti fanno credere che
+              sia impossibile ottenere quei risultati in modo naturale, perché è
+              più facile venderti una scorciatoia che insegnarti il percorso
+              vero. Io ho scelto di insegnare quel percorso.
             </p>
 
             {/* Qualifications */}
@@ -55,7 +59,9 @@ const AboutSection = () => {
             </div>
 
             <Button asChild variant="cta" className="px-8">
-              <a href="/funnel" target="_blank">Scopri il Mio Metodo</a>
+              <a href="/funnel" target="_blank">
+                Il Percorso RECOMP 365
+              </a>
             </Button>
           </div>
 

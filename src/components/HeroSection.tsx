@@ -17,13 +17,13 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Trasforma il Tuo
-            <span className="block text-primary-glow">Corpo e Mente</span>
+            Il Tuo Corpo è Fermo?
+            <span className="block text-primary-glow">Il Problema non Sei Tu.</span>
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Allenamenti personalizzati, risultati garantiti. Raggiungi i tuoi
-            obiettivi fitness con un personal trainer professionale.
+            Soluzione? Un metodo naturale, sano e sostenibile, progettato per funzionare nel tempo.
+            <br />Benvenuto nel Natural Bodybuilding!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -43,7 +43,7 @@ const HeroSection = () => {
                 }
               }}
               >
-              Scopri di Più
+              Scopri il metodo
               </a>
             </Button>
           </div>
