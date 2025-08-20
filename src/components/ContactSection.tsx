@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -15,18 +16,100 @@ const ContactSection = () => {
     phone: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState(""); // Anti-spam honeypot
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    toast({
-      title: "Messaggio inviato!",
-      description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
-    });
+    try {
+      // Anti-spam check: se honeypot è compilato, è spam
+      if (honeypot) {
+        console.log('Spam detected via honeypot');
+        toast({
+          title: "Errore nell'invio",
+          description: "Si è verificato un errore. Riprova più tardi.",
+          variant: "destructive"
+        });
+        return;
+      }
 
-    // Reset form
-    setFormData({ name: "", email: "", phone: "", message: "" });
+      // Validation check: campi obbligatori
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        toast({
+          title: "Campi obbligatori",
+          description: "Compila tutti i campi obbligatori.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast({
+          title: "Email non valida",
+          description: "Inserisci un indirizzo email valido.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Rate limiting: prevent rapid submissions
+      const lastSubmission = localStorage.getItem('lastFormSubmission');
+      const now = Date.now();
+      if (lastSubmission && (now - parseInt(lastSubmission)) < 30000) { // 30 secondi
+        toast({
+          title: "Invio troppo frequente",
+          description: "Attendi almeno 30 secondi tra un invio e l'altro.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Initialize EmailJS
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+      // Template parameters che verranno inviati alle email
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Non fornito',
+        message: formData.message,
+        to_email: 'marcodelmoro50@gmail.com, mattiafilosa93@gmail.com',
+        reply_to: formData.email,
+      };
+
+      // Invia email usando EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      toast({
+        title: "Messaggio inviato!",
+        description: "Ti ricontatterò entro 24 ore per discutere i tuoi obiettivi.",
+      });
+
+      // Salva timestamp per rate limiting
+      localStorage.setItem('lastFormSubmission', now.toString());
+
+      // Reset form
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      setHoneypot(""); // Reset honeypot
+
+    } catch (error) {
+      console.error('Errore nell\'invio dell\'email:', error);
+      toast({
+        title: "Errore nell'invio",
+        description: "Si è verificato un errore. Riprova più tardi o contattaci direttamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -86,6 +169,17 @@ const ContactSection = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - invisibile agli utenti, visibile ai bot */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  style={{ display: 'none', visibility: 'hidden', position: 'absolute', left: '-9999px' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nome Completo *</Label>
@@ -142,8 +236,13 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" className="w-full">
-                  Invia Richiesta
+                <Button
+                  type="submit"
+                  variant="hero"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Invio in corso..." : "Invia Richiesta"}
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center">

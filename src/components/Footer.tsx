@@ -1,6 +1,8 @@
 import { Heart } from "lucide-react";
+import { useCookiebot } from "@/hooks/use-cookiebot";
 
 const Footer = () => {
+  const { showDialog } = useCookiebot();
   return (
     <footer className="bg-foreground text-white py-12">
       <div className="container mx-auto px-6">
@@ -61,9 +63,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Cookie Policy
-                </a>
+                <button 
+                  onClick={showDialog}
+                  className="hover:text-primary transition-colors text-left"
+                >
+                  Cookie Settings
+                </button>
               </li>
             </ul>
           </div>
