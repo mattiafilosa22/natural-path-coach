@@ -1,6 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trophy, Star, Calendar, Heart } from "lucide-react";
+import Hackenschmidt from '@/assets/natural-athletes/hackenschmidt.jpg';
+import Saxon from '@/assets/natural-athletes/saxon.png';
+import Sandow from '@/assets/natural-athletes/sandow.jpg';
 
 const NaturalHistorySection = () => {
   const historicalAthlets = [
@@ -10,7 +13,7 @@ const NaturalHistorySection = () => {
       achievement: "Padre del Bodybuilding Moderno",
       description: "Considerato il primo vero bodybuilder, Sandow sviluppò un fisico straordinario usando solo pesi e disciplina alimentare.",
       stats: ["Petto: 122 cm", "Vita: 76 cm", "Braccia: 43 cm"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop&crop=face" // Placeholder per immagine storica
+      image: Sandow
     },
     {
       name: "Arthur Saxon",
@@ -18,7 +21,7 @@ const NaturalHistorySection = () => {
       achievement: "L'Uomo più Forte del Mondo",
       description: "Strongman tedesco famoso per i suoi record di sollevamento, ottenuti attraverso allenamento intensivo e costanza.",
       stats: ["Press: 168 kg", "Deadlift: 318 kg", "Peso: 91 kg"],
-      image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=600&fit=crop&crop=face"
+      image: Saxon
     },
     {
       name: "George Hackenschmidt",
@@ -26,7 +29,7 @@ const NaturalHistorySection = () => {
       achievement: "Il Leone Russo",
       description: "Lottatore e strongman che combinava forza incredibile con un fisico armonico, tutto naturalmente.",
       stats: ["Squat: 164 kg", "Bench: 136 kg", "Peso: 95 kg"],
-      image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=400&h=600&fit=crop&crop=face"
+      image: Hackenschmidt
     }
   ];
 
@@ -75,15 +78,15 @@ const NaturalHistorySection = () => {
         {/* Historical Athletes Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {historicalAthlets.map((athlete, index) => (
-            <Card 
+            <Card
               key={index}
               className="historical-athlete-card vintage-border group hover:shadow-primary border-none bg-white/70 backdrop-blur-sm overflow-hidden"
             >
               <div className="relative">
-                <img 
-                  src={athlete.image} 
+                <img
+                  src={athlete.image}
                   alt={athlete.name}
-                  className="historical-athlete-image sepia-tone w-full h-64 object-cover object-top"
+                  className="historical-athlete-image sepia-tone w-full h-96 object-cover object-top"
                 />
                 <div className="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {athlete.period}
@@ -156,7 +159,7 @@ const NaturalHistorySection = () => {
               <Button
                 asChild
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary font-bold"
+                className="border-white text-primary-glow hover:bg-white hover:text-foreground font-bold"
               >
                 <a href="/funnel" target="_blank">
                   Inizia il Tuo Percorso Natural
