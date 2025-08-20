@@ -17,7 +17,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {/* <BasicAuth> */}
+        <BasicAuth>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -26,7 +26,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      {/* </BasicAuth> */}
+      </BasicAuth>
       </TooltipProvider>
     </CookiebotManager>
   </QueryClientProvider>
