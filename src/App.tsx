@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookiebotManager } from "@/components/CookiebotManager";
 import BasicAuth from "@/components/BasicAuth";
 import { AUTH_CONFIG } from "@/config/auth";
+import { useWebVitals } from "@/hooks/use-web-vitals";
 import Funnel from "./pages/Funnel";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
@@ -23,22 +24,27 @@ const AppRoutes = () => (
   </BrowserRouter>
 );
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <CookiebotManager>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {AUTH_CONFIG.enabled ? (
-          <BasicAuth>
+const App = () => {
+  // Monitor Web Vitals for SEO
+  useWebVitals();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CookiebotManager>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          {AUTH_CONFIG.enabled ? (
+            <BasicAuth>
+              <AppRoutes />
+            </BasicAuth>
+          ) : (
             <AppRoutes />
-          </BasicAuth>
-        ) : (
-          <AppRoutes />
-        )}
-      </TooltipProvider>
-    </CookiebotManager>
-  </QueryClientProvider>
-);
+          )}
+        </TooltipProvider>
+      </CookiebotManager>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

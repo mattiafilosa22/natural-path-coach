@@ -108,21 +108,24 @@ const GalleryBeforeAfter: React.FC = () => {
   };
 
   return (
-    <div className="min-h-full bg-white py-12 px-4 mb-24">
+    <section
+      className="min-h-full bg-white py-12 px-4 mb-24"
+      aria-label="Galleria trasformazioni clienti"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1
+        <header className="text-center mb-12">
+          <h2
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "rgb(249, 112, 21)" }}
           >
             Trasformazioni dei Nostri Clienti
-          </h1>
+          </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Scopri i risultati straordinari ottenuti dai nostri clienti grazie a
             programmi di allenamento personalizzati
           </p>
-        </div>
+        </header>
 
         {/* Horizontal Scrolling Gallery with Navigation Arrows */}
         <div className="relative group">
@@ -281,7 +284,7 @@ const GalleryBeforeAfter: React.FC = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

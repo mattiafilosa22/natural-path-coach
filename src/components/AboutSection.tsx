@@ -17,14 +17,20 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section
+      id="about"
+      className="py-20"
+      aria-label="Chi è Marco Del Moro"
+    >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Chi <span className="text-primary">Sono</span>
-            </h2>
+            <header>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Chi <span className="text-primary">Sono</span>
+              </h2>
+            </header>
 
             <p className="text-lg text-muted-foreground mb-6">
               Ciao, sono Marco Del Moro. Se sei qui, è probabile che anche tu ti
@@ -46,11 +52,14 @@ const AboutSection = () => {
             </p>
 
             {/* Qualifications */}
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-8" role="list" aria-label="Qualificazioni professionali">
               {qualifications.map((qual, index) => (
-                <div key={index} className="flex items-center">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                    <qual.icon className="h-5 w-5 text-primary" />
+                <div key={index} className="flex items-center" role="listitem">
+                  <div
+                    className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4"
+                    aria-hidden="true"
+                  >
+                    <qual.icon className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <span className="text-foreground font-medium">
                     {qual.text}
@@ -59,8 +68,17 @@ const AboutSection = () => {
               ))}
             </div>
 
-            <Button asChild variant="cta" className="px-8">
-              <a href="/funnel" target="_blank">
+            <Button
+              asChild
+              variant="cta"
+              className="px-8 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              <a
+                href="/funnel"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Inizia il Percorso RECOMP 365 (si apre in una nuova finestra)"
+              >
                 Il Percorso RECOMP 365
               </a>
             </Button>
@@ -70,8 +88,11 @@ const AboutSection = () => {
           <div className="flex justify-center">
             <img
               src={Marco}
-              alt="Marco Del Moro"
+              alt="Marco Del Moro, personal trainer specializzato in natural bodybuilding, in posa professionale"
               className="rounded-2xl shadow-2xl w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] object-cover"
+              loading="lazy"
+              width="800"
+              height="600"
             />
           </div>
         </div>

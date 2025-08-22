@@ -147,9 +147,13 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
+    <section 
+      id="contact" 
+      className="py-20 bg-secondary/30"
+      aria-label="Sezione contatti"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Inizia la Tua <span className="text-primary">Trasformazione</span>
           </h2>
@@ -157,7 +161,7 @@ const ContactSection = () => {
             Pronto a raggiungere i tuoi obiettivi? Contattami per una consulenza gratuita
             e iniziamo insieme il tuo percorso verso una vita più sana.
           </p>
-        </div>
+        </header>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -168,7 +172,12 @@ const ContactSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                aria-label="Modulo richiesta consulenza gratuita"
+                noValidate
+              >
                 {/* Honeypot field - invisibile agli utenti, visibile ai bot */}
                 <input
                   type="text"
@@ -178,6 +187,7 @@ const ContactSection = () => {
                   style={{ display: 'none', visibility: 'hidden', position: 'absolute', left: '-9999px' }}
                   tabIndex={-1}
                   autoComplete="off"
+                  aria-hidden="true"
                 />
 
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -190,7 +200,9 @@ const ContactSection = () => {
                       onChange={handleChange}
                       placeholder="Il tuo nome"
                       required
-                      className="border-muted focus:border-primary"
+                      className="border-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                      aria-describedby="name-error"
+                      autoComplete="name"
                     />
                   </div>
 
