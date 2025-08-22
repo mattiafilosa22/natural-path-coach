@@ -34,7 +34,7 @@ export const ResultStep = ({
 
   const handleCalendlyClick = () => {
     // Here you would integrate with Calendly
-    window.open("https://calendly.com/your-calendar", "_blank");
+    window.open("https://calendly.com/marcodelmoro50/60min", "_blank");
     // Go directly to thank you page
     onNext();
   };
