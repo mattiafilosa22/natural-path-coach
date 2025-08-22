@@ -12,8 +12,8 @@ export const SITE_CONFIG = {
   // Informazioni base del sito
   name: 'Marco Del Moro - Natural Path Coach',
   shortName: 'Natural Path Coach',
-  description: 'Personal Trainer specializzato in Natural Bodybuilding. Metodo RECOMP 365 per trasformazioni corporee naturali e sostenibili. Consulenza personalizzata a Milano.',
-  keywords: 'personal trainer milano, natural bodybuilding, trasformazione corporea, allenamento personalizzato, fitness naturale, ricomposizione corporea, marco del moro',
+  description: 'Personal Trainer specializzato in Natural Bodybuilding. Metodo RECOMP 365 per trasformazioni corporee naturali e sostenibili. Consulenza personalizzata a Piombino.',
+  keywords: 'personal trainer piombino, natural bodybuilding livorno, trasformazione corporea toscana, allenamento personalizzato piombino, fitness naturale livorno, ricomposizione corporea, marco del moro',
 
   // Autore/Business
   author: {
@@ -21,11 +21,11 @@ export const SITE_CONFIG = {
     email: 'info@natural-path-coach.com', // Aggiorna con l'email definitiva
     phone: '+39-XXX-XXXXXXX', // Aggiorna con il numero reale
     address: {
-      city: 'Milano',
-      region: 'Lombardia',
+      city: 'Piombino',
+      region: 'Toscana',
       country: 'IT',
-      latitude: 45.4642,
-      longitude: 9.1900
+      latitude: 42.9258,
+      longitude: 10.5267
     }
   },
 
