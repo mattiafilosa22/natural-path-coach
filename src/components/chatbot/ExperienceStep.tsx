@@ -1,6 +1,6 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
-
+import { EXPERIENCE_LEVELS } from "@/constants/chatbot";
 import { SecondaryButton } from "@/components/SecondaryButton";
 
 interface ExperienceStepProps {
@@ -9,33 +9,6 @@ interface ExperienceStepProps {
 }
 
 export const ExperienceStep = ({ onNext, onBack }: ExperienceStepProps) => {
-  const experienceLevels = [
-    { 
-      level: "nessuna" as const, 
-      title: "Nessuna esperienza", 
-      description: "Non hai mai fatto allenamento",
-      icon: "🔰"
-    },
-    { 
-      level: "beginner" as const, 
-      title: "Beginner", 
-      description: "Meno di 1 anno di esperienza",
-      icon: "🌱"
-    },
-    { 
-      level: "intermediate" as const, 
-      title: "Intermediate", 
-      description: "2-5 anni di esperienza",
-      icon: "💪"
-    },
-    { 
-      level: "expert" as const, 
-      title: "Expert", 
-      description: "5+ anni di esperienza",
-      icon: "🏆"
-    }
-  ];
-
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
@@ -48,7 +21,7 @@ export const ExperienceStep = ({ onNext, onBack }: ExperienceStepProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {experienceLevels.map((exp) => (
+        {EXPERIENCE_LEVELS.map((exp) => (
           <div
             key={exp.level}
             className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-fitness-orange transition-colors cursor-pointer"

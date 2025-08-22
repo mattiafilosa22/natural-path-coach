@@ -1,4 +1,3 @@
-import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
 
 import { SecondaryButton } from "@/components/SecondaryButton";
@@ -10,27 +9,27 @@ interface GoalStepProps {
 
 export const GoalStep = ({ onNext, onBack }: GoalStepProps) => {
   const goals = [
-    { 
-      goal: "perdere peso", 
-      title: "Perdere Peso", 
+    {
+      goal: "perdere-peso",
+      title: "Perdere Peso",
       description: "Bruciare grasso e definire il fisico",
       icon: "🔥"
     },
-    { 
-      goal: "aumentare massa muscolare", 
-      title: "Aumentare Massa", 
+    {
+      goal: "aumentare-massa-muscolare",
+      title: "Aumentare Massa",
       description: "Costruire muscoli e forza",
       icon: "💪"
     },
-    { 
-      goal: "dimagrire", 
-      title: "Dimagrire", 
+    {
+      goal: "dimagrire",
+      title: "Dimagrire",
       description: "Ridurre la percentuale di grasso corporeo",
       icon: "⚖️"
     },
-    { 
-      goal: "tonificare", 
-      title: "Tonificare", 
+    {
+      goal: "tonificare",
+      title: "Tonificare",
       description: "Migliorare definizione e resistenza",
       icon: "✨"
     }

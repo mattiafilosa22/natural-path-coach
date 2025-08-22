@@ -16,9 +16,9 @@ export const ResultStep = ({
 }: ResultStepProps) => {
 
   const generatePersonalizedResult = () => {
-    const { gender, ageRange, bodyType, experience, goal } = chatbotData;
-    const objective = generateObjective(bodyType);
-    const solution = generateSolution(bodyType);
+    const { gender, ageRange, bodyType, experience, goal, trainingType } = chatbotData;
+    const objective = generateObjective(bodyType, goal, experience, trainingType);
+    const solution = generateSolution(bodyType, goal, experience, trainingType);
 
     return (
       <div className="bg-gradient-to-br from-fitness-orange/10 to-fitness-orange/5 rounded-2xl p-8">

@@ -1,6 +1,6 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
-
+import { TRAINING_FREQUENCIES } from "@/constants/chatbot";
 import { SecondaryButton } from "@/components/SecondaryButton";
 
 interface FrequencyStepProps {
@@ -9,27 +9,6 @@ interface FrequencyStepProps {
 }
 
 export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
-  const frequencies = [
-    { 
-      freq: "1-2 allenamenti a settimana", 
-      title: "1-2 volte", 
-      description: "Ideale per chi inizia o ha poco tempo",
-      icon: "⏰"
-    },
-    { 
-      freq: "3-6 allenamenti a settimana", 
-      title: "3-6 volte", 
-      description: "Frequenza ottimale per risultati costanti",
-      icon: "🔥"
-    },
-    { 
-      freq: "7 (tutta la settimana)", 
-      title: "Tutti i giorni", 
-      description: "Massima dedizione e risultati rapidi",
-      icon: "⚡"
-    }
-  ];
-
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
@@ -42,7 +21,7 @@ export const FrequencyStep = ({ onNext, onBack }: FrequencyStepProps) => {
       </div>
 
       <div className="space-y-4">
-        {frequencies.map((frequency) => (
+        {TRAINING_FREQUENCIES.map((frequency) => (
           <div
             key={frequency.freq}
             className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-fitness-orange transition-colors cursor-pointer"
