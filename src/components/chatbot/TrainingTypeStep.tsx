@@ -1,6 +1,6 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
-
+import { TRAINING_TYPES } from "@/constants/chatbot";
 import { SecondaryButton } from "@/components/SecondaryButton";
 
 interface TrainingTypeStepProps {
@@ -9,27 +9,6 @@ interface TrainingTypeStepProps {
 }
 
 export const TrainingTypeStep = ({ onNext, onBack }: TrainingTypeStepProps) => {
-  const trainingTypes = [
-    { 
-      type: "home gym", 
-      title: "Home Gym", 
-      description: "Alleno a casa con attrezzature base",
-      icon: "🏠"
-    },
-    { 
-      type: "palestra attrezzata", 
-      title: "Palestra Attrezzata", 
-      description: "Ho accesso a una palestra completa",
-      icon: "🏋️‍♂️"
-    },
-    { 
-      type: "altro", 
-      title: "Altro", 
-      description: "Parchi, calisthenics o altro",
-      icon: "🌳"
-    }
-  ];
-
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
@@ -42,7 +21,7 @@ export const TrainingTypeStep = ({ onNext, onBack }: TrainingTypeStepProps) => {
       </div>
 
       <div className="space-y-4">
-        {trainingTypes.map((training) => (
+        {TRAINING_TYPES.map((training) => (
           <div
             key={training.type}
             className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-fitness-orange transition-colors cursor-pointer"

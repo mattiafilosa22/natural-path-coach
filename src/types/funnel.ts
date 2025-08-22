@@ -1,10 +1,12 @@
+import { Gender, ExperienceLevel, BodyType, AgeRange, TrainingFrequency, TrainingType } from "@/constants/chatbot";
+
 export interface ChatbotData {
-  gender?: 'uomo' | 'donna';
-  ageRange?: string;
-  bodyType?: string;
-  experience?: 'nessuna' | 'beginner' | 'intermediate' | 'expert';
-  trainingType?: string;
-  frequency?: string;
+  gender?: Gender;
+  ageRange?: AgeRange;
+  bodyType?: BodyType;
+  experience?: ExperienceLevel;
+  trainingType?: TrainingType;
+  frequency?: TrainingFrequency;
   goal?: string;
 }
 

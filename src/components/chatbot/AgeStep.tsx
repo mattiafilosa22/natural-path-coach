@@ -1,7 +1,8 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
-
-import { SecondaryButton } from "@/components/SecondaryButton";
+import { AGE_RANGES } from "@/constants/chatbot";
+import { CHATBOT_TEXTS, CSS_CLASSES } from "@/constants/ui";
+import { ChatbotStepWrapper } from "./ChatbotStepWrapper";
 
 interface AgeStepProps {
   onNext: (data: Partial<ChatbotData>) => void;
@@ -9,44 +10,23 @@ interface AgeStepProps {
 }
 
 export const AgeStep = ({ onNext, onBack }: AgeStepProps) => {
-  const ageRanges = [
-    "18-25 anni",
-    "25-40 anni",
-    "40-50 anni",
-    "51 o più anni"
-  ];
-
   return (
-    <div className="text-center space-y-8">
-      <div className="space-y-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Qual è la tua fascia d'età?
-        </h2>
-        <p className="text-base text-gray-600">
-          L'età influenza il tipo di allenamento più adatto a te
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {ageRanges.map((range) => (
+    <ChatbotStepWrapper
+      title={CHATBOT_TEXTS.AGE.TITLE}
+      description={CHATBOT_TEXTS.AGE.DESCRIPTION}
+      onBack={onBack}
+    >
+      <div className={CSS_CLASSES.GRID_2_COLS}>
+        {AGE_RANGES.map((range) => (
           <FitnessButton
             key={range}
             onClick={() => onNext({ ageRange: range })}
-            className="h-16 text-base"
+            className={CSS_CLASSES.FITNESS_BUTTON_MEDIUM}
           >
             {range}
           </FitnessButton>
         ))}
       </div>
-
-      <div className="flex justify-center mt-6">
-        <SecondaryButton
-          onClick={onBack}
-          variant="light"
-        >
-          ← Indietro
-        </SecondaryButton>
-      </div>
-    </div>
+    </ChatbotStepWrapper>
   );
 };

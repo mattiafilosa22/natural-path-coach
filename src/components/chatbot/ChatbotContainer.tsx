@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChatbotData, ChatbotStep } from "@/types/funnel";
+import { getNextStep, getPreviousStep } from "@/utils/navigation";
 import { GenderStep } from "./GenderStep";
 import { AgeStep } from "./AgeStep";
 import { BodyTypeStep } from "./BodyTypeStep";
@@ -16,10 +17,6 @@ interface ChatbotContainerProps {
 export const ChatbotContainer = ({ onComplete, onBack }: ChatbotContainerProps) => {
   const [currentStep, setCurrentStep] = useState<ChatbotStep>('gender');
   const [data, setData] = useState<ChatbotData>({});
-  console.log("data", data);
-  const updateData = (newData: Partial<ChatbotData>) => {
-    setData(prev => ({ ...prev, ...newData }));
-  };
 
   const handleNext = (stepData: Partial<ChatbotData>, nextStep?: ChatbotStep) => {
     const updatedData = { ...data, ...stepData };
@@ -28,65 +25,23 @@ export const ChatbotContainer = ({ onComplete, onBack }: ChatbotContainerProps) 
     if (nextStep) {
       setCurrentStep(nextStep);
     } else {
-      // Determine next step based on logic
-      switch (currentStep) {
-        case 'gender':
-          setCurrentStep('age');
-          break;
-        case 'age':
-          setCurrentStep('bodyType');
-          break;
-        case 'bodyType':
-          setCurrentStep('experience');
-          break;
-        case 'experience':
-          if (stepData.experience === 'nessuna') {
-            setCurrentStep('goal');
-          } else {
-            setCurrentStep('trainingType');
-          }
-          break;
-        case 'trainingType':
-          setCurrentStep('frequency');
-          break;
-        case 'frequency':
-          setCurrentStep('goal');
-          break;
-        case 'goal':
-          onComplete(updatedData);
-          break;
+      const nextStepResult = getNextStep(currentStep, stepData);
+      if (nextStepResult) {
+        setCurrentStep(nextStepResult);
+      } else {
+        // Completamento del chatbot
+        onComplete(updatedData);
       }
     }
   };
 
   const handleBack = () => {
-    switch (currentStep) {
-      case 'age':
-        setCurrentStep('gender');
-        break;
-      case 'bodyType':
-        setCurrentStep('age');
-        break;
-      case 'experience':
-        setCurrentStep('bodyType');
-        break;
-      case 'trainingType':
-        setCurrentStep('experience');
-        break;
-      case 'frequency':
-        setCurrentStep('trainingType');
-        break;
-      case 'goal':
-        if (data.experience === 'nessuna') {
-          setCurrentStep('experience');
-        } else {
-          setCurrentStep('frequency');
-        }
-        break;
-      case 'gender':
-        // Se siamo al primo step del chatbot, torniamo al step precedente del funnel
-        onBack();
-        break;
+    const previousStep = getPreviousStep(currentStep, data);
+    if (previousStep) {
+      setCurrentStep(previousStep);
+    } else {
+      // Se siamo al primo step del chatbot, torniamo al step precedente del funnel
+      onBack();
     }
   };
 

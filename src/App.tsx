@@ -4,12 +4,24 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookiebotManager } from "@/components/CookiebotManager";
+import BasicAuth from "@/components/BasicAuth";
+import { AUTH_CONFIG } from "@/config/auth";
 import Funnel from "./pages/Funnel";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
-import BasicAuth from "@/components/BasicAuth";
 
 const queryClient = new QueryClient();
+
+const AppRoutes = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/funnel" element={<Funnel />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -17,16 +29,13 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BasicAuth>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/funnel" element={<Funnel />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </BasicAuth>
+        {AUTH_CONFIG.enabled ? (
+          <BasicAuth>
+            <AppRoutes />
+          </BasicAuth>
+        ) : (
+          <AppRoutes />
+        )}
       </TooltipProvider>
     </CookiebotManager>
   </QueryClientProvider>

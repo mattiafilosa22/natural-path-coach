@@ -1,97 +1,17 @@
 import { FitnessButton } from "@/components/FitnessButton";
 import { ChatbotData } from "@/types/funnel";
-import mesomorphMale from "@/assets/body-types/mesomorph-male.jpg";
-import skinnyFatMale from "@/assets/body-types/skinny-fat-male.jpg";
-import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
-import overweightFemale from "@/assets/body-types/overweight-female.jpg";
-import endomorphMale from "@/assets/body-types/endomorfo.png";
-import ectomorphMale from "@/assets/body-types/ectomorph.png";
+import { Gender } from "@/constants/chatbot";
+import { getBodyTypesByGender } from "@/config/bodyTypes";
 import { SecondaryButton } from "@/components/SecondaryButton";
 
 interface BodyTypeStepProps {
-  gender?: "uomo" | "donna";
+  gender?: Gender;
   onNext: (data: Partial<ChatbotData>) => void;
   onBack: () => void;
 }
 
 export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
-  const maleBodyTypes = [
-    {
-      type: "mesomorfo",
-      shortDescription: "Fisico atletico e naturalmente muscoloso",
-      characteristics: [
-        "Bassa percentuale di massa grassa",
-        "Elevata percentuale di massa muscolare",
-        "Spalle larghe, vita e fianchi stretti",
-        "Ottima struttura scheletrica"
-      ],
-      image: mesomorphMale,
-    },
-    {
-      type: "ectomorfo",
-      shortDescription: "Fisico snello e longilinea",
-      characteristics: [
-        "Struttura esile con arti lunghi",
-        "Difficoltà ad aumentare massa",
-        "Spalle strette e metabolismo veloce",
-        "Naturalmente magro"
-      ],
-      image: ectomorphMale,
-    },
-    {
-      type: "endomorfo",
-      shortDescription: "Fisico robusto con tendenza ad ingrassare",
-      characteristics: [
-        "Struttura rotondeggiante",
-        "Spalle strette rispetto ai fianchi",
-        "Alta percentuale di massa grassa",
-        "Tessuti molli e struttura ossea robusta"
-      ],
-      image: endomorphMale,
-    },
-    {
-      type: "skinny-fat",
-      shortDescription: "Magro ma con poca definizione muscolare",
-      characteristics: [
-        "Peso normale ma grasso alto",
-        "Bassa massa muscolare",
-        "Aspetto magro ma poco definito",
-        "Metabolismo rallentato"
-      ],
-      image: skinnyFatMale,
-    },
-  ];
-
-  const femaleBodyTypes = [
-    {
-      type: "ginoide",
-      shortDescription: "Corpo a pera - accumulo nella parte inferiore",
-      characteristics: [
-        "Distribuzione del grasso predominante da ombelico in giù",
-        "Fianchi, glutei e cosce sempre più ampi rispetto alla parte superiore",
-        "Silhouette a pera con parte inferiore più voluminosa",
-        "Maggiore tendenza a cellulite, ritenzione idrica e gambe pesanti",
-        "Profilo estrogenico con sensibilità ai recettori nella parte inferiore",
-        "Tendenza ad accumulare massa muscolare su cosce e glutei"
-      ],
-      image: gynoidFemale,
-    },
-    {
-      type: "androide",
-      shortDescription: "Corpo a mela - accumulo nella parte superiore",
-      characteristics: [
-        "Distribuzione del grasso su addome, petto, schiena e braccia",
-        "Gambe tendono a rimanere più magre",
-        "Forma a 'mela' o 'triangolo inverso' con spalle più larghe",
-        "Maggiore circonferenza vita e fianchi",
-        "Punto vita meno definito rispetto ad altri tipi di corporatura",
-        "Gambe appaiono più snelle e sottili rispetto al resto del corpo"
-      ],
-      image: overweightFemale,
-    },
-  ];
-
-  const bodyTypes = gender === "uomo" ? maleBodyTypes : femaleBodyTypes;
+  const bodyTypes = getBodyTypesByGender(gender);
 
   return (
     <div className="text-center space-y-8">
