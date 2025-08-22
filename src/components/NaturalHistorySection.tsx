@@ -57,7 +57,11 @@ const NaturalHistorySection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
+    <section 
+      className="py-20 bg-gradient-to-b from-background to-secondary/20"
+      aria-label="Storia del Natural Bodybuilding"
+      id="natural-history"
+    >
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

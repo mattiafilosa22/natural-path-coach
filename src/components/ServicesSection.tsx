@@ -31,26 +31,36 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section 
+      id="services"
+      className="py-20 bg-secondary/30"
+      aria-label="Servizi di personal training"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Il metodo: <span className="text-primary">RECOMP 365</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-1xl mx-auto">
             RECOMP 365 è il sistema di ricomposizione corporea naturale che ti guida passo-passo. <br />Scegli il percorso più adatto a te per iniziare la trasformazione.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm"
+              className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2"
+              role="listitem"
+              tabIndex={0}
+              aria-label={`Servizio: ${service.title}`}
             >
               <CardHeader className="text-center">
-                <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 group-hover:shadow-glow transition-all duration-300">
-                  <service.icon className="h-8 w-8 text-white" />
+                <div 
+                  className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 group-hover:shadow-glow transition-all duration-300"
+                  aria-hidden="true"
+                >
+                  <service.icon className="h-8 w-8 text-white" aria-hidden="true" />
                 </div>
                 <CardTitle className="services-title-card text-xl group-hover:text-primary transition-colors">
                   {service.title}
@@ -60,10 +70,10 @@ const ServicesSection = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-2" role="list" aria-label={`Caratteristiche ${service.title}`}>
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3" />
+                    <li key={idx} className="flex items-center text-sm text-muted-foreground" role="listitem">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3" aria-hidden="true" />
                       {feature}
                     </li>
                   ))}

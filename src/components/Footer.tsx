@@ -4,7 +4,11 @@ import { useCookiebot } from "@/hooks/use-cookiebot";
 const Footer = () => {
   const { showDialog } = useCookiebot();
   return (
-    <footer className="bg-foreground text-white py-12">
+    <footer 
+      className="bg-foreground text-white py-12"
+      role="contentinfo"
+      aria-label="Informazioni del sito e link utili"
+    >
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -24,24 +28,40 @@ const Footer = () => {
           {/* Quick Links */}
           {/* <div>
             <h4 className="text-lg font-semibold mb-4">Link Utili</h4>
-            <ul className="space-y-2 text-white/80">
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors">
+            <ul className="space-y-2 text-white/80" role="list">
+              <li role="listitem">
+                <a 
+                  href="#services" 
+                  className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Vai alla sezione servizi"
+                >
                   Servizi
                 </a>
               </li>
-              <li>
-                <a href="#about" className="hover:text-primary transition-colors">
+              <li role="listitem">
+                <a 
+                  href="#about" 
+                  className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Vai alla sezione chi sono"
+                >
                   Chi Sono
                 </a>
               </li>
-              <li>
-                <a href="#contact" className="hover:text-primary transition-colors">
+              <li role="listitem">
+                <a 
+                  href="#contact" 
+                  className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Vai alla sezione contatti"
+                >
                   Contatti
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
+              <li role="listitem">
+                <a 
+                  href="#" 
+                  className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Visita il blog fitness"
+                >
                   Blog Fitness
                 </a>
               </li>
@@ -51,7 +71,7 @@ const Footer = () => {
           {/* Legal */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-white/80">
+            <ul className="space-y-2 text-white/80" role="list">
               <li>
                 <a href="#" className="hover:text-primary transition-colors">
                   Privacy Policy
