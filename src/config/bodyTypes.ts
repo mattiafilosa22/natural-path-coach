@@ -3,10 +3,9 @@
 import mesomorphMale from "@/assets/body-types/mesomorph-male.jpg";
 import skinnyFatMale from "@/assets/body-types/skinny-fat-male.jpg";
 import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
-import overweightFemale from "@/assets/body-types/overweight-female.jpg";
+import androidFemale from "@/assets/body-types/gynoid-female.jpg";
 import endomorphMale from "@/assets/body-types/endomorfo.png";
 import ectomorphMale from "@/assets/body-types/ectomorph.png";
-import thinFemale from "@/assets/body-types/thin-female.jpg";
 import { BodyTypeMale, BodyTypeFemale, Gender } from "@/constants/chatbot";
 
 export interface BodyTypeConfig {
@@ -79,7 +78,7 @@ export const FEMALE_BODY_TYPES: BodyTypeConfig[] = [
   },
   {
     type: BodyTypeFemale.ANDROIDE,
-    shortDescription: "Corpo a mela - accumulo nella parte superiore", 
+    shortDescription: "Corpo a mela - accumulo nella parte superiore",
     characteristics: [
       "Distribuzione del grasso su addome, petto, schiena e braccia",
       "Gambe tendono a rimanere più magre",
@@ -88,20 +87,7 @@ export const FEMALE_BODY_TYPES: BodyTypeConfig[] = [
       "Punto vita meno definito rispetto ad altri tipi di corporatura",
       "Gambe appaiono più snelle e sottili rispetto al resto del corpo"
     ],
-    image: overweightFemale,
-  },
-  {
-    type: BodyTypeFemale.MAGRA,
-    shortDescription: "Fisico naturalmente snello e longilineo",
-    characteristics: [
-      "Struttura ossea fine e delicata",
-      "Bassa percentuale di massa grassa",
-      "Difficoltà ad aumentare peso e massa muscolare",
-      "Metabolismo veloce",
-      "Arti lunghi e sottili",
-      "Definizione muscolare naturale quando presente"
-    ],
-    image: thinFemale,
+    image: androidFemale,
   }
 ];
 

@@ -21,8 +21,7 @@ export enum BodyTypeMale {
 
 export enum BodyTypeFemale {
   GINOIDE = 'ginoide',
-  ANDROIDE = 'androide',
-  MAGRA = 'magra'
+  ANDROIDE = 'androide'
 }
 
 export enum TrainingType {
@@ -33,7 +32,7 @@ export enum TrainingType {
 
 export const AGE_RANGES = [
   "18-25 anni",
-  "25-40 anni", 
+  "25-40 anni",
   "40-50 anni",
   "51 o più anni"
 ] as const;
@@ -46,14 +45,14 @@ export const TRAINING_FREQUENCIES = [
     icon: "⏰"
   },
   {
-    freq: "3-6 allenamenti a settimana", 
+    freq: "3-6 allenamenti a settimana",
     title: "3-6 volte",
     description: "Frequenza ottimale per risultati costanti",
     icon: "🔥"
   },
   {
     freq: "7 (tutta la settimana)",
-    title: "Tutti i giorni", 
+    title: "Tutti i giorni",
     description: "Massima dedizione e risultati rapidi",
     icon: "⚡"
   }
@@ -69,7 +68,7 @@ export const EXPERIENCE_LEVELS = [
   {
     level: ExperienceLevel.BEGINNER,
     title: "Beginner",
-    description: "Meno di 1 anno di esperienza", 
+    description: "Meno di 1 anno di esperienza",
     icon: "🌱"
   },
   {
@@ -95,7 +94,7 @@ export const TRAINING_TYPES = [
   },
   {
     type: TrainingType.PALESTRA_ATTREZZATA,
-    title: "Palestra Attrezzata", 
+    title: "Palestra Attrezzata",
     description: "Ho accesso a una palestra completa",
     icon: "🏋️‍♂️"
   },
