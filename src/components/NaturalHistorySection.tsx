@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Trophy, Star, Calendar, Heart } from "lucide-react";
 import Hackenschmidt from '@/assets/natural-athletes/hackenschmidt.jpg';
 import Saxon from '@/assets/natural-athletes/saxon.png';
-import Sandow from '@/assets/natural-athletes/sandow.jpg';
+import Sandow from '@/assets/natural-athletes/sandow.webp';
 
 const NaturalHistorySection = () => {
   const historicalAthlets = [
@@ -57,7 +57,7 @@ const NaturalHistorySection = () => {
   ];
 
   return (
-    <section 
+    <section
       className="py-20 bg-gradient-to-b from-background to-secondary/20"
       aria-label="Storia del Natural Bodybuilding"
       id="natural-history"
