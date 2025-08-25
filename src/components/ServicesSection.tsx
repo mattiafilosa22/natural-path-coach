@@ -96,7 +96,6 @@ Basta! Vuoi un corpo vero, sano, forte e costruito in modo intelligente?<br />
             </Card>
           ))}
         </div>
-        <div>Ecco chi sono e perché puoi ascoltarmi</div>
       </div>
     </section>
   );
