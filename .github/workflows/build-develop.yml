@@ -28,7 +28,7 @@ jobs:
     - name: Build for local/dev
       run: bun run build:local
       env:
-        VITE_APP_ENV: local
+        VITE_APP_ENV: development
         VITE_APP_URL: http://localhost:8080
         VITE_APP_NAME: Natural Path Coach (Dev)
         VITE_ALLOW_INDEXING: false
