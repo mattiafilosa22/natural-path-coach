@@ -1,9 +1,16 @@
 RewriteEngine On
 
-# Handle client-side routing (SPA)
+# Set correct MIME types
+AddType application/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+AddType image/webp .webp
+
+# Handle client-side routing (SPA) - but exclude static assets
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/api
+RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|map)$ [NC]
 RewriteRule ^.*$ /index.html [L]
 
 # Security headers
