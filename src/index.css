@@ -282,7 +282,7 @@ All colors MUST be HSL.
     white-space: nowrap !important;
     border: 0 !important;
   }
-  
+
   .sr-only:focus {
     position: static !important;
     width: auto !important;
@@ -293,13 +293,13 @@ All colors MUST be HSL.
     clip: auto !important;
     white-space: normal !important;
   }
-  
+
   /* Focus indicators */
   .focus-visible {
     outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;
   }
-  
+
   /* Skip link styling */
   .skip-link {
     position: absolute;
@@ -313,18 +313,18 @@ All colors MUST be HSL.
     border-radius: 4px;
     font-weight: 600;
   }
-  
+
   .skip-link:focus {
     top: 6px;
   }
-  
+
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     * {
       border-color: currentColor !important;
     }
   }
-  
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -335,7 +335,7 @@ All colors MUST be HSL.
       transition-duration: 0.01ms !important;
     }
   }
-  
+
   /* Dark mode support */
   @media (prefers-color-scheme: dark) {
     :root {

@@ -8,12 +8,16 @@ const HeroSection = () => {
       aria-label="Sezione introduttiva Marco Del Moro Personal Trainer"
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-        role="img"
-        aria-label="Marco Del Moro durante un allenamento di natural bodybuilding"
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Marco Del Moro durante un allenamento di natural bodybuilding"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            objectPosition: window.innerWidth < 768 ? 'center calc(20% + 25px)' : 'center calc(15% + 25px)',
+          }}
+        />
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-hero" aria-hidden="true" />
