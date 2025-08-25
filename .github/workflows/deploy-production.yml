@@ -38,14 +38,24 @@ jobs:
         VITE_COOKIEBOT_ID: ${{ secrets.COOKIEBOT_ID_PROD }}
         VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY_PROD }}
 
+    - name: List build output
+      run: |
+        echo "Build directory contents:"
+        ls -la ./dist/
+        echo "Total files to deploy:"
+        find ./dist -type f | wc -l
+
     - name: Deploy to vHosting via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.PROD_FTP_HOST }}
         username: ${{ secrets.PROD_FTP_USERNAME }}
         password: ${{ secrets.PROD_FTP_PASSWORD }}
-        local-dir: ./dist/
+        local-dir: ./dist
         server-dir: ${{ secrets.PROD_FTP_PATH }}
+        state-name: .ftp-deploy-sync-state.json
+        dry-run: false
+        log-level: verbose
         exclude: |
           **/.git*
           **/.git*/**
