@@ -34,7 +34,7 @@ jobs:
       run: bun run build:prod
       env:
         VITE_APP_ENV: production
-        VITE_APP_URL: https://marco-del-moro-personal-trainer.it
+        VITE_APP_URL: https://www.marco-del-moro-personal-trainer.it
         VITE_APP_NAME: Marco Del Moro - Natural Path Coach
         VITE_ALLOW_INDEXING: true
         VITE_IS_PRODUCTION: true
