@@ -59,6 +59,8 @@ jobs:
       run: |
         echo "=== index.html content ==="
         tail -10 ./dist/index.html
+        echo "=== Assets that will be deployed ==="
+        ls -la ./dist/assets/index-*.js ./dist/assets/index-*.css
 
     - name: Deploy to vHosting via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -70,6 +72,10 @@ jobs:
         server-dir: ${{ secrets.PROD_FTP_PATH }}
         dangerous-clean-slate: true
         log-level: verbose
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
 
     - name: Verify deployment files
       run: |
