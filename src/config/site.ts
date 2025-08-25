@@ -18,8 +18,8 @@ export const SITE_CONFIG = {
   // Autore/Business
   author: {
     name: 'Marco Del Moro',
-    email: 'info@natural-path-coach.com', // Aggiorna con l'email definitiva
-    phone: '+39-XXX-XXXXXXX', // Aggiorna con il numero reale
+    email: 'marcodelmoropt@gmail.com', // Aggiorna con l'email definitiva
+    phone: '+39-347-930-9018', // Aggiorna con il numero reale
     address: {
       city: 'Piombino',
       region: 'Toscana',
