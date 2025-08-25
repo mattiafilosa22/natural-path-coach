@@ -55,7 +55,7 @@ const ComingSoon = () => {
               </a>
             </Button>
 
-            <Button
+            {/* <Button
               asChild
               variant="outline"
               className="border-white font-bold text-white hover:bg-white hover:text-foreground animate-slide-up focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
@@ -69,7 +69,7 @@ const ComingSoon = () => {
               >
                 Seguimi su Instagram
               </a>
-            </Button>
+            </Button> */}
           </div>
 
           <div className="mt-12 animate-slide-up" style={{ animationDelay: "0.6s" }}>
