@@ -3,7 +3,7 @@
 
 export const SITE_CONFIG = {
   // URL principale - AGGIORNA QUI quando hai il nuovo dominio
-  url: 'https://natural-path-coach.vercel.app',
+  url: 'https://marco-del-moro-personal-trainer.it',
 
   // SEO Settings per ambiente di test
   isProduction: false, // Cambia a true per il dominio finale
