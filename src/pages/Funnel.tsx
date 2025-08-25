@@ -132,10 +132,10 @@ const Funnel = () => {
       <SEOMeta
         title={`${currentStep === 'hook' ? 'Scopri il Metodo RECOMP 365' : currentStep === 'targeting' ? 'Identifica i Tuoi Obiettivi' : 'Il Tuo Percorso di Trasformazione'} - Natural Path Coach`}
         description={`${currentStep === 'hook' ? 'Scopri il metodo rivoluzionario per trasformare il tuo corpo naturalmente' : currentStep === 'targeting' ? 'Identifica i tuoi obiettivi di fitness e trasformazione corporea' : 'Inizia il tuo percorso di trasformazione con il metodo RECOMP 365'}`}
-        canonicalUrl={`https://natural-path-coach.vercel.app/funnel`}
+        canonicalUrl={`https://marco-del-moro-personal-trainer.it/funnel`}
       />
       <main role="main">
-        <BackgroundLayout>
+        <BackgroundLayout imagePosition="center 20%">
           {/* <AccessibleBreadcrumb
             items={getBreadcrumbItems()}
             className="p-4 text-white"

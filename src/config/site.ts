@@ -3,7 +3,7 @@
 
 export const SITE_CONFIG = {
   // URL principale - AGGIORNA QUI quando hai il nuovo dominio
-  url: 'https://natural-path-coach.vercel.app',
+  url: 'https://marco-del-moro-personal-trainer.it',
 
   // SEO Settings per ambiente di test
   isProduction: false, // Cambia a true per il dominio finale
@@ -18,8 +18,8 @@ export const SITE_CONFIG = {
   // Autore/Business
   author: {
     name: 'Marco Del Moro',
-    email: 'info@natural-path-coach.com', // Aggiorna con l'email definitiva
-    phone: '+39-XXX-XXXXXXX', // Aggiorna con il numero reale
+    email: 'marcodelmoropt@gmail.com', // Aggiorna con l'email definitiva
+    phone: '+39-347-930-9018', // Aggiorna con il numero reale
     address: {
       city: 'Piombino',
       region: 'Toscana',

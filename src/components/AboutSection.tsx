@@ -11,9 +11,9 @@ const AboutSection = () => {
   ];
 
   const qualifications = [
-    { icon: Award, text: "Certificazione ACSM Personal Trainer" },
-    { icon: Heart, text: "Specializzazione in Fitness Funzionale" },
-    { icon: Zap, text: "Master in Nutrizione Sportiva" },
+    { icon: Award, text: "Certificazione Natural Bodybuilding riconosciuto da MSP Italia, Coni e regolamentati dallo SNAQ (Sistema nazionale di tecnici sportivi" },
+    { icon: Heart, text: "Studente bachelor of science in Strength and conditioning (preparazione atletica)" },
+    { icon: Zap, text: "Formazione presso Società sportive di elité" },
   ];
 
   return (
@@ -28,19 +28,17 @@ const AboutSection = () => {
           <div>
             <header>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Chi <span className="text-primary">Sono</span>
+                Ecco chi <span className="text-primary">sono</span> e perché puoi <span className="text-primary">ascoltarmi</span>
               </h2>
             </header>
 
             <p className="text-lg text-muted-foreground mb-6">
-              Ciao, sono Marco Del Moro. Se sei qui, è probabile che anche tu ti
-              sia guardato allo specchio pensando: 'Potrei essere meglio di
-              così'. Quel percorso l'ho fatto prima di te. Ho vissuto la
-              frustrazione di un corpo che non risponde e l'ho trasformata in un
-              metodo scientifico, senza scorciatoie.
+Mi chiamo Marco Del Moro, sono un personal trainer e praticante di natural bodybuilding.<br /> Cosa significa? Semplice: costruzione del corpo senza scorciatoie.<br />
+- Gli uomini diventano muscolosi e armonici, senza sembrare "gonfi"<br />
+- Le donne diventano toniche, sode e femminili, senza diventare "mascoline"
             </p>
 
-            <p className="text-lg text-muted-foreground mb-8">
+            {/* <p className="text-lg text-muted-foreground mb-8">
               Ti porto indietro nel tempo, in un mondo senza doping. Nel tardo
               '800, Eugene Sandow era celebre per il suo fisico potente e
               armonico, costruito solo con disciplina, bilancieri e
@@ -49,7 +47,7 @@ const AboutSection = () => {
               sia impossibile ottenere quei risultati in modo naturale, perché è
               più facile venderti una scorciatoia che insegnarti il percorso
               vero. Io ho scelto di insegnare quel percorso.
-            </p>
+            </p> */}
 
             {/* Qualifications */}
             <div className="space-y-4 mb-8" role="list" aria-label="Qualificazioni professionali">

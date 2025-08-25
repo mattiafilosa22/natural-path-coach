@@ -1,5 +1,26 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-  ]
+  ],
+  "env": {
+    "VITE_APP_ENV": "test",
+    "VITE_APP_URL": "https://natural-path-coach.vercel.app",
+    "VITE_APP_NAME": "Natural Path Coach (Test)",
+    "VITE_ALLOW_INDEXING": "false",
+    "VITE_IS_PRODUCTION": "false"
+  },
+  "build": {
+    "env": {
+      "VITE_APP_ENV": "test"
+    }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "develop": false,
+      "prod": false
+    }
+  },
+  "functions": {},
+  "regions": ["fra1"]
 }

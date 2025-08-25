@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Trophy, Star, Calendar, Heart } from "lucide-react";
 import Hackenschmidt from '@/assets/natural-athletes/hackenschmidt.jpg';
 import Saxon from '@/assets/natural-athletes/saxon.png';
-import Sandow from '@/assets/natural-athletes/sandow.jpg';
+import Sandow from '@/assets/natural-athletes/sandow.webp';
 
 const NaturalHistorySection = () => {
   const historicalAthlets = [
@@ -57,61 +57,130 @@ const NaturalHistorySection = () => {
   ];
 
   return (
-    <section 
-      className="py-20 bg-gradient-to-b from-background to-secondary/20"
+    <section
+      className="py-12 sm:py-16 lg:py-20 bg-background"
       aria-label="Storia del Natural Bodybuilding"
       id="natural-history"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-primary">Legends</span> del Passato
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            Gli <span className="text-primary">uomini</span> che si costruivano come <span className="text-primary">statue</span> <span className="block sm:inline">(senza <span className="text-primary">farmaci</span>)</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            All'inizio del 1900, senza alcun aiuto chimico, questi atleti raggiunsero
-            risultati che ancora oggi ispirano. La loro eredità dimostra che con
-            dedizione e metodo naturale si possono ottenere trasformazioni straordinarie.
-          </p>
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-            <Heart className="h-5 w-5 text-primary" />
+
+          {/* Subtitle Card - Aligned to homepage design */}
+          <Card className="border-none shadow-primary bg-white/50 backdrop-blur-sm mb-6 sm:mb-8 max-w-7xl mx-auto">
+            <CardContent className="p-4 sm:p-6 md:p-8 lg:p-12">
+              {/* Opening Statement */}
+              <div className="mb-6 sm:mb-8 text-center">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
+                  NON È UNA MODA <span className="text-primary block sm:inline">È UNA SCELTA CHE ESISTE DA SEMPRE</span>
+                </h3>
+              </div>              {/* Story Section */}
+              <div className="space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl text-muted-foreground">
+                {/* Sandow Story */}
+                <Card className="border-none bg-white/70 backdrop-blur-sm border-l-4 border-primary">
+                  <CardContent className="p-4 sm:p-6">
+                    <p className="mb-3 sm:mb-4 text-center text-sm sm:text-base lg:text-lg">
+                      Nel tardo '800, c'era un uomo che faceva il <span className="text-primary font-semibold">pienone nei teatri d'Europa</span> solo mostrando il suo fisico.
+                    </p>
+                    <p className="mb-3 sm:mb-4 text-center text-lg sm:text-xl lg:text-2xl font-semibold">
+                      Si chiamava <span className="text-primary">Eugene Sandow</span>.
+                    </p>
+                    <p className="text-center text-sm sm:text-base lg:text-lg">
+                      Era <span className="font-semibold">possente, definito, armonico</span>. Il suo corpo sembrava <span className="text-primary font-semibold">scolpito nel marmo</span>, e non usava nulla, se non alimentazione basilare, bilancieri e una disciplina fuori dal comune.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Two Column Content */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                  <Card className="border-none bg-white/80 backdrop-blur-sm hover:shadow-primary transition-all duration-300">
+                    <CardContent className="p-4 sm:p-6">
+                      <p className="mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">
+                        Come lui anche <span className="font-semibold">George Hackenschmidt, John Grimek, Otto Arco</span> e molte altre leggende di natural bodybuilding, prima ancora che questo termine esistesse.
+                      </p>
+                      <p className="text-sm sm:text-base lg:text-lg">
+                        Non esistevano cicli di steroidi e non si avevano le conoscenze di alimentazione moderne. Non esistevano scorciatoie e diete drastiche.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-none bg-white/80 backdrop-blur-sm hover:shadow-primary transition-all duration-300">
+                    <CardContent className="p-4 sm:p-6">
+                      <p className="mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">
+                        Solo <span className="text-primary font-semibold">allenamento, recupero e metodo</span>.
+                      </p>
+                      <p className="text-sm sm:text-base lg:text-lg">
+                        Eppure questi uomini erano in grado di costruire fisici da fare invidia a molti <span className="font-semibold">"palestrati" moderni</span> o <span className="font-semibold">"fit-influencer"</span>.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Question Highlight */}
+                <Card className="border-none bg-white/70 backdrop-blur-sm border border-primary/20">
+                  <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
+                    <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
+                      Allora perché oggi ti fanno credere che sia <span className="text-primary">impossibile</span>?
+                    </p>
+                    <p className="text-base sm:text-lg lg:text-xl italic text-muted-foreground">
+                      Perché è più facile <span className="text-primary font-semibold">venderti una scorciatoia</span> che <span className="font-semibold">insegnarti il percorso vero</span>...
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Closing Statement */}
+                <div className="text-center">
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl font-medium text-foreground leading-relaxed">
+                    Ti porto <span className="text-primary font-bold">indietro nel tempo</span>, quando il doping ancora neanche esisteva, ti mostrerò che <span className="text-primary font-bold">fisici statuari</span> sono esistiti ben prima dell'invenzione del doping, dei social media e dell'AI
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base lg:text-lg">
+            <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             <span className="text-primary font-semibold">100% Natural • 100% Dedication</span>
           </div>
         </div>
 
         {/* Historical Athletes Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">{/**/}
           {historicalAthlets.map((athlete, index) => (
             <Card
               key={index}
-              className="historical-athlete-card vintage-border group hover:shadow-primary border-none bg-white/70 backdrop-blur-sm overflow-hidden"
+              className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm overflow-hidden"
             >
               <div className="relative">
                 <img
                   src={athlete.image}
                   alt={athlete.name}
-                  className="historical-athlete-image sepia-tone w-full h-96 object-cover object-top"
+                  className="historical-athlete-image sepia-tone w-full h-64 sm:h-80 lg:h-96 object-cover object-top"
                 />
-                <div className="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-primary/90 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                   {athlete.period}
                 </div>
-              </div>              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+              </div>
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                   {athlete.name}
                 </h3>
-                <p className="text-primary font-semibold mb-3 text-sm">
+                <p className="text-primary font-semibold mb-3 text-xs sm:text-sm">
                   {athlete.achievement}
                 </p>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground mb-4 text-xs sm:text-sm leading-relaxed">
                   {athlete.description}
                 </p>
 
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-sm text-foreground">Statistiche:</h4>
+                  <h4 className="font-semibold text-xs sm:text-sm text-foreground">Statistiche:</h4>
                   <div className="grid grid-cols-1 gap-1">
                     {athlete.stats.map((stat, idx) => (
-                      <div key={idx} className="flex items-center text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-2" />
+                      <div key={idx} className="flex items-center text-xs sm:text-sm">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mr-2" />
                         <span className="text-muted-foreground">{stat}</span>
                       </div>
                     ))}
@@ -123,47 +192,49 @@ const NaturalHistorySection = () => {
         </div>
 
         {/* Principles Section */}
-        <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 mb-12">
-          <h3 className="text-3xl font-bold text-center mb-8">
-            I <span className="text-primary">Principi</span> Senza Tempo
-          </h3>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Questi atleti seguivano principi che rimangono validi ancora oggi.
-            La vera forza nasce dalla costanza, non dalle scorciatoie.
-          </p>
+        <Card className="border-none bg-white/50 backdrop-blur-sm mb-8 sm:mb-12">
+          <CardContent className="p-4 sm:p-6 lg:p-8">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8">
+              I <span className="text-primary">Principi</span> Senza Tempo
+            </h3>
+            <p className="text-center text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
+              Questi atleti seguivano principi che rimangono validi ancora oggi.
+              La vera forza nasce dalla costanza, non dalle scorciatoie.
+            </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {principles.map((principle, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300">
-                  <principle.icon className="h-8 w-8 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+              {principles.map((principle, index) => (
+                <div key={index} className="text-center group p-2 sm:p-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:shadow-glow transition-all duration-300">
+                    <principle.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                  </div>
+                  <h4 className="font-bold mb-2 group-hover:text-primary transition-colors text-sm sm:text-base lg:text-lg">
+                    {principle.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed">
+                    {principle.description}
+                  </p>
                 </div>
-                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">
-                  {principle.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {principle.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Call to Action */}
         <div className="text-center">
-          <Card className="border-none bg-gradient-primary text-white max-w-3xl mx-auto">
-            <CardContent className="p-8">
-              <h4 className="text-2xl font-bold mb-4">
+          <Card className="border-none bg-gradient-primary text-white max-w-5xl mx-auto hover:shadow-primary transition-all duration-300">
+            <CardContent className="p-6 sm:p-8 lg:p-10">
+              <h4 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
                 Segui le Orme dei Grandi
               </h4>
-              <p className="mb-6 opacity-90 text-lg">
+              <p className="mb-6 sm:mb-8 opacity-90 text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed max-w-3xl mx-auto">
                 Come i campioni del passato, anche tu puoi raggiungere risultati straordinari
                 seguendo i principi naturali del fitness. Inizia il tuo percorso di trasformazione oggi.
               </p>
               <Button
                 asChild
                 variant="outline"
-                className="border-white text-primary-glow hover:bg-white hover:text-foreground font-bold"
+                className="border-white text-primary-glow hover:bg-white hover:text-foreground font-bold px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg transition-all duration-300"
               >
                 <a href="/funnel" target="_blank">
                   Inizia il Tuo Percorso Natural
