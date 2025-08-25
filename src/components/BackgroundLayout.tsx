@@ -4,16 +4,23 @@ import trainerBackground from "@/assets/trainer-background.jpg";
 interface BackgroundLayoutProps {
   children: ReactNode;
   showOverlay?: boolean;
+  imagePosition?: string;
 }
 
-export const BackgroundLayout = ({ children, showOverlay = true }: BackgroundLayoutProps) => {
+export const BackgroundLayout = ({ children, showOverlay = true, imagePosition }: BackgroundLayoutProps) => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${trainerBackground})` }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={trainerBackground}
+          alt="Marco Del Moro durante un allenamento di natural bodybuilding"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            objectPosition: imagePosition || 'center center',
+          }}
+        />
+      </div>
 
       {/* Orange Overlay */}
       {showOverlay && (

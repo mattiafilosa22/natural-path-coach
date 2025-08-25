@@ -135,7 +135,7 @@ const Funnel = () => {
         canonicalUrl={`https://natural-path-coach.vercel.app/funnel`}
       />
       <main role="main">
-        <BackgroundLayout>
+        <BackgroundLayout imagePosition="center 20%">
           {/* <AccessibleBreadcrumb
             items={getBreadcrumbItems()}
             className="p-4 text-white"
