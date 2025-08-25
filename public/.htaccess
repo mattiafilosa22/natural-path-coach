@@ -1,22 +1,5 @@
 RewriteEngine On
 
-# Basic Auth SOLO per le pagine HTML (non per assets)
-# Escludi assets, file statici e API dalla Basic Auth
-SetEnvIf Request_URI "\.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|map|txt|xml)$" NOAUTH
-SetEnvIf Request_URI "^/assets/" NOAUTH
-
-# Applica Basic Auth solo se non è un asset
-AuthType Basic
-AuthName "Area Riservata"
-AuthUserFile /httpdocs/.htpasswd
-Require valid-user
-
-# Permetti l'accesso senza auth per gli assets
-Order deny,allow
-Deny from all
-Allow from env=NOAUTH
-Satisfy any
-
 # Simple SPA routing
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
