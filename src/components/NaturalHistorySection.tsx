@@ -65,13 +65,20 @@ const NaturalHistorySection = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-primary">Legends</span> del Passato
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 ">
+            Gli <span className="text-primary">uomini</span> che si costruivano come <span className="text-primary">statue</span> (senza <span className="text-primary">farmaci</span>)
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            All'inizio del 1900, senza alcun aiuto chimico, questi atleti raggiunsero
-            risultati che ancora oggi ispirano. La loro eredità dimostra che con
-            dedizione e metodo naturale si possono ottenere trasformazioni straordinarie.
+              NON È UNA MODA È UNA SCELTA CHE ESISTE DA SEMPRE<br />
+Nel tardo '800, c'èra un uomo che faceva il pienone nei teatri d'Europa solo mostrando il suo fisico.<br /> Si chiamava Eugene Sandow.<br />
+Era possente, definito, armonico.<br />
+Il suo corpo sembrava scolpito nel marmo, e non usava nulla, se non alimentazione basilare, bilancieri e una disciplina fuori dal comune.<br />
+Come lui anche George Hackenschmidt, John Grimek, Otto Arco e molte altre leggende di natural bodybuilding, prima ancora che questo termine esistesse. <br />
+Non esistevano cicli di steroidi e non si avevano le conoscenze di alimentazione moderne. Non esistevano scorciatoie e diete drastiche. Solo allenamento, recupero e metodo.<br />
+Eppure questi uomini erano in grado di costruire fisici da fare invidia a molti "palestrati" moderni o "fit-influencer". <br />
+Allora perché oggi ti fanno credere che sia impossibile? <br />
+Perché è più facile venderti una scorciatoia che insegnarti il percorso vero...<br />
+              Ti porto indietro nel tempo, quando il doping ancora neanche esisteva, ti mostrerò che fisici statuari sono esisti ben prima dell'invenzione del doping, dei social media e dell'AI
           </p>
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
             <Heart className="h-5 w-5 text-primary" />

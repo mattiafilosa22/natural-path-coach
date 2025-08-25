@@ -22,13 +22,13 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Il Tuo Corpo è Fermo?
-            <span className="block text-primary-glow">Il Problema non Sei Tu.</span>
+            Marco del Moro
+            <span className="block text-primary-glow">Natural bodybuilding</span>
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Soluzione? Un metodo naturale, sano e sostenibile, progettato per funzionare nel tempo.
-            <br />Benvenuto nel Natural Bodybuilding!
+            Ti propongo un metodo naturale, sano e sostenibile, progettato per funzionare nel tempo.
+            {/* <br />Benvenuto nel Natural Bodybuilding! */}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -42,7 +42,7 @@ const HeroSection = () => {
                 href="#contact"
                 onClick={e => {
                   e.preventDefault();
-                  const el = document.getElementById("contact");
+                  const el = document.getElementById("services");
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
                     // Focus management per accessibilità

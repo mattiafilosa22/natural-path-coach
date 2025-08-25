@@ -8,19 +8,19 @@ const ServicesSection = () => {
       icon: Dumbbell,
       title: "Personal Training 1:1",
       description: "Allenamenti individuali per chi cerca la massima attenzione e vuole accelerare i risultati.",
-      features: ["Programmazione 100% Natural Bodybuilding", "Schede aggiornate ogni 4 settimane", "Check tecnici e monitoraggio costanti", "Supporto nutrizionale strategico integrato"]
+      features: ["Programmazione 100% Natural Bodybuilding", "Schede aggiornate ogni 4 settimane", "Check tecnici e monitoraggio costanti", "App di tracciamento e monitoraggio costante", "Video degli esercizi consultabili in ogni momento"]
     },
     {
       icon: Target,
-      title: "Strategia Alimentare Flessibile",
-      description: "Un piano su misura per nutrire i tuoi muscoli e ottimizzare la composizione corporea.",
-      features: ["In collaborazione con Alex Sport Nutrition", "Piano alimentare flessibile e personalizzato", "Check mensili e consulenze video", "Educazione alimentare per renderti autonomo"]
+      title: "Piano nutrizione sportiva",
+      description: "Possibilità di integrare un piano di nutrizione sportiva direttamente con il nutrizionista del mio team",
+      features: ["In collaborazione con Alex Sport Nutrition", "Piano alimentare flessibile e personalizzato", "Check mensili e consulenze", "Educazione alimentare per renderti autonomo"]
     },
     {
       icon: Users,
       title: "Small Group Training",
       description: "L'energia del gruppo unita all'attenzione del coach per un allenamento motivante.",
-      features: ["Costi contenuti, risultati elevati", "Gruppi ristretti (max 4 persone)", "Atmosfera motivante", "Programmazione Natural condivisa"]
+      features: ["Costi contenuti, risultati elevati", "Allenati con il tuo \"GymBro\"", "Gruppi ristretti (max 2 persone)", "Atmosfera motivante", "Programmazione Natural condivisa"]
     },
     {
       icon: Clock,
@@ -31,7 +31,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section 
+    <section
       id="services"
       className="py-20 bg-secondary/30"
       aria-label="Servizi di personal training"
@@ -39,11 +39,25 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6">
         <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Il metodo: <span className="text-primary">RECOMP 365</span>
+            C'ERA UNA VOLTA... <span className="text-primary"> UN MONDO SENZA DOPING.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-1xl mx-auto">
-            RECOMP 365 è il sistema di ricomposizione corporea naturale che ti guida passo-passo. <br />Scegli il percorso più adatto a te per iniziare la trasformazione.
+Se questo sei tu continua a leggere: hai tra i 18 e 50 anni. Hai già provato palestra, dieta, motivazione.<br /> ma ogni volta, qualcosa si spezza: ti blocchi, molli,i risultati non arrivano.<br />
+E ti sembra di fare tutto "giusto" ma il tuo corpo resta fermo.<br /> LA VERITÀ?.<br />Il problema non sei tu.<br /> Il problema è che ti manca un metodo pensato per te. Il tuo corpo e il tuo stile di vita.<br />
+Un metodo naturale, sano, sostenibile, progettato per funzionare nel tempo, senza effetto yo-yo, senza frustazione, senza rischi per la tua salute.<br />
+- PRIMA DI RICHIEDERE UN CHECK-UP GRATUITO ECCO COSA DEVI SAPERE:<br />
+Oggi tanti corpi che vedi online sono:
+<ul>
+  <li>Gonfiati con sostanze dopanti</li>
+  <li>Ottenuti con diete folli e insostenibili</li>
+  <li>Filtrati e modificati con AI e PhotoShop.</li>
+</ul>
+E tu continui a sentirti "sbagliato/a" per non assomigliare ad una bugia digitale.<br />
+Basta! Vuoi un corpo vero, sano, forte e costruito in modo intelligente?<br />
           </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-6">
+            Il metodo: <span className="text-primary">RECOMP 365</span> ricomposizione naturale
+          </h2>
         </header>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
@@ -56,7 +70,7 @@ const ServicesSection = () => {
               aria-label={`Servizio: ${service.title}`}
             >
               <CardHeader className="text-center">
-                <div 
+                <div
                   className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 group-hover:shadow-glow transition-all duration-300"
                   aria-hidden="true"
                 >
@@ -82,6 +96,7 @@ const ServicesSection = () => {
             </Card>
           ))}
         </div>
+        <div>Ecco chi sono e perché puoi ascoltarmi</div>
       </div>
     </section>
   );
