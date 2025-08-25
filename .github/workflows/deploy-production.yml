@@ -46,18 +46,11 @@ jobs:
         find ./dist -type f | wc -l
 
     - name: Deploy to vHosting via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: airvzxf/ftp-deployment-action@latest
       with:
         server: ${{ secrets.PROD_FTP_HOST }}
-        username: ${{ secrets.PROD_FTP_USERNAME }}
+        user: ${{ secrets.PROD_FTP_USERNAME }}
         password: ${{ secrets.PROD_FTP_PASSWORD }}
-        local-dir: ./dist/
-        server-dir: ${{ secrets.PROD_FTP_PATH }}
-        state-name: .ftp-deploy-sync-state.json
-        dry-run: false
-        log-level: verbose
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          .env*
+        local_dir: "./dist/"
+        remote_dir: ${{ secrets.PROD_FTP_PATH }}
+        delete: "true"
