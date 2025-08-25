@@ -52,7 +52,7 @@ jobs:
         username: ${{ secrets.PROD_FTP_USERNAME }}
         password: ${{ secrets.PROD_FTP_PASSWORD }}
         local-dir: ./dist
-        server-dir: ${{ secrets.PROD_FTP_PATH }}
+        server-dir: /httpdocs/
         state-name: .ftp-deploy-sync-state.json
         dry-run: false
         log-level: verbose
