@@ -44,13 +44,28 @@ jobs:
         ls -la ./dist/
         echo "Total files to deploy:"
         find ./dist -type f | wc -l
+        echo "Key files to check:"
+        ls -la ./dist/index.html
+        ls -la ./dist/.htaccess
+        ls -la ./dist/assets/index-*.js ./dist/assets/index-*.css
+
+    - name: Show index.html content
+      run: |
+        echo "=== index.html content ==="
+        tail -10 ./dist/index.html
 
     - name: Deploy to vHosting via FTP
-      uses: airvzxf/ftp-deployment-action@latest
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.PROD_FTP_HOST }}
-        user: ${{ secrets.PROD_FTP_USERNAME }}
+        username: ${{ secrets.PROD_FTP_USERNAME }}
         password: ${{ secrets.PROD_FTP_PASSWORD }}
-        local_dir: "./dist/"
-        remote_dir: ${{ secrets.PROD_FTP_PATH }}
-        delete: "true"
+        local-dir: "./dist/"
+        server-dir: ${{ secrets.PROD_FTP_PATH }}
+        dangerous-clean-slate: true
+        log-level: verbose
+
+    - name: Verify deployment files
+      run: |
+        echo "Deployment completed. Files that should be on server:"
+        find ./dist -name "*.html" -o -name "*.js" -o -name "*.css" | head -10
