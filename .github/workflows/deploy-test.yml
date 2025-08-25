@@ -1,15 +1,15 @@
-name: Build and Test (Develop)
+name: Deploy to Test (Vercel)
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+  deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -25,12 +25,12 @@ jobs:
     - name: Lint code
       run: bun run lint
 
-    - name: Build for local/dev
-      run: bun run build:local
+    - name: Build for test
+      run: bun run build:test
       env:
-        VITE_APP_ENV: development
-        VITE_APP_URL: http://localhost:8080
-        VITE_APP_NAME: Natural Path Coach (Dev)
+        VITE_APP_ENV: test
+        VITE_APP_URL: https://natural-path-coach.vercel.app
+        VITE_APP_NAME: Natural Path Coach (Test)
         VITE_ALLOW_INDEXING: false
         VITE_IS_PRODUCTION: false
         VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
@@ -39,17 +39,11 @@ jobs:
         VITE_COOKIEBOT_ID: ${{ secrets.COOKIEBOT_ID_TEST }}
         VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY_TEST }}
 
-    - name: Test build artifacts
-      run: |
-        if [ ! -d "dist" ]; then
-          echo "❌ Build failed: dist directory not found"
-          exit 1
-        fi
-        echo "✅ Build successful"
-        ls -la dist/
-
-    - name: Run additional tests (if any)
-      run: |
-        echo "🧪 Running additional tests..."
-        # Aggiungi qui eventuali test aggiuntivi
-        echo "✅ All tests passed"
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: ./
+        scope: ${{ secrets.VERCEL_ORG_ID }}
