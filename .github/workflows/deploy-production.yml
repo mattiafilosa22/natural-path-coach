@@ -21,6 +21,12 @@ jobs:
     - name: Install dependencies
       run: bun install
 
+    - name: Clean build cache
+      run: |
+        rm -rf dist/
+        rm -rf node_modules/.vite/
+        echo "Cache cleaned"
+
     - name: Lint code
       run: bun run lint
 
