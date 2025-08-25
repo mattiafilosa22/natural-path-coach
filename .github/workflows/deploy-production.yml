@@ -38,20 +38,16 @@ jobs:
         VITE_COOKIEBOT_ID: ${{ secrets.COOKIEBOT_ID_PROD }}
         VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY_PROD }}
 
-    - name: Deploy to production server
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy to vHosting via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        # Opzione 1: Deploy su GitHub Pages
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        cname: marco-del-moro-personal-trainer.it
-
-        # Opzione 2: Se usi FTP/SFTP, sostituisci con:
-        # - name: Deploy via FTP
-        #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        #   with:
-        #     server: ${{ secrets.FTP_SERVER }}
-        #     username: ${{ secrets.FTP_USERNAME }}
-        #     password: ${{ secrets.FTP_PASSWORD }}
-        #     local-dir: ./dist/
-        #     server-dir: /public_html/
+        server: ${{ secrets.PROD_FTP_HOST }}
+        username: ${{ secrets.PROD_FTP_USERNAME }}
+        password: ${{ secrets.PROD_FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: ${{ secrets.PROD_FTP_PATH }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          .env*
