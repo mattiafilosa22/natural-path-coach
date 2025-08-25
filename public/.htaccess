@@ -1,16 +1,31 @@
+Options +FollowSymLinks
 RewriteEngine On
 
-# Set correct MIME types
-AddType application/javascript .js
-AddType text/css .css
-AddType image/svg+xml .svg
-AddType image/webp .webp
+# Force correct MIME types
+<Files "*.js">
+    ForceType application/javascript
+</Files>
 
-# Handle client-side routing (SPA) - but exclude static assets
+<Files "*.css">
+    ForceType text/css
+</Files>
+
+<Files "*.svg">
+    ForceType image/svg+xml
+</Files>
+
+# Explicitly handle assets directory - DO NOT REWRITE
+RewriteRule ^assets/ - [L]
+
+# Handle favicon and other static files
+RewriteRule ^favicon\.ico$ - [L]
+RewriteRule ^robots\.txt$ - [L]
+RewriteRule ^sitemap\.xml$ - [L]
+RewriteRule ^\.htaccess$ - [L]
+
+# Handle all other requests (SPA routing)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/api
-RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|map)$ [NC]
 RewriteRule ^.*$ /index.html [L]
 
 # Security headers
