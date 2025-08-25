@@ -1,0 +1,49 @@
+name: Build and Test (Develop)
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install dependencies
+      run: bun install
+
+    - name: Lint code
+      run: bun run lint
+
+    - name: Build for local/dev
+      run: bun run build:local
+      env:
+        VITE_APP_ENV: local
+        VITE_APP_URL: http://localhost:8080
+        VITE_APP_NAME: Natural Path Coach (Dev)
+        VITE_ALLOW_INDEXING: false
+        VITE_IS_PRODUCTION: false
+        VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+        VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+        VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+        VITE_COOKIEBOT_ID: ${{ secrets.COOKIEBOT_ID_TEST }}
+        VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY_TEST }}
+
+    - name: Test build artifacts
+      run: |
+        if [ ! -d "dist" ]; then
+          echo "❌ Build failed: dist directory not found"
+          exit 1
+        fi
+        echo "✅ Build successful"
+        ls -la dist/
