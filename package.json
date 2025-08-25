@@ -18,7 +18,10 @@
     "preview:prod": "vite preview --mode production",
     "deploy:develop": "./scripts/deploy-workflow.sh develop",
     "deploy:test": "./scripts/deploy-workflow.sh test",
-    "deploy:prod": "./scripts/deploy-workflow.sh prod"
+    "deploy:prod": "./scripts/deploy-workflow.sh prod",
+    "vercel:cleanup": "./scripts/vercel-cleanup.sh",
+    "vercel:simple": "./scripts/vercel-simple.sh",
+    "vercel:status": "npx vercel projects inspect natural-path-coach"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -72,6 +75,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
+    "vercel": "^46.0.2",
     "web-vitals": "^5.1.0",
     "zod": "^3.23.8"
   },
