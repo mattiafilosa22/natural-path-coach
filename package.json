@@ -4,11 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode local",
+    "dev:test": "vite --mode test",
+    "dev:prod": "vite --mode production",
+    "build": "vite build --mode production",
+    "build:local": "vite build --mode local",
+    "build:test": "vite build --mode test",
+    "build:prod": "vite build --mode production",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:test": "vite preview --mode test",
+    "preview:prod": "vite preview --mode production",
+    "deploy:develop": "./scripts/deploy-workflow.sh develop",
+    "deploy:test": "./scripts/deploy-workflow.sh test",
+    "deploy:prod": "./scripts/deploy-workflow.sh prod"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

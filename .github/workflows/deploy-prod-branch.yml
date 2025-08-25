@@ -1,0 +1,61 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ prod ]
+  workflow_dispatch:
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install dependencies
+      run: bun install
+
+    - name: Lint code
+      run: bun run lint
+
+    - name: Build for production
+      run: bun run build:prod
+      env:
+        VITE_APP_ENV: production
+        VITE_APP_URL: https://marco-del-moro-personal-trainer.it
+        VITE_APP_NAME: Marco Del Moro
+        VITE_ALLOW_INDEXING: true
+        VITE_IS_PRODUCTION: true
+        VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+        VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+        VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+        VITE_COOKIEBOT_ID: ${{ secrets.COOKIEBOT_ID_PROD }}
+        VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY_PROD }}
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        cname: marco-del-moro-personal-trainer.it
+
+    # Alternativa: Deploy via FTP (decommentare se necessario)
+    # - name: Deploy via FTP
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    #   with:
+    #     server: ${{ secrets.FTP_SERVER }}
+    #     username: ${{ secrets.FTP_USERNAME }}
+    #     password: ${{ secrets.FTP_PASSWORD }}
+    #     local-dir: ./dist/
+    #     server-dir: /public_html/
+
+    - name: Notify deployment success
+      run: |
+        echo "🚀 Production deployment completed!"
+        echo "📱 Site: https://marco-del-moro-personal-trainer.it"
