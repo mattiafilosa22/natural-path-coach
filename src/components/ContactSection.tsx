@@ -123,8 +123,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "marco@personaltrainer.com",
-      action: "mailto:marco@personaltrainer.com"
+      content: "marcodelmoropt@gmail.com",
+      action: "mailto:marcodelmoropt@gmail.com"
     },
     {
       icon: Phone,
@@ -135,7 +135,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Palestra",
-      content: "FM Fitness, Viale Giovanni Amendola, 12, 57025 Piombino LI",
+      content: "FM Fitness, Viale Giovanni Amendola 12, 57025 Piombino LI",
       action: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x12d623cd78127ec3:0x40abbeadb2278cb3?sa=X&ved=1t:8290&ictx=111"
     },
     {
@@ -147,19 +147,25 @@ const ContactSection = () => {
   ];
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="py-20 bg-secondary/30"
       aria-label="Sezione contatti"
     >
       <div className="container mx-auto px-6">
         <header className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Inizia la Tua <span className="text-primary">Trasformazione</span>
+            <span className="text-primary">Scopri</span> il tuo <span className="text-primary">allenamento ideale</span> e ricevi una <span className="text-primary">consulenza gratuita</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pronto a raggiungere i tuoi obiettivi? Contattami per una consulenza gratuita
-            e iniziamo insieme il tuo percorso verso una vita più sana.
+            La consulenza gratuita comprende:
+            - Preparazione pre-appuntamento: compilando il form accederai ad un sondaggio che mi permetterà di capire la tua situazione attuale e che ti mostrerà quali sono gli step che dovremmo intraprendere insieme e che andremo ad approfondire in consulenza
+            - Small talk iniziale con l'obiettivo di conoscerci meglio
+            - Studio approfondito della tua situazione attuale
+            - Studio della tua situazione desiderata (aspetto fisico che desideri ottenere)
+            - Valutazione del gap tra situazione attuale e desiderata
+            - Rompere lo stato di inerzia e capire come passare all'azione
+            - Proposta dell'offerta/pacchetto più adatto per raggiungere gli scopi prefissati
           </p>
         </header>
 
@@ -172,8 +178,8 @@ const ContactSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form 
-                onSubmit={handleSubmit} 
+              <form
+                onSubmit={handleSubmit}
                 className="space-y-6"
                 aria-label="Modulo richiesta consulenza gratuita"
                 noValidate
@@ -257,9 +263,9 @@ const ContactSection = () => {
                   {isSubmitting ? "Invio in corso..." : "Invia Richiesta"}
                 </Button>
 
-                <p className="text-sm text-muted-foreground text-center">
+                {/* <p className="text-sm text-muted-foreground text-center">
                   Ti ricontatterò entro 24 ore per fissare la tua consulenza gratuita
-                </p>
+                </p> */}
               </form>
             </CardContent>
           </Card>
@@ -304,27 +310,7 @@ const ContactSection = () => {
 
           </div>
         </div>
-        <div className="mt-12">
-          <Card className="border-none bg-gradient-primary text-white w-full">
-            <CardContent className="p-8 text-center">
-              <h4 className="text-2xl font-bold mb-4">
-                Prima Consulenza Gratuita!
-              </h4>
-              <p className="mb-6 opacity-90">
-                Valuteremo insieme i tuoi obiettivi e creeremo il piano perfetto per te.
-              </p>
-                <Button
-                asChild
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary text-primary-glow"
-                >
-                <a href="/funnel" target="_blank">
-                  Prenota Ora
-                </a>
-                </Button>
-            </CardContent>
-          </Card>
-        </div>
+
       </div>
     </section>
   );

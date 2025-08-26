@@ -5,7 +5,7 @@ import "../App.css";
 const services = [
   {
     icon: Dumbbell,
-    title: "Personal Training 1:1",
+    title: "Coaching tecnico personalizzato",
     description: "Allenamenti individuali per chi cerca la massima attenzione e vuole accelerare i risultati.",
     features: [
       "Programmazione 100% Natural Bodybuilding",
@@ -28,7 +28,7 @@ const services = [
   },
   {
     icon: Users,
-    title: "Small Group Training",
+    title: "Personal & Small Group Training",
     description: "L'energia del gruppo unita all'attenzione del coach per un allenamento motivante.",
     features: [
       "Costi contenuti, risultati elevati",
@@ -60,7 +60,7 @@ const Recomp365Section = () => (
     <div className="container mx-auto px-6">
       <header className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-6">
-          Il metodo: <span className="text-primary">RECOMP 365</span> ricomposizione naturale
+          Il mio metodo: <span className="text-primary">RECOMP 365</span> Ricomposizione naturale
         </h2>
       </header>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">

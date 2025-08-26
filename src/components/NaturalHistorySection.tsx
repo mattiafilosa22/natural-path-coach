@@ -4,6 +4,8 @@ import { Trophy, Star, Calendar, Heart } from "lucide-react";
 import Hackenschmidt from '@/assets/natural-athletes/hackenschmidt.jpg';
 import Saxon from '@/assets/natural-athletes/saxon.png';
 import Sandow from '@/assets/natural-athletes/sandow.webp';
+import otto from '@/assets/natural-athletes/otto-arco.jpg';
+import abbye from '@/assets/natural-athletes/abbye.jpg';
 
 const NaturalHistorySection = () => {
   const historicalAthlets = [
@@ -30,6 +32,22 @@ const NaturalHistorySection = () => {
       description: "Lottatore e strongman che combinava forza incredibile con un fisico armonico, tutto naturalmente.",
       stats: ["Squat: 164 kg", "Bench: 136 kg", "Peso: 95 kg"],
       image: Hackenschmidt
+    },
+    {
+      name: "Otto Arco",
+      period: "1881-1968",
+      achievement: "Strongman",
+      description: "Strongman e attrazione da circo, vinse il titolo di \"Uomo più perfettamente sviluppato del Mondo\".",
+      stats: ["Squat: 164 kg", "Bench: 136 kg", "Peso: 95 kg"],
+      image: otto
+    },
+    {
+      name: "Abbye Stockton",
+      period: "1917-2006",
+      achievement: "Pioniera del Bodybuilding Femminile",
+      description: "Una delle prime donne a competere nel bodybuilding, Abbye ha ispirato generazioni di atlete.",
+      stats: ["Petto: 91 cm", "Vita: 61 cm", "Fianchi: 91 cm"],
+      image: abbye
     }
   ];
 
@@ -95,7 +113,7 @@ const NaturalHistorySection = () => {
                 </Card>
 
                 {/* Two Column Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6">
                   <Card className="border-none bg-white/80 backdrop-blur-sm hover:shadow-primary transition-all duration-300">
                     <CardContent className="p-4 sm:p-6">
                       <p className="mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">
