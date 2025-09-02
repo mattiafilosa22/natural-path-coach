@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { designSystem } from "@/config/design-system";
 import mirkoFront from "@/assets/before-after/mirko.jpg";
 import alessandra from "@/assets/before-after/alessandra.jpg";
 import andrea from "@/assets/before-after/andrea.jpg";
@@ -139,8 +140,9 @@ const GalleryBeforeAfter: React.FC = () => {
 
   const scrollLeft = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = window.innerWidth < 768 ? 320 : 384; // w-80 = 320px, w-96 = 384px
-      const spacing = 24; // space-x-6 = 24px
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 384; // Mobile: full width - padding, Desktop: w-96
+      const spacing = 24; // Standard spacing from design system
       scrollContainerRef.current.scrollBy({
         left: -(cardWidth + spacing),
         behavior: "smooth",
@@ -150,7 +152,8 @@ const GalleryBeforeAfter: React.FC = () => {
 
   const scrollRight = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = window.innerWidth < 768 ? 320 : 384;
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 384;
       const spacing = 24;
       scrollContainerRef.current.scrollBy({
         left: cardWidth + spacing,
@@ -161,19 +164,19 @@ const GalleryBeforeAfter: React.FC = () => {
 
   return (
     <section
-      className="min-h-full bg-white py-12 px-4 mb-24"
+      className={`min-h-full bg-white ${designSystem.spacing.section} px-4 sm:px-6`}
       aria-label="Galleria trasformazioni clienti"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <header className="text-center mb-12 sm:mb-16">
+          <h2 className={`${designSystem.typography.h2} font-bold ${designSystem.spacing.marginCard}`}>
             <span className="text-primary">Non ti fidi? </span>
-            <span className="text-4xl md:text-5xl font-bold mb-4">
+            <span className={`${designSystem.typography.h2} font-bold ${designSystem.spacing.marginCard}`}>
               Guarda i risultati
             </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className={`text-gray-600 ${designSystem.typography.body} max-w-2xl mx-auto`}>
             Qui sotto trovi i cambiamenti reali di chi ha seguito questo metodo.
             <br />
             Corpi scolpiti vite cambiate. <br />
@@ -182,19 +185,18 @@ const GalleryBeforeAfter: React.FC = () => {
         </header>
 
         {/* Horizontal Scrolling Gallery with Navigation Arrows */}
-        <div className="relative group">
+        <div className={`${designSystem.slider.container}`}>
           {/* Left Arrow */}
           <button
             onClick={scrollLeft}
-            className="absolute left-4 top-40 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+            className={`${designSystem.slider.navigation.button} ${designSystem.slider.navigation.left} top-40`}
             style={{
               boxShadow:
                 "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
             <ChevronLeft
-              className="w-6 h-6 transition-colors duration-300"
-              style={{ color: "rgb(249, 112, 21)" }}
+              className={`${designSystem.slider.navigation.icon}`}
             />
           </button>
 

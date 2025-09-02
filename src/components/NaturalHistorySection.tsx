@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trophy, Star, Calendar, Heart, ChevronLeft, ChevronRight } from "lucide-react";
+import { designSystem } from "@/config/design-system";
 import Hackenschmidt from '@/assets/natural-athletes/hackenschmidt.jpg';
 import Saxon from '@/assets/natural-athletes/saxon.png';
 import Sandow from '@/assets/natural-athletes/sandow.webp';
@@ -104,50 +105,50 @@ const NaturalHistorySection = () => {
 
   return (
     <section
-      className="py-12 sm:py-16 lg:py-20 bg-background"
+      className={`${designSystem.spacing.section} bg-background`}
       aria-label="Storia del Natural Bodybuilding"
       id="natural-history"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+          <h2 className={`${designSystem.typography.h2} font-bold ${designSystem.spacing.marginTitle} leading-tight`}>
             Gli <span className="text-primary">uomini</span> che si costruivano come <span className="text-primary">statue</span> <span className="block sm:inline">(senza <span className="text-primary">farmaci</span>)</span>
           </h2>
 
           {/* Subtitle Card - Aligned to homepage design */}
           <Card className="border-none shadow-primary bg-white/50 backdrop-blur-sm mb-6 sm:mb-8 max-w-7xl mx-auto">
-            <CardContent className="p-4 sm:p-6 md:p-8 lg:p-12">
+            <CardContent className={`${designSystem.spacing.cardPadding}`}>
               {/* Opening Statement */}
-              <div className="mb-6 sm:mb-8 text-center">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
+              <div className={`${designSystem.spacing.marginSection} text-center`}>
+                <h3 className={`${designSystem.typography.h3} font-bold text-foreground ${designSystem.spacing.marginTitle} leading-tight`}>
                   NON È UNA MODA <span className="text-primary block sm:inline">È UNA SCELTA CHE ESISTE DA SEMPRE</span>
                 </h3>
               </div>              {/* Story Section */}
-              <div className="space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl text-muted-foreground">
+              <div className={`space-y-6 sm:space-y-8 ${designSystem.typography.body} text-muted-foreground`}>
                 {/* Sandow Story */}
                 <Card className="border-none bg-white/70 backdrop-blur-sm border-l-4 border-primary">
-                  <CardContent className="p-4 sm:p-6">
-                    <p className="mb-3 sm:mb-4 text-center text-sm sm:text-base lg:text-lg">
+                  <CardContent className={`${designSystem.spacing.cardPaddingSmall}`}>
+                    <p className={`${designSystem.spacing.marginCard} text-center ${designSystem.typography.small}`}>
                       Nel tardo '800, c'era un uomo che faceva il <span className="text-primary font-semibold">pienone nei teatri d'Europa</span> solo mostrando il suo fisico.
                     </p>
-                    <p className="mb-3 sm:mb-4 text-center text-lg sm:text-xl lg:text-2xl font-semibold">
+                    <p className={`${designSystem.spacing.marginCard} text-center ${designSystem.typography.h4} font-semibold`}>
                       Si chiamava <span className="text-primary">Eugene Sandow</span>.
                     </p>
-                    <p className="text-center text-sm sm:text-base lg:text-lg">
+                    <p className={`text-center ${designSystem.typography.small}`}>
                       Era <span className="font-semibold">possente, definito, armonico</span>. Il suo corpo sembrava <span className="text-primary font-semibold">scolpito nel marmo</span>, e non usava nulla, se non alimentazione basilare, bilancieri e una disciplina fuori dal comune.
                     </p>
                   </CardContent>
                 </Card>
 
                 {/* Two Column Content */}
-                <div className="grid grid-cols-1 gap-4 sm:gap-6">
-                  <Card className="border-none bg-white/80 backdrop-blur-sm hover:shadow-primary transition-all duration-300">
-                    <CardContent className="p-4 sm:p-6">
-                      <p className="mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">
+                <div className={`grid grid-cols-1 ${designSystem.spacing.gapSmall}`}>
+                  <Card className={`border-none bg-white/80 backdrop-blur-sm ${designSystem.transitions.hover}`}>
+                    <CardContent className={`${designSystem.spacing.cardPaddingSmall}`}>
+                      <p className={`${designSystem.spacing.marginCard} ${designSystem.typography.small}`}>
                         Come lui anche <span className="font-semibold">George Hackenschmidt, John Grimek, Otto Arco</span> e molte altre leggende di natural bodybuilding, prima ancora che questo termine esistesse.
                       </p>
-                      <p className="text-sm sm:text-base lg:text-lg">
+                      <p className={`${designSystem.typography.small}`}>
                         Non esistevano cicli di steroidi e non si avevano le conoscenze di alimentazione moderne. Non esistevano scorciatoie e diete drastiche.
                       </p>
                     </CardContent>
@@ -194,37 +195,35 @@ const NaturalHistorySection = () => {
         </div>
 
         {/* Historical Athletes Grid */}
-        <div className="mb-12 sm:mb-16">
+        <div className={`${designSystem.spacing.marginSection}`}>
           {/* Mobile: Horizontal Single Card Layout */}
           <div className="block sm:hidden">
-            <div className="relative group">
+            <div className={`${designSystem.slider.container}`}>
               {/* Left Arrow - Mobile */}
               <button
                 onClick={scrollLeft}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+                className={`${designSystem.slider.navigation.button} ${designSystem.slider.navigation.left}`}
                 style={{
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 <ChevronLeft
-                  className="w-5 h-5 transition-colors duration-300"
-                  style={{ color: "rgb(249, 112, 21)" }}
+                  className={`${designSystem.slider.navigation.icon}`}
                 />
               </button>
 
               {/* Right Arrow - Mobile */}
               <button
                 onClick={scrollRight}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+                className={`${designSystem.slider.navigation.button} ${designSystem.slider.navigation.right}`}
                 style={{
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 <ChevronRight
-                  className="w-5 h-5 transition-colors duration-300"
-                  style={{ color: "rgb(249, 112, 21)" }}
+                  className={`${designSystem.slider.navigation.icon}`}
                 />
               </button>
 
@@ -242,7 +241,7 @@ const NaturalHistorySection = () => {
                   {historicalAthlets.map((athlete, index) => (
                     <Card
                       key={index}
-                      className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm overflow-hidden flex-none w-[calc(100vw-2rem)] snap-center"
+                      className={`group ${designSystem.transitions.hover} border-none bg-white/50 backdrop-blur-sm overflow-hidden flex-none w-[calc(100vw-2rem)] snap-center`}
                     >
                       <div className="relative">
                         <img
@@ -250,33 +249,33 @@ const NaturalHistorySection = () => {
                           alt={athlete.name}
                           className="historical-athlete-image sepia-tone w-full h-64 object-cover object-top"
                         />
-                        <div className="absolute top-2 right-2 bg-primary/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                        <div className={`absolute top-2 right-2 bg-primary/90 text-white px-2 py-1 rounded-full ${designSystem.typography.xs} font-semibold`}>
                           {athlete.period}
                         </div>
 
                         {/* Swipe hint on first card */}
                         {index === 0 && (
-                          <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-xs text-center animate-pulse">
+                          <div className={`absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg ${designSystem.typography.xs} text-center animate-pulse`}>
                             👈 Scorri per vedere altri atleti 👉
                           </div>
                         )}
                       </div>
-                      <CardContent className="p-4">
-                        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                      <CardContent className={`${designSystem.spacing.cardPaddingSmall}`}>
+                        <h3 className={`${designSystem.typography.h4} font-bold ${designSystem.spacing.marginCard} group-hover:text-primary ${designSystem.transitions.default}`}>
                           {athlete.name}
                         </h3>
-                        <p className="text-primary font-semibold mb-3 text-xs">
+                        <p className={`text-primary font-semibold ${designSystem.spacing.marginCard} ${designSystem.typography.xs}`}>
                           {athlete.achievement}
                         </p>
-                        <p className="text-muted-foreground mb-4 text-xs leading-relaxed">
+                        <p className={`text-muted-foreground ${designSystem.spacing.marginCard} ${designSystem.typography.xs} leading-relaxed`}>
                           {athlete.description}
                         </p>
 
                         <div className="space-y-2">
-                          <h4 className="font-semibold text-xs text-foreground">Statistiche:</h4>
+                          <h4 className={`font-semibold ${designSystem.typography.xs} text-foreground`}>Statistiche:</h4>
                           <div className="grid grid-cols-1 gap-1">
                             {athlete.stats.map((stat, idx) => (
-                              <div key={idx} className="flex items-center text-xs">
+                              <div key={idx} className={`flex items-center ${designSystem.typography.xs}`}>
                                 <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                                 <span className="text-muted-foreground">{stat}</span>
                               </div>
@@ -292,7 +291,7 @@ const NaturalHistorySection = () => {
               {/* Mobile scroll indicator */}
               <div className="flex justify-center mt-4">
                 <div className="bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
-                  <p className="text-primary text-sm flex items-center font-medium">
+                  <p className={`text-primary ${designSystem.typography.small} flex items-center font-medium`}>
                     <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
                     Scorri orizzontalmente per vedere tutti i 5 atleti
                   </p>
