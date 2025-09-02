@@ -13,8 +13,10 @@ const NaturalHistorySection = () => {
 
   const scrollLeft = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = 320; // w-80 = 320px
-      const spacing = 24; // gap-6 = 24px
+      // Check if mobile (< 640px)
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 320; // Full width - padding for mobile, 320px for desktop
+      const spacing = isMobile ? 16 : 24; // gap-4 for mobile, gap-6 for desktop
       scrollContainerRef.current.scrollBy({
         left: -(cardWidth + spacing),
         behavior: "smooth",
@@ -24,8 +26,10 @@ const NaturalHistorySection = () => {
 
   const scrollRight = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = 320;
-      const spacing = 24;
+      // Check if mobile (< 640px)
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 320; // Full width - padding for mobile, 320px for desktop
+      const spacing = isMobile ? 16 : 24; // gap-4 for mobile, gap-6 for desktop
       scrollContainerRef.current.scrollBy({
         left: cardWidth + spacing,
         behavior: "smooth",
@@ -191,48 +195,166 @@ const NaturalHistorySection = () => {
 
         {/* Historical Athletes Grid */}
         <div className="mb-12 sm:mb-16">
-          {/* Mobile and Tablet: Grid Layout (up to 3 columns) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:hidden">
-            {historicalAthlets.map((athlete, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm overflow-hidden"
+          {/* Mobile: Horizontal Single Card Layout */}
+          <div className="block sm:hidden">
+            <div className="relative group">
+              {/* Left Arrow - Mobile */}
+              <button
+                onClick={scrollLeft}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+                style={{
+                  boxShadow:
+                    "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
+                }}
               >
-                <div className="relative">
-                  <img
-                    src={athlete.image}
-                    alt={athlete.name}
-                    className="historical-athlete-image sepia-tone w-full h-64 sm:h-80 lg:h-96 object-cover object-top"
-                  />
-                  <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-primary/90 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
-                    {athlete.period}
-                  </div>
-                </div>
-                <CardContent className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {athlete.name}
-                  </h3>
-                  <p className="text-primary font-semibold mb-3 text-xs sm:text-sm">
-                    {athlete.achievement}
-                  </p>
-                  <p className="text-muted-foreground mb-4 text-xs sm:text-sm leading-relaxed">
-                    {athlete.description}
-                  </p>
+                <ChevronLeft
+                  className="w-5 h-5 transition-colors duration-300"
+                  style={{ color: "rgb(249, 112, 21)" }}
+                />
+              </button>
 
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-xs sm:text-sm text-foreground">Statistiche:</h4>
-                    <div className="grid grid-cols-1 gap-1">
-                      {athlete.stats.map((stat, idx) => (
-                        <div key={idx} className="flex items-center text-xs sm:text-sm">
-                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mr-2" />
-                          <span className="text-muted-foreground">{stat}</span>
+              {/* Right Arrow - Mobile */}
+              <button
+                onClick={scrollRight}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+                style={{
+                  boxShadow:
+                    "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                <ChevronRight
+                  className="w-5 h-5 transition-colors duration-300"
+                  style={{ color: "rgb(249, 112, 21)" }}
+                />
+              </button>
+
+              {/* Mobile Scroll Container */}
+              <div
+                ref={scrollContainerRef}
+                className="overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+                style={{
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  WebkitOverflowScrolling: "touch",
+                }}
+              >
+                <div className="flex gap-4 px-4">
+                  {historicalAthlets.map((athlete, index) => (
+                    <Card
+                      key={index}
+                      className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm overflow-hidden flex-none w-[calc(100vw-2rem)] snap-center"
+                    >
+                      <div className="relative">
+                        <img
+                          src={athlete.image}
+                          alt={athlete.name}
+                          className="historical-athlete-image sepia-tone w-full h-64 object-cover object-top"
+                        />
+                        <div className="absolute top-2 right-2 bg-primary/90 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                          {athlete.period}
                         </div>
-                      ))}
+
+                        {/* Swipe hint on first card */}
+                        {index === 0 && (
+                          <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-xs text-center animate-pulse">
+                            👈 Scorri per vedere altri atleti 👉
+                          </div>
+                        )}
+                      </div>
+                      <CardContent className="p-4">
+                        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                          {athlete.name}
+                        </h3>
+                        <p className="text-primary font-semibold mb-3 text-xs">
+                          {athlete.achievement}
+                        </p>
+                        <p className="text-muted-foreground mb-4 text-xs leading-relaxed">
+                          {athlete.description}
+                        </p>
+
+                        <div className="space-y-2">
+                          <h4 className="font-semibold text-xs text-foreground">Statistiche:</h4>
+                          <div className="grid grid-cols-1 gap-1">
+                            {athlete.stats.map((stat, idx) => (
+                              <div key={idx} className="flex items-center text-xs">
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
+                                <span className="text-muted-foreground">{stat}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile scroll indicator */}
+              <div className="flex justify-center mt-4">
+                <div className="bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
+                  <p className="text-primary text-sm flex items-center font-medium">
+                    <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+                    Scorri orizzontalmente per vedere tutti i 5 atleti
+                  </p>
+                </div>
+              </div>
+
+              {/* Scroll dots indicator */}
+              <div className="flex justify-center mt-3 space-x-2">
+                {historicalAthlets.map((_, index) => (
+                  <div
+                    key={index}
+                    className="w-2 h-2 rounded-full bg-gray-300 opacity-50"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Tablet: Grid Layout (2 columns) */}
+          <div className="hidden sm:block lg:hidden">
+            <div className="grid grid-cols-2 gap-6">
+              {historicalAthlets.map((athlete, index) => (
+                <Card
+                  key={index}
+                  className="group hover:shadow-primary transition-all duration-300 hover:scale-105 border-none bg-white/50 backdrop-blur-sm overflow-hidden"
+                >
+                  <div className="relative">
+                    <img
+                      src={athlete.image}
+                      alt={athlete.name}
+                      className="historical-athlete-image sepia-tone w-full h-64 sm:h-80 object-cover object-top"
+                    />
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-primary/90 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
+                      {athlete.period}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      {athlete.name}
+                    </h3>
+                    <p className="text-primary font-semibold mb-3 text-xs sm:text-sm">
+                      {athlete.achievement}
+                    </p>
+                    <p className="text-muted-foreground mb-4 text-xs sm:text-sm leading-relaxed">
+                      {athlete.description}
+                    </p>
+
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-xs sm:text-sm text-foreground">Statistiche:</h4>
+                      <div className="grid grid-cols-1 gap-1">
+                        {athlete.stats.map((stat, idx) => (
+                          <div key={idx} className="flex items-center text-xs sm:text-sm">
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mr-2" />
+                            <span className="text-muted-foreground">{stat}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           {/* Desktop: Horizontal Scroll Layout (from lg breakpoint) */}
