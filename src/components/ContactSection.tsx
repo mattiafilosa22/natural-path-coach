@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, FileText, Users, Target, TrendingUp, Zap, Gift } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
@@ -157,16 +157,112 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-primary">Scopri</span> il tuo <span className="text-primary">allenamento ideale</span> e ricevi una <span className="text-primary">consulenza gratuita</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            La consulenza gratuita comprende:
-            - Preparazione pre-appuntamento: compilando il form accederai ad un sondaggio che mi permetterà di capire la tua situazione attuale e che ti mostrerà quali sono gli step che dovremmo intraprendere insieme e che andremo ad approfondire in consulenza
-            - Small talk iniziale con l'obiettivo di conoscerci meglio
-            - Studio approfondito della tua situazione attuale
-            - Studio della tua situazione desiderata (aspetto fisico che desideri ottenere)
-            - Valutazione del gap tra situazione attuale e desiderata
-            - Rompere lo stato di inerzia e capire come passare all'azione
-            - Proposta dell'offerta/pacchetto più adatto per raggiungere gli scopi prefissati
-          </p>
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20">
+              <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                <Gift className="h-8 w-8 text-primary" />
+                La consulenza gratuita comprende:
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <FileText className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Preparazione Pre-appuntamento</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Compilando il form accederai ad un sondaggio per capire la tua situazione attuale e gli step da intraprendere insieme
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Conoscenza Reciproca</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Small talk iniziale per conoscerci meglio e creare la base per un rapporto di fiducia
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Target className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Analisi Situazione Attuale</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Studio approfondito della tua condizione fisica, abitudini e lifestyle attuali
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Obiettivi Desiderati</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Definizione della tua situazione ideale e dell'aspetto fisico che desideri ottenere
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Target className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Valutazione del Gap</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Analisi della distanza tra situazione attuale e obiettivi per creare un piano realistico
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-primary">Piano d'Azione</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Strategie per rompere l'inerzia e proposta del pacchetto più adatto ai tuoi obiettivi
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
         </header>
 
         <div className="grid lg:grid-cols-2 gap-12">
