@@ -15,7 +15,7 @@ const HeroSection = () => {
           alt="Marco Del Moro durante un allenamento di natural bodybuilding"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            objectPosition: window.innerWidth < 768 ? 'center calc(20% + 25px)' : 'center calc(15% + 25px)',
+            objectPosition: window.innerWidth < 768 ? 'center calc(20% + 0px)' : 'center calc(15% + 25px)',
           }}
         />
       </div>
