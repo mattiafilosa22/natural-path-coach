@@ -187,13 +187,13 @@ const ContactSection = () => {
     >
       <div className="container mx-auto px-6">
         <header className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             <span className="text-primary">Scopri</span> il tuo <span className="text-primary">allenamento ideale</span> e ricevi una <span className="text-primary">consulenza gratuita</span>
           </h2>
           <div className="mb-12">
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20">
-              <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
-                <Gift className="h-8 w-8 text-primary" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                <Gift className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                 La consulenza gratuita comprende:
               </h3>
 
@@ -205,8 +205,8 @@ const ContactSection = () => {
                         <FileText className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Preparazione Pre-appuntamento</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Preparazione Pre-appuntamento</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Compilando il form accederai ad un sondaggio per capire la tua situazione attuale e gli step da intraprendere insieme
                         </p>
                       </div>
@@ -221,8 +221,8 @@ const ContactSection = () => {
                         <Users className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Conoscenza Reciproca</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Conoscenza Reciproca</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Small talk iniziale per conoscerci meglio e creare la base per un rapporto di fiducia
                         </p>
                       </div>
@@ -237,8 +237,8 @@ const ContactSection = () => {
                         <Target className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Analisi Situazione Attuale</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Analisi Situazione Attuale</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Studio approfondito della tua condizione fisica, abitudini e lifestyle attuali
                         </p>
                       </div>
@@ -253,8 +253,8 @@ const ContactSection = () => {
                         <TrendingUp className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Obiettivi Desiderati</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Obiettivi Desiderati</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Definizione della tua situazione ideale e dell'aspetto fisico che desideri ottenere
                         </p>
                       </div>
@@ -269,8 +269,8 @@ const ContactSection = () => {
                         <Target className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Valutazione del Gap</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Valutazione del Gap</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Analisi della distanza tra situazione attuale e obiettivi per creare un piano realistico
                         </p>
                       </div>
@@ -285,8 +285,8 @@ const ContactSection = () => {
                         <Zap className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 text-primary">Piano d'Azione</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Piano d'Azione</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Strategie per rompere l'inerzia e proposta del pacchetto più adatto ai tuoi obiettivi
                         </p>
                       </div>

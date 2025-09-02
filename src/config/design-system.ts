@@ -1,12 +1,13 @@
 // Sistema di design unificato per il sito
 export const designSystem = {
-  // Font sizes standardizzati
+  // Font sizes standardizzati - mobile-first responsive
   typography: {
-    h1: "text-4xl sm:text-5xl lg:text-6xl",
-    h2: "text-3xl sm:text-4xl lg:text-5xl",
-    h3: "text-xl sm:text-2xl lg:text-3xl",
-    h4: "text-lg sm:text-xl lg:text-2xl",
-    body: "text-base sm:text-lg",
+    h1: "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl",
+    h2: "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl",
+    h3: "text-xl sm:text-2xl lg:text-3xl xl:text-4xl",
+    h4: "text-lg sm:text-xl lg:text-2xl xl:text-3xl",
+    body: "text-base sm:text-lg lg:text-xl",
+    bodySmall: "text-sm sm:text-base lg:text-lg",
     small: "text-sm sm:text-base",
     xs: "text-xs sm:text-sm"
   },

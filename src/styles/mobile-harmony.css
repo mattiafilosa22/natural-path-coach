@@ -10,38 +10,91 @@
   display: none;
 }
 
-/* Consistent mobile typography fallbacks */
+/* Enhanced Mobile Typography System */
 @media (max-width: 640px) {
-  /* Ensure headings don't get too small on very small screens */
+  /* Main headings - more readable on mobile */
   h1, .h1-mobile {
-    font-size: clamp(1.875rem, 5vw, 2.25rem) !important;
+    font-size: clamp(2rem, 6vw, 2.5rem) !important;
     line-height: 1.2;
+    font-weight: 800;
   }
-  
+
   h2, .h2-mobile {
-    font-size: clamp(1.5rem, 4vw, 1.875rem) !important;
+    font-size: clamp(1.75rem, 5vw, 2rem) !important;
     line-height: 1.3;
+    font-weight: 700;
   }
-  
+
   h3, .h3-mobile {
-    font-size: clamp(1.25rem, 3.5vw, 1.5rem) !important;
+    font-size: clamp(1.375rem, 4vw, 1.625rem) !important;
     line-height: 1.4;
+    font-weight: 600;
   }
-  
-  /* Consistent body text */
-  .body-mobile {
+
+  h4, .h4-mobile {
+    font-size: clamp(1.125rem, 3.5vw, 1.375rem) !important;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  /* Body text - improved readability */
+  .body-mobile, p {
+    font-size: clamp(1rem, 3vw, 1.125rem) !important;
+    line-height: 1.7;
+  }
+
+  /* Small text - still readable */
+  .small-mobile {
     font-size: clamp(0.875rem, 2.5vw, 1rem) !important;
     line-height: 1.6;
   }
-  
-  /* Consistent small text */
-  .small-mobile {
+
+  /* Micro text */
+  .xs-mobile {
     font-size: clamp(0.75rem, 2vw, 0.875rem) !important;
     line-height: 1.5;
   }
-}
 
-/* Consistent slider navigation styles */
+  /* Button text */
+  .btn-mobile {
+    font-size: clamp(1rem, 3vw, 1.125rem) !important;
+    padding: 0.875rem 1.75rem !important;
+    min-height: 3rem !important;
+  }
+
+  /* Enhanced mobile-specific improvements */
+
+  /* Better card spacing on mobile */
+  .mobile-card-padding {
+    padding: 1.25rem !important;
+  }
+
+  /* Improved list spacing for mobile */
+  .mobile-list-spacing {
+    gap: 1rem !important;
+  }
+
+  /* Better section spacing */
+  .mobile-section-spacing {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Enhanced touch targets */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better font weights for mobile */
+  .mobile-heading-weight {
+    font-weight: 700 !important;
+  }
+
+  .mobile-body-weight {
+    font-weight: 400 !important;
+  }
+}/* Consistent slider navigation styles */
 .slider-nav-button {
   position: absolute;
   top: 50%;
@@ -85,11 +138,11 @@
     left: 0.5rem !important;
     right: 0.5rem !important;
   }
-  
+
   .slider-nav-left {
     left: 0.5rem;
   }
-  
+
   .slider-nav-right {
     right: 0.5rem;
   }
@@ -111,16 +164,16 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  
+
   .mobile-spacing-container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   .mobile-spacing-card {
     padding: 1rem;
   }
-  
+
   .mobile-spacing-gap {
     gap: 1rem;
   }

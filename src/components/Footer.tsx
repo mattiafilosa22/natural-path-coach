@@ -20,14 +20,14 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div>
-                <h3 className="text-2xl font-bold text-primary">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary">
                   Marco Del Moro PT
                 </h3>
-                <p className="text-sm text-white/60">Natural Bodybuilding Coach</p>
+                <p className="text-sm sm:text-base text-white/60">Natural Bodybuilding Coach</p>
               </div>
             </div>
 
-            <p className="text-white/80 mb-6 leading-relaxed max-w-md">
+            <p className="text-sm sm:text-base text-white/80 mb-6 leading-relaxed max-w-md">
               Personal trainer specializzato in <strong>Natural Bodybuilding</strong> e ricomposizione corporea.
               Il mio metodo <span className="text-primary font-semibold">RECOMP 365</span> ti aiuta a raggiungere
               i tuoi obiettivi in modo naturale e sostenibile.
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Contatti Rapidi */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 flex items-center gap-2">
+            <h4 className="text-base sm:text-lg font-semibold mb-6 flex items-center gap-2">
               <div className="w-1 h-6 bg-gradient-primary rounded-full"></div>
               Contatti
             </h4>
@@ -69,7 +69,7 @@ const Footer = () => {
                 <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="h-4 w-4" />
                 </div>
-                <span className="text-sm">marcodelmoropt@gmail.com</span>
+                <span className="text-xs sm:text-sm">marcodelmoropt@gmail.com</span>
               </a>
 
               <a
