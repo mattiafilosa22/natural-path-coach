@@ -74,7 +74,7 @@ export const SITE_CONFIG = {
   analytics: {
     googleAnalyticsId: '', // Aggiungi quando configurato
     googleSearchConsole: '', // Aggiungi quando configurato
-    cookiebotId: 'YOUR_COOKIEBOT_ID' // Aggiorna con l'ID reale
+    cookiebotId: '8f436788-ee94-4eaf-ac3d-91a71c9af544' // Aggiorna con l'ID reale
   }
 } as const;
 

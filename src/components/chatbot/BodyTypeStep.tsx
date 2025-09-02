@@ -3,6 +3,7 @@ import { ChatbotData } from "@/types/funnel";
 import { Gender } from "@/constants/chatbot";
 import { getBodyTypesByGender } from "@/config/bodyTypes";
 import { SecondaryButton } from "@/components/SecondaryButton";
+import { designSystem } from "@/config/design-system";
 
 interface BodyTypeStepProps {
   gender?: Gender;
@@ -16,10 +17,10 @@ export const BodyTypeStep = ({ gender, onNext, onBack }: BodyTypeStepProps) => {
   return (
     <div className="text-center space-y-8">
       <div className="space-y-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+        <h2 className={`${designSystem.typography.h3} font-bold text-gray-800`}>
           Qual è il tuo tipo di fisico?
         </h2>
-        <p className="text-base text-gray-600">
+        <p className={`${designSystem.typography.body} text-gray-600`}>
           Seleziona quello che ti rappresenta di più
         </p>
       </div>
