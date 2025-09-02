@@ -118,6 +118,17 @@ const Footer = () => {
                   Termini di Servizio
                 </a>
               </li>
+              {/* Cookie Declaration - Sarà disponibile dopo il deploy in produzione */}
+              {/* <li>
+                <a
+                  href="/cookie-declaration/"
+                  className="hover:text-primary transition-colors hover:translate-x-1 transform duration-200 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Cookie Declaration
+                </a>
+              </li> */}
               <li>
                 <button
                   onClick={showDialog}
