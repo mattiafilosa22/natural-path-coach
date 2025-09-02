@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +10,6 @@ import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -101,9 +99,6 @@ const ContactSection = () => {
       // Reset form
       setFormData({ name: "", email: "", phone: "", message: "" });
       setHoneypot(""); // Reset honeypot
-
-      // Naviga alla pagina funnel dopo l'invio
-      navigate('/funnel');
 
     } catch (error) {
       console.error('Errore nell\'invio dell\'email:', error);
