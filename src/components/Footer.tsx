@@ -4,7 +4,7 @@ import { useCookiebot } from "@/hooks/use-cookiebot";
 const Footer = () => {
   const { showDialog } = useCookiebot();
   return (
-    <footer 
+    <footer
       className="bg-foreground text-white py-12"
       role="contentinfo"
       aria-label="Informazioni del sito e link utili"
@@ -30,8 +30,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Link Utili</h4>
             <ul className="space-y-2 text-white/80" role="list">
               <li role="listitem">
-                <a 
-                  href="#services" 
+                <a
+                  href="#services"
                   className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
                   aria-label="Vai alla sezione servizi"
                 >
@@ -39,8 +39,8 @@ const Footer = () => {
                 </a>
               </li>
               <li role="listitem">
-                <a 
-                  href="#about" 
+                <a
+                  href="#about"
                   className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
                   aria-label="Vai alla sezione chi sono"
                 >
@@ -48,8 +48,8 @@ const Footer = () => {
                 </a>
               </li>
               <li role="listitem">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
                   aria-label="Vai alla sezione contatti"
                 >
@@ -57,8 +57,8 @@ const Footer = () => {
                 </a>
               </li>
               <li role="listitem">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900"
                   aria-label="Visita il blog fitness"
                 >
@@ -73,17 +73,22 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-white/80" role="list">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a href="/privacy-policy" className="hover:text-primary transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a href="/terms-of-service" className="hover:text-primary transition-colors">
                   Termini di Servizio
                 </a>
               </li>
+              {/* <li>
+                <a href="/cookie-declaration/" className="hover:text-primary transition-colors">
+                  Cookie Declaration
+                </a>
+              </li> */}
               <li>
-                <button 
+                <button
                   onClick={showDialog}
                   className="hover:text-primary transition-colors text-left"
                 >

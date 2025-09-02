@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, FileText, Users, Target, TrendingUp, Zap, Gift } from "lucide-react";
 import emailjs from '@emailjs/browser';
@@ -18,6 +19,7 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState(""); // Anti-spam honeypot
+  const [privacyConsent, setPrivacyConsent] = useState(false); // Consenso privacy GDPR
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +42,16 @@ const ContactSection = () => {
         toast({
           title: "Campi obbligatori",
           description: "Compila tutti i campi obbligatori.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Controllo consenso privacy GDPR
+      if (!privacyConsent) {
+        toast({
+          title: "Consenso privacy richiesto",
+          description: "È necessario accettare l'informativa privacy per inviare il messaggio.",
           variant: "destructive"
         });
         return;
@@ -99,6 +111,7 @@ const ContactSection = () => {
       // Reset form
       setFormData({ name: "", email: "", phone: "", message: "" });
       setHoneypot(""); // Reset honeypot
+      setPrivacyConsent(false); // Reset consenso privacy
 
       // Redirect al funnel dopo un breve delay per mostrare il toast
       setTimeout(() => {
@@ -368,6 +381,40 @@ const ContactSection = () => {
                     rows={5}
                     className="border-muted focus:border-primary resize-none"
                   />
+                </div>
+
+                {/* Consenso Privacy GDPR */}
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="privacy-consent"
+                      checked={privacyConsent}
+                      onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
+                      required
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <Label
+                        htmlFor="privacy-consent"
+                        className="text-sm font-medium leading-relaxed peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Ho letto e accetto l'
+                        <a
+                          href="/privacy-policy/"
+                          className="text-primary hover:underline font-semibold"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          informativa sulla privacy
+                        </a>
+                        <span> </span>e acconsento al trattamento dei miei dati personali per le finalità indicate. *
+                      </Label>
+                      <p className="text-xs text-muted-foreground">
+                        I tuoi dati saranno utilizzati esclusivamente per ricontattarti in merito alla tua richiesta di consulenza.
+                        Potrai esercitare i tuoi diritti (accesso, rettifica, cancellazione) contattandoci via email.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 <Button

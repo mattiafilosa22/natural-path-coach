@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cookiebot</title>
+    
+    <!-- Cookiebot Script -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f436788-ee94-4eaf-ac3d-91a71c9af544" data-blockingmode="auto" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Test Cookiebot</h1>
+    <p>Se vedi il banner, Cookiebot funziona!</p>
+    
+    <script>
+        // Test se Cookiebot si carica
+        setTimeout(() => {
+            if (window.Cookiebot) {
+                console.log('✅ Cookiebot caricato!', window.Cookiebot);
+            } else {
+                console.log('❌ Cookiebot NON caricato');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
