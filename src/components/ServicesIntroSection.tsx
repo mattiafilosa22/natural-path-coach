@@ -22,7 +22,7 @@ const ServicesIntroSection = () => (
       </div>
 
       {/* Main Content Card */}
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto">
         <Card className="border-none shadow-primary bg-white/50 backdrop-blur-sm mb-12">
           <CardContent className="p-8 md:p-8">
             <p className="mb-6 text-muted-foreground text-center text-lg">
