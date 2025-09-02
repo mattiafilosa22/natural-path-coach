@@ -100,11 +100,31 @@ const ContactSection = () => {
       setFormData({ name: "", email: "", phone: "", message: "" });
       setHoneypot(""); // Reset honeypot
 
-    } catch (error) {
+      // Redirect al funnel dopo un breve delay per mostrare il toast
+      setTimeout(() => {
+        window.location.href = '/funnel';
+      }, 2000); // 2 secondi di delay
+
+    } catch (error: unknown) {
       console.error('Errore nell\'invio dell\'email:', error);
+
+      let errorMessage = "Si è verificato un errore. Riprova più tardi o contattaci direttamente.";
+
+      // Gestione specifica per errori EmailJS
+      if (error && typeof error === 'object' && 'text' in error) {
+        const emailError = error as { text: string };
+        if (emailError.text.includes('Invalid grant') || emailError.text.includes('Gmail_API')) {
+          errorMessage = "Problema temporaneo con il servizio email. Ti preghiamo di contattarci direttamente via email o telefono.";
+        } else if (emailError.text.includes('rate limit') || emailError.text.includes('quota')) {
+          errorMessage = "Troppi messaggi inviati. Riprova più tardi o contattaci direttamente.";
+        } else if (emailError.text.includes('network') || emailError.text.includes('timeout')) {
+          errorMessage = "Problema di connessione. Verifica la tua connessione internet e riprova.";
+        }
+      }
+
       toast({
         title: "Errore nell'invio",
-        description: "Si è verificato un errore. Riprova più tardi o contattaci direttamente.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
