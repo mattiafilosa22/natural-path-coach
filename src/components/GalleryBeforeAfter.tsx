@@ -1,7 +1,18 @@
 import React, { useState, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import manFirst from "@/assets/before-after/man-first.jpg";
-import womanFirst from "@/assets/before-after/woman-first.jpg";
+import { designSystem } from "@/config/design-system";
+import mirkoFront from "@/assets/before-after/mirko.jpg";
+import alessandra from "@/assets/before-after/alessandra.jpg";
+import andrea from "@/assets/before-after/andrea.jpg";
+import diego from "@/assets/before-after/diego.jpg";
+import enrico from "@/assets/before-after/enrico.jpg";
+import gabriel from "@/assets/before-after/gabriel.jpg";
+import giulia from "@/assets/before-after/giulia.jpg";
+import matteo from "@/assets/before-after/matteo.jpg";
+import mirkoBack from "@/assets/before-after/mirko-back.jpg";
+import tommaso from "@/assets/before-after/tommaso.jpg";
+import giuliaT from "@/assets/before-after/giulia-t.jpg";
+import mirkoNewBack from '@/assets/before-after/mirko-new-back.jpg';
 
 interface Transformation {
   id: number;
@@ -21,46 +32,88 @@ const GalleryBeforeAfter: React.FC = () => {
   const transformations: Transformation[] = [
     {
       id: 1,
-      image: manFirst,
-      description: "Trasformazione straordinaria in 4 mesi",
-      timeframe: "4 mesi",
-      details: "Perdita di 15kg e guadagno massa muscolare",
+      image: matteo,
+      description: "Matteo",
+      timeframe: "18 mesi",
+      details: "",
     },
     {
       id: 2,
-      image: womanFirst,
-      description: "Risultati incredibili in 6 mesi",
+      image: mirkoFront,
+      description: "Mirko",
       timeframe: "6 mesi",
-      details: "Definizione muscolare e tonificazione completa",
+      details: "",
     },
     {
       id: 3,
-      image: manFirst,
-      description: "Cambio radicale in 3 mesi",
-      timeframe: "3 mesi",
-      details: "Perdita di 12kg e miglioramento posturale",
+      image: alessandra,
+      description: "Alessandra",
+      timeframe: "12 mesi",
+      details: "",
     },
     {
       id: 4,
-      image: womanFirst,
-      description: "Trasformazione completa in 8 mesi",
-      timeframe: "8 mesi",
-      details: "Ricomposizione corporea totale",
+      image: giulia,
+      description: "Giulia",
+      timeframe: "12 mesi",
+      details: "",
     },
     {
       id: 5,
-      image: manFirst,
-      description: "Risultati visibili in 5 mesi",
-      timeframe: "5 mesi",
-      details: "Aumento massa magra e definizione",
+      image: mirkoBack,
+      description: "Mirko",
+      timeframe: "6 mesi",
+      details: "",
     },
     {
       id: 6,
-      image: womanFirst,
-      description: "Cambiamento incredibile in 7 mesi",
-      timeframe: "7 mesi",
-      details: "Perdita di 20kg e tonificazione muscolare",
+      image: gabriel,
+      description: "Gabriel",
+      timeframe: "36 mesi",
+      details: "",
     },
+    {
+      id: 7,
+      image: diego,
+      description: "Diego",
+      timeframe: "3 mesi",
+      details: "",
+    },
+    {
+      id: 8,
+      image: enrico,
+      description: "Enrico",
+      timeframe: "8 mesi",
+      details: "",
+    },
+    {
+      id: 9,
+      image: giuliaT,
+      description: "Giulia",
+      timeframe: "5 mesi",
+      details: "",
+    },
+    {
+      id: 10,
+      image: tommaso,
+      description: "Tommaso",
+      timeframe: "3 mesi",
+      details: "",
+    },
+    {
+      id: 11,
+      image: andrea,
+      description: "Andrea",
+      timeframe: "8 mesi",
+      details: "",
+    },
+    {
+      id: 12,
+      image: mirkoNewBack,
+      description: "Mirko",
+      timeframe: "3 mesi",
+      details: "",
+    }
   ];
 
   const openModal = (index: number): void => {
@@ -87,8 +140,9 @@ const GalleryBeforeAfter: React.FC = () => {
 
   const scrollLeft = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = window.innerWidth < 768 ? 320 : 384; // w-80 = 320px, w-96 = 384px
-      const spacing = 24; // space-x-6 = 24px
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 384; // Mobile: full width - padding, Desktop: w-96
+      const spacing = 24; // Standard spacing from design system
       scrollContainerRef.current.scrollBy({
         left: -(cardWidth + spacing),
         behavior: "smooth",
@@ -98,7 +152,8 @@ const GalleryBeforeAfter: React.FC = () => {
 
   const scrollRight = (): void => {
     if (scrollContainerRef.current) {
-      const cardWidth = window.innerWidth < 768 ? 320 : 384;
+      const isMobile = window.innerWidth < 640;
+      const cardWidth = isMobile ? window.innerWidth - 32 : 384;
       const spacing = 24;
       scrollContainerRef.current.scrollBy({
         left: cardWidth + spacing,
@@ -109,38 +164,39 @@ const GalleryBeforeAfter: React.FC = () => {
 
   return (
     <section
-      className="min-h-full bg-white py-12 px-4 mb-24"
+      className={`min-h-full bg-white ${designSystem.spacing.section} px-4 sm:px-6`}
       aria-label="Galleria trasformazioni clienti"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="text-center mb-12">
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "rgb(249, 112, 21)" }}
-          >
-            Trasformazioni dei Nostri Clienti
+        <header className="text-center mb-12 sm:mb-16">
+          <h2 className={`${designSystem.typography.h2} font-bold ${designSystem.spacing.marginCard}`}>
+            <span className="text-primary">Non ti fidi? </span>
+            <span className={`${designSystem.typography.h2} font-bold ${designSystem.spacing.marginCard}`}>
+              Guarda i risultati
+            </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Scopri i risultati straordinari ottenuti dai nostri clienti grazie a
-            programmi di allenamento personalizzati
+          <p className={`text-gray-600 ${designSystem.typography.body} max-w-2xl mx-auto`}>
+            Qui sotto trovi i cambiamenti reali di chi ha seguito questo metodo.
+            <br />
+            Corpi scolpiti vite cambiate. <br />
+            Tutto senza doping! <br /> Tutto raggiungibile anche per te!
           </p>
         </header>
 
         {/* Horizontal Scrolling Gallery with Navigation Arrows */}
-        <div className="relative group">
+        <div className={`${designSystem.slider.container}`}>
           {/* Left Arrow */}
           <button
             onClick={scrollLeft}
-            className="absolute left-4 top-40 transform -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95"
+            className={`${designSystem.slider.navigation.button} ${designSystem.slider.navigation.left} top-40`}
             style={{
               boxShadow:
                 "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
             <ChevronLeft
-              className="w-6 h-6 transition-colors duration-300"
-              style={{ color: "rgb(249, 112, 21)" }}
+              className={`${designSystem.slider.navigation.icon}`}
             />
           </button>
 

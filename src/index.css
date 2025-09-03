@@ -318,6 +318,36 @@ All colors MUST be HSL.
     top: 6px;
   }
 
+  /* Enhanced list with icons styling */
+  .icon-list-item {
+    @apply flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .icon-list-icon {
+    @apply w-12 h-12 bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center flex-shrink-0 shadow-lg;
+  }
+
+  .icon-list-icon:hover {
+    @apply scale-110 transition-transform duration-300;
+  }
+
+  .icon-list-text {
+    @apply text-foreground font-medium text-sm leading-relaxed pt-1;
+  }
+
+  /* Mobile responsive icon list */
+  @media (min-width: 640px) {
+    .icon-list-text {
+      @apply text-base;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .icon-list-text {
+      @apply text-lg;
+    }
+  }
+
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     * {

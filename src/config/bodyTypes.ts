@@ -2,8 +2,8 @@
 
 import mesomorphMale from "@/assets/body-types/mesomorph-male.jpg";
 import skinnyFatMale from "@/assets/body-types/skinny-fat-male.jpg";
-import gynoidFemale from "@/assets/body-types/gynoid-female.jpg";
-import androidFemale from "@/assets/body-types/gynoid-female.jpg";
+import gynoidFemale from "@/assets/body-types/ginoide.jpg";
+import androidFemale from "@/assets/body-types/androide.jpg";
 import endomorphMale from "@/assets/body-types/endomorfo.png";
 import ectomorphMale from "@/assets/body-types/ectomorph.png";
 import { BodyTypeMale, BodyTypeFemale, Gender } from "@/constants/chatbot";

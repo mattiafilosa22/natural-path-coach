@@ -1,3 +1,4 @@
+import { designSystem } from "@/config/design-system";
 import manBefore from "@/assets/man-before.jpg";
 import manAfter from "@/assets/man-after.jpg";
 import womanBefore from "@/assets/woman-before.jpg";
@@ -13,7 +14,7 @@ export const TransformationGallery = () => {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex gap-4 pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:max-w-2xl sm:mx-auto sm:justify-center">
+      <div className={`flex ${designSystem.spacing.gapSmall} pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:max-w-2xl sm:mx-auto sm:justify-center`}>
         {transformations.map((transformation, index) => {
           const bannerClass =
             transformation?.text === "Prima"
@@ -29,13 +30,13 @@ export const TransformationGallery = () => {
                 />
 
                 <div
-                  className={`absolute top-2 left-2 ${bannerClass} text-white px-2 py-1 rounded text-xs font-semibold`}
+                  className={`absolute top-2 left-2 ${bannerClass} text-white px-2 py-1 rounded ${designSystem.typography.xs} font-semibold`}
                 >
                   {transformation.text}
                 </div>
               </div>
               <div>
-                <p className="text-white">{transformation.description}</p>
+                <p className={`text-white ${designSystem.typography.small}`}>{transformation.description}</p>
               </div>
             </div>
           );

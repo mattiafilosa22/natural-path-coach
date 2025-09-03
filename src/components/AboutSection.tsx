@@ -27,12 +27,12 @@ const AboutSection = () => {
           {/* Left Content */}
           <div>
             <header>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 Ecco chi <span className="text-primary">sono</span> e perché puoi <span className="text-primary">ascoltarmi</span>
               </h2>
             </header>
 
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed">
 Mi chiamo Marco Del Moro, sono un personal trainer e praticante di natural bodybuilding.<br /> Cosa significa? Semplice: costruzione del corpo senza scorciatoie.<br />
 - Gli uomini diventano muscolosi e armonici, senza sembrare "gonfi"<br />
 - Le donne diventano toniche, sode e femminili, senza diventare "mascoline"
@@ -50,18 +50,20 @@ Mi chiamo Marco Del Moro, sono un personal trainer e praticante di natural bodyb
             </p> */}
 
             {/* Qualifications */}
-            <div className="space-y-4 mb-8" role="list" aria-label="Qualificazioni professionali">
+            <div className="space-y-6 mb-8" role="list" aria-label="Qualificazioni professionali">
               {qualifications.map((qual, index) => (
-                <div key={index} className="flex items-center" role="listitem">
-                  <div
-                    className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4"
-                    aria-hidden="true"
-                  >
-                    <qual.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                <div key={index} className="group" role="listitem">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+                    <div
+                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      aria-hidden="true"
+                    >
+                      <qual.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    <span className="text-foreground font-medium text-sm sm:text-base lg:text-lg leading-relaxed pt-1">
+                      {qual.text}
+                    </span>
                   </div>
-                  <span className="text-foreground font-medium">
-                    {qual.text}
-                  </span>
                 </div>
               ))}
             </div>
@@ -72,10 +74,17 @@ Mi chiamo Marco Del Moro, sono un personal trainer e praticante di natural bodyb
               className="px-8 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <a
-                href="/funnel"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#natural-history"
                 aria-label="Inizia il Percorso RECOMP 365 (si apre in una nuova finestra)"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.getElementById("natural-history");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    // Focus management per accessibilità
+                    el.focus();
+                  }
+                }}
               >
                 Il Percorso RECOMP 365
               </a>

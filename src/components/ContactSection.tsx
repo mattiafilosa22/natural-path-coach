@@ -4,8 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, FileText, Users, Target, TrendingUp, Zap, Gift } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
@@ -18,6 +19,7 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState(""); // Anti-spam honeypot
+  const [privacyConsent, setPrivacyConsent] = useState(false); // Consenso privacy GDPR
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +42,16 @@ const ContactSection = () => {
         toast({
           title: "Campi obbligatori",
           description: "Compila tutti i campi obbligatori.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Controllo consenso privacy GDPR
+      if (!privacyConsent) {
+        toast({
+          title: "Consenso privacy richiesto",
+          description: "È necessario accettare l'informativa privacy per inviare il messaggio.",
           variant: "destructive"
         });
         return;
@@ -99,12 +111,33 @@ const ContactSection = () => {
       // Reset form
       setFormData({ name: "", email: "", phone: "", message: "" });
       setHoneypot(""); // Reset honeypot
+      setPrivacyConsent(false); // Reset consenso privacy
 
-    } catch (error) {
+      // Redirect al funnel dopo un breve delay per mostrare il toast
+      setTimeout(() => {
+        window.location.href = '/funnel';
+      }, 2000); // 2 secondi di delay
+
+    } catch (error: unknown) {
       console.error('Errore nell\'invio dell\'email:', error);
+
+      let errorMessage = "Si è verificato un errore. Riprova più tardi o contattaci direttamente.";
+
+      // Gestione specifica per errori EmailJS
+      if (error && typeof error === 'object' && 'text' in error) {
+        const emailError = error as { text: string };
+        if (emailError.text.includes('Invalid grant') || emailError.text.includes('Gmail_API')) {
+          errorMessage = "Problema temporaneo con il servizio email. Ti preghiamo di contattarci direttamente via email o telefono.";
+        } else if (emailError.text.includes('rate limit') || emailError.text.includes('quota')) {
+          errorMessage = "Troppi messaggi inviati. Riprova più tardi o contattaci direttamente.";
+        } else if (emailError.text.includes('network') || emailError.text.includes('timeout')) {
+          errorMessage = "Problema di connessione. Verifica la tua connessione internet e riprova.";
+        }
+      }
+
       toast({
         title: "Errore nell'invio",
-        description: "Si è verificato un errore. Riprova più tardi o contattaci direttamente.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
@@ -123,8 +156,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "marco@personaltrainer.com",
-      action: "mailto:marco@personaltrainer.com"
+      content: "marcodelmoropt@gmail.com",
+      action: "mailto:marcodelmoropt@gmail.com"
     },
     {
       icon: Phone,
@@ -135,7 +168,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Palestra",
-      content: "FM Fitness, Viale Giovanni Amendola, 12, 57025 Piombino LI",
+      content: "FM Fitness, Viale Giovanni Amendola 12, 57025 Piombino LI",
       action: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x12d623cd78127ec3:0x40abbeadb2278cb3?sa=X&ved=1t:8290&ictx=111"
     },
     {
@@ -147,20 +180,122 @@ const ContactSection = () => {
   ];
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="py-20 bg-secondary/30"
       aria-label="Sezione contatti"
     >
       <div className="container mx-auto px-6">
         <header className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Inizia la Tua <span className="text-primary">Trasformazione</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-primary">Scopri</span> il tuo <span className="text-primary">allenamento ideale</span> e ricevi una <span className="text-primary">consulenza gratuita</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pronto a raggiungere i tuoi obiettivi? Contattami per una consulenza gratuita
-            e iniziamo insieme il tuo percorso verso una vita più sana.
-          </p>
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                <Gift className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+                La consulenza gratuita comprende:
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <FileText className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Preparazione Pre-appuntamento</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Compilando il form accederai ad un sondaggio per capire la tua situazione attuale e gli step da intraprendere insieme
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Conoscenza Reciproca</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Small talk iniziale per conoscerci meglio e creare la base per un rapporto di fiducia
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Target className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Analisi Situazione Attuale</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Studio approfondito della tua condizione fisica, abitudini e lifestyle attuali
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Obiettivi Desiderati</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Definizione della tua situazione ideale e dell'aspetto fisico che desideri ottenere
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Target className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Valutazione del Gap</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Analisi della distanza tra situazione attuale e obiettivi per creare un piano realistico
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-none bg-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <Zap className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-base sm:text-lg mb-2 text-primary">Piano d'Azione</h4>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                          Strategie per rompere l'inerzia e proposta del pacchetto più adatto ai tuoi obiettivi
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
         </header>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -172,8 +307,8 @@ const ContactSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form 
-                onSubmit={handleSubmit} 
+              <form
+                onSubmit={handleSubmit}
                 className="space-y-6"
                 aria-label="Modulo richiesta consulenza gratuita"
                 noValidate
@@ -248,6 +383,40 @@ const ContactSection = () => {
                   />
                 </div>
 
+                {/* Consenso Privacy GDPR */}
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="privacy-consent"
+                      checked={privacyConsent}
+                      onCheckedChange={(checked) => setPrivacyConsent(checked as boolean)}
+                      required
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <Label
+                        htmlFor="privacy-consent"
+                        className="text-sm font-medium leading-relaxed peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Ho letto e accetto l'
+                        <a
+                          href="/privacy-policy/"
+                          className="text-primary hover:underline font-semibold"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          informativa sulla privacy
+                        </a>
+                        <span> </span>e acconsento al trattamento dei miei dati personali per le finalità indicate. *
+                      </Label>
+                      <p className="text-xs text-muted-foreground">
+                        I tuoi dati saranno utilizzati esclusivamente per ricontattarti in merito alla tua richiesta di consulenza.
+                        Potrai esercitare i tuoi diritti (accesso, rettifica, cancellazione) contattandoci via email.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <Button
                   type="submit"
                   variant="hero"
@@ -257,9 +426,9 @@ const ContactSection = () => {
                   {isSubmitting ? "Invio in corso..." : "Invia Richiesta"}
                 </Button>
 
-                <p className="text-sm text-muted-foreground text-center">
+                {/* <p className="text-sm text-muted-foreground text-center">
                   Ti ricontatterò entro 24 ore per fissare la tua consulenza gratuita
-                </p>
+                </p> */}
               </form>
             </CardContent>
           </Card>
@@ -304,27 +473,7 @@ const ContactSection = () => {
 
           </div>
         </div>
-        <div className="mt-12">
-          <Card className="border-none bg-gradient-primary text-white w-full">
-            <CardContent className="p-8 text-center">
-              <h4 className="text-2xl font-bold mb-4">
-                Prima Consulenza Gratuita!
-              </h4>
-              <p className="mb-6 opacity-90">
-                Valuteremo insieme i tuoi obiettivi e creeremo il piano perfetto per te.
-              </p>
-                <Button
-                asChild
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary text-primary-glow"
-                >
-                <a href="/funnel" target="_blank">
-                  Prenota Ora
-                </a>
-                </Button>
-            </CardContent>
-          </Card>
-        </div>
+
       </div>
     </section>
   );

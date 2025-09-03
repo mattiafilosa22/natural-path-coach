@@ -5,7 +5,7 @@ import "../App.css";
 const services = [
   {
     icon: Dumbbell,
-    title: "Personal Training 1:1",
+    title: "Coaching tecnico personalizzato",
     description: "Allenamenti individuali per chi cerca la massima attenzione e vuole accelerare i risultati.",
     features: [
       "Programmazione 100% Natural Bodybuilding",
@@ -28,7 +28,7 @@ const services = [
   },
   {
     icon: Users,
-    title: "Small Group Training",
+    title: "Personal & Small Group Training",
     description: "L'energia del gruppo unita all'attenzione del coach per un allenamento motivante.",
     features: [
       "Costi contenuti, risultati elevati",
@@ -59,8 +59,8 @@ const Recomp365Section = () => (
   >
     <div className="container mx-auto px-6">
       <header className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-6">
-          Il metodo: <span className="text-primary">RECOMP 365</span> ricomposizione naturale
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 mt-6">
+          Il mio metodo: <span className="text-primary">RECOMP 365</span> Ricomposizione naturale
         </h2>
       </header>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
@@ -79,18 +79,18 @@ const Recomp365Section = () => (
               >
                 <service.icon className="h-8 w-8 text-white" aria-hidden="true" />
               </div>
-              <CardTitle className="services-title-card text-xl group-hover:text-primary transition-colors">
+              <CardTitle className="services-title-card text-lg sm:text-xl group-hover:text-primary transition-colors">
                 {service.title}
               </CardTitle>
-              <CardDescription className="text-base services-description-card">
+              <CardDescription className="text-sm sm:text-base services-description-card leading-relaxed">
                 {service.description}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2" role="list" aria-label={`Caratteristiche ${service.title}`}>
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-muted-foreground" role="listitem">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-3" aria-hidden="true" />
+                  <li key={idx} className="flex items-center text-xs sm:text-sm text-muted-foreground leading-relaxed" role="listitem">
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" aria-hidden="true" />
                     {feature}
                   </li>
                 ))}

@@ -5,6 +5,7 @@ import "../App.css";
 
 const ServicesIntroSection = () => (
   <section
+    id="services-intro"
     className="pt-20 pb-0 bg-secondary/30"
     aria-label="Introduzione servizi personal training"
   >
@@ -15,25 +16,25 @@ const ServicesIntroSection = () => (
           {/* <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-glow">
             <Sparkles className="h-8 w-8 text-white" aria-hidden="true" />
           </div> */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             C'era una volta... <span className="text-primary">Un mondo senza doping</span>
           </h2>
         </div>
       </div>
 
       {/* Main Content Card */}
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto">
         <Card className="border-none shadow-primary bg-white/50 backdrop-blur-sm mb-12">
           <CardContent className="p-8 md:p-8">
-            <p className="mb-6 text-muted-foreground text-center text-lg">
+            <p className="mb-6 text-muted-foreground text-center text-base sm:text-lg leading-relaxed">
               Se questo sei tu continua a leggere: <span className="font-semibold">hai tra i 18 e 50 anni</span>. Hai già provato palestra, dieta, motivazione.<br />
               ma ogni volta, qualcosa si spezza: ti blocchi, molli, i risultati non arrivano.<br />
               E ti sembra di fare tutto "giusto" ma il tuo corpo resta fermo.<br />
-              <span className="font-bold text-primary text-2xl block mt-4 mb-2">LA VERITÀ?</span>
+              <span className="font-bold text-primary text-xl sm:text-2xl block mt-4 mb-2">LA VERITÀ?</span>
               <span className="font-semibold text-foreground">Il problema non sei tu.</span><br />
-              Il problema è che ti manca un metodo pensato pe                                                     r te. Il tuo corpo e il tuo stile di vita.
+              Il problema è che ti manca un metodo pensato per te. Il tuo corpo e il tuo stile di vita.
             </p>
-            <p className="mb-8 text-muted-foreground text-center font-medium text-lg">
+            <p className="mb-8 text-muted-foreground text-center font-medium text-base sm:text-lg leading-relaxed">
               Un metodo <span className="text-primary font-bold">naturale, sano, sostenibile</span>, progettato per funzionare nel tempo, senza effetto yo-yo, senza frustazione, senza rischi per la tua salute.
             </p>
 
@@ -44,7 +45,7 @@ const ServicesIntroSection = () => (
                   <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mb-2">
                     <AlertTriangle className="h-6 w-6 text-white" />
                   </div>
-                  <span className="font-bold text-primary text-xl block text-center">
+                  <span className="font-bold text-primary text-lg sm:text-xl block text-center">
                     PRIMA DI RICHIEDERE UN CHECK-UP GRATUITO ECCO COSA DEVI SAPERE:
                   </span>
                 </div>
