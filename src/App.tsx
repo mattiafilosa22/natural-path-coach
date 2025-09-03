@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookiebotManager } from "@/components/CookiebotManager";
 import BasicAuth from "@/components/BasicAuth";
 import { AUTH_CONFIG } from "@/config/auth";
+import { SITE_CONFIG } from "@/config/site";
 import { useWebVitals } from "@/hooks/use-web-vitals";
 import Funnel from "./pages/Funnel";
 import NotFound from "./pages/NotFound";
@@ -28,10 +29,27 @@ const AppRoutes = () => (
   </BrowserRouter>
 );
 
+
 const App = () => {
   // Monitor Web Vitals for SEO
   useWebVitals();
 
+  // Se siamo in produzione, mostra Coming Soon senza autenticazione
+  if (SITE_CONFIG.environment === 'production') {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <CookiebotManager>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <AppRoutes />
+          </TooltipProvider>
+        </CookiebotManager>
+      </QueryClientProvider>
+    );
+  }
+
+  // Per development e test, usa la logica normale con possibile autenticazione
   return (
     <QueryClientProvider client={queryClient}>
       <CookiebotManager>

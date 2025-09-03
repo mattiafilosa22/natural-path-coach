@@ -8,6 +8,7 @@ import { ChatbotContainer } from "@/components/chatbot/ChatbotContainer";
 import { ResultStep } from "@/components/steps/ResultStep";
 import { ThankYouStep } from "@/components/steps/ThankYouStep";
 import SEOMeta from "@/components/SEOMeta";
+import { SITE_CONFIG } from "@/config/site";
 import AccessibleBreadcrumb from "@/components/AccessibleBreadcrumb";
 
 const Funnel = () => {
@@ -132,7 +133,7 @@ const Funnel = () => {
       <SEOMeta
         title={`${currentStep === 'hook' ? 'Scopri il Metodo RECOMP 365' : currentStep === 'targeting' ? 'Identifica i Tuoi Obiettivi' : 'Il Tuo Percorso di Trasformazione'} - Natural Path Coach`}
         description={`${currentStep === 'hook' ? 'Scopri il metodo rivoluzionario per trasformare il tuo corpo naturalmente' : currentStep === 'targeting' ? 'Identifica i tuoi obiettivi di fitness e trasformazione corporea' : 'Inizia il tuo percorso di trasformazione con il metodo RECOMP 365'}`}
-        canonicalUrl={`https://marco-del-moro-personal-trainer.it/funnel`}
+        canonicalUrl={`${SITE_CONFIG.url}/funnel`}
       />
       <main role="main">
         <BackgroundLayout imagePosition="center 20%">
