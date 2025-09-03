@@ -74,10 +74,17 @@ Mi chiamo Marco Del Moro, sono un personal trainer e praticante di natural bodyb
               className="px-8 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <a
-                href="/funnel"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#natural-history"
                 aria-label="Inizia il Percorso RECOMP 365 (si apre in una nuova finestra)"
+                onClick={e => {
+                  e.preventDefault();
+                  const el = document.getElementById("natural-history");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    // Focus management per accessibilità
+                    el.focus();
+                  }
+                }}
               >
                 Il Percorso RECOMP 365
               </a>

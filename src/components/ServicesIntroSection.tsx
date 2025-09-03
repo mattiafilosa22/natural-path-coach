@@ -5,6 +5,7 @@ import "../App.css";
 
 const ServicesIntroSection = () => (
   <section
+    id="services-intro"
     className="pt-20 pb-0 bg-secondary/30"
     aria-label="Introduzione servizi personal training"
   >
