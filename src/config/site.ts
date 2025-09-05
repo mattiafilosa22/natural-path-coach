@@ -23,8 +23,8 @@ export const SITE_CONFIG = {
   allowIndexing: getEnvBoolean('VITE_ALLOW_INDEXING', true),
 
   // Informazioni base del sito
-  name: getEnvValue('VITE_APP_NAME', 'Marco Del Moro - Natural Path Coach'),
-  shortName: 'Natural Path Coach',
+  name: getEnvValue('VITE_APP_NAME', 'Marco Del Moro - Natural Personal Trainer'),
+  shortName: 'Natural Personal Trainer',
   description: 'Personal Trainer specializzato in Natural Bodybuilding. Metodo RECOMP 365 per trasformazioni corporee naturali e sostenibili. Consulenza personalizzata a Piombino.',
   keywords: 'personal trainer piombino, natural bodybuilding livorno, trasformazione corporea toscana, allenamento personalizzato piombino, fitness naturale livorno, ricomposizione corporea, marco del moro',
 
