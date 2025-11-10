@@ -11,7 +11,7 @@ const AboutSection = () => {
   ];
 
   const qualifications = [
-    { icon: Award, text: "Certificazione Natural Bodybuilding riconosciuto da MSP Italia, Coni e regolamentati dallo SNAQ (Sistema nazionale di tecnici sportivi" },
+    { icon: Award, text: "Certificazione Natural Bodybuilding riconosciuto da MSP Italia, Coni e regolamentati dallo SNAQ (Sistema nazionale di tecnici sportivi)" },
     { icon: Heart, text: "Studente bachelor of science in Strength and conditioning (preparazione atletica)" },
     { icon: Zap, text: "Formazione presso Società sportive di elité" },
   ];
