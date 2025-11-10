@@ -21,7 +21,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({
 
   return (
     <section
-      id="about"
+      id="video-section"
       className="py-20"
       aria-label="Chi è Marco Del Moro"
     >
