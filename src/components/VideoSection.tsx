@@ -1,50 +1,96 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { Play } from "lucide-react";
+import mainVideo from "../assets/videos/main-video.mp4";
 
 type VideoSectionProps = {
-  videoId?: string;
+  videoSrc?: string;
   title?: string;
   className?: string;
-  lazy?: boolean;
 };
 
 /**
- * VideoSection: contiene un iframe YouTube responsive (16:9).
- * Usage: <VideoSection videoId="M7lc1UVf-VE" title="Titolo video" />
+ * VideoSection: contiene un video verticale responsive (9:16).
+ * Usage: <VideoSection title="Titolo video" />
  */
 const VideoSection: React.FC<VideoSectionProps> = ({
-  videoId = "mpL7e0_jLXQ?si=DEKfAOSibyMievL_",
-  title = "Video YouTube",
+  videoSrc = mainVideo,
+  title = "Video presentazione",
   className = "",
-  lazy = true,
 }) => {
-  const iframeSrc = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
+  };
+
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+  };
 
   return (
     <section
       id="video-section"
-      className="py-20"
+      className="py-8 md:py-20"
       aria-label="Chi è Marco Del Moro"
     >
       <div className="container mx-auto px-6">
-      {/* Wrapper per mantenere il rapporto 16:9 */}
-      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-        <iframe
-          title={title}
-          src={iframeSrc}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            border: 0,
-          }}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          loading={lazy ? "lazy" : undefined}
-        />
-      </div>
+        {/* Wrapper per mantenere il rapporto 9:16 (video verticale) */}
+        <div className="flex justify-center">
+          <div
+            className="relative w-full md:max-w-[500px]"
+            style={{
+              height: "90vh",
+              maxHeight: "90vh"
+            }}
+          >
+            <div className="relative w-full h-full bg-black">
+              <video
+                ref={videoRef}
+                title={title}
+                src={videoSrc}
+                controls
+                onPlay={handleVideoPlay}
+                onPause={handleVideoPause}
+                onClick={handleVideoClick}
+                className="w-full h-full object-cover md:object-contain cursor-pointer"
+                aria-label={title}
+              >
+                Il tuo browser non supporta il tag video.
+              </video>
+
+              {/* Icona Play personalizzata */}
+              {!isPlaying && (
+                <button
+                  onClick={handlePlayClick}
+                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
+                  aria-label="Riproduci video"
+                >
+                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <Play className="w-12 h-12 md:w-16 md:h-16 text-black ml-2" fill="currentColor" />
+                  </div>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
