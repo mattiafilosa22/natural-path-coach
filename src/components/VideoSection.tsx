@@ -76,15 +76,15 @@ const VideoSection: React.FC<VideoSectionProps> = ({
                 Il tuo browser non supporta il tag video.
               </video>
 
-              {/* Icona Play personalizzata */}
+              {/* Icona Play personalizzata - solo su desktop */}
               {!isPlaying && (
                 <button
                   onClick={handlePlayClick}
-                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
+                  className="hidden md:flex absolute inset-0 items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer group"
                   aria-label="Riproduci video"
                 >
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <Play className="w-12 h-12 md:w-16 md:h-16 text-black ml-2" fill="currentColor" />
+                  <div className="w-32 h-32 rounded-full bg-white/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <Play className="w-16 h-16 text-black ml-2" fill="currentColor" />
                   </div>
                 </button>
               )}
