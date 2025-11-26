@@ -51,7 +51,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({
       className="py-8 md:py-20"
       aria-label="Chi è Marco Del Moro"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-2 md:px-6">
         {/* Wrapper per mantenere il rapporto 9:16 (video verticale) */}
         <div className="flex justify-center">
           <div
