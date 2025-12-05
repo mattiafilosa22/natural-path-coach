@@ -18,12 +18,12 @@ const Funnel = () => {
   // SEO meta data for funnel page
   useEffect(() => {
     const stepTitles = {
-      hook: 'Scopri il Metodo RECOMP 365 - Natural Path Coach',
-      targeting: 'Identifica i Tuoi Obiettivi - Natural Path Coach',
-      promise: 'Il Tuo Percorso di Trasformazione - Natural Path Coach',
-      chatbot: 'Consulenza Personalizzata - Natural Path Coach',
-      result: 'Il Tuo Piano Personalizzato - Natural Path Coach',
-      thankyou: 'Grazie per la Fiducia - Natural Path Coach'
+      hook: 'Scopri il Metodo RECOMP 365',
+      targeting: 'Identifica i Tuoi Obiettivi',
+      promise: 'Il Tuo Percorso di Trasformazione',
+      chatbot: 'Consulenza Personalizzata',
+      result: 'Il Tuo Piano Personalizzato',
+      thankyou: 'Grazie per la Fiducia'
     };
 
     document.title = stepTitles[currentStep];
@@ -113,7 +113,7 @@ const Funnel = () => {
     return (
       <>
         <SEOMeta
-          title={`${currentStep === 'chatbot' ? 'Consulenza Personalizzata' : currentStep === 'result' ? 'Il Tuo Piano Personalizzato' : 'Grazie per la Fiducia'} - Natural Path Coach`}
+          title={`${currentStep === 'chatbot' ? 'Consulenza Personalizzata' : currentStep === 'result' ? 'Il Tuo Piano Personalizzato' : 'Grazie per la Fiducia'}`}
           description={`${currentStep === 'chatbot' ? 'Rispondi a poche domande per ricevere una consulenza personalizzata' : currentStep === 'result' ? 'Ecco il tuo piano di allenamento personalizzato' : 'Grazie per aver scelto il metodo RECOMP 365'}`}
           noindex={true}
         />
@@ -131,7 +131,7 @@ const Funnel = () => {
   return (
     <>
       <SEOMeta
-        title={`${currentStep === 'hook' ? 'Scopri il Metodo RECOMP 365' : currentStep === 'targeting' ? 'Identifica i Tuoi Obiettivi' : 'Il Tuo Percorso di Trasformazione'} - Natural Path Coach`}
+        title={`${currentStep === 'hook' ? 'Scopri il Metodo RECOMP 365' : currentStep === 'targeting' ? 'Identifica i Tuoi Obiettivi' : 'Il Tuo Percorso di Trasformazione'}`}
         description={`${currentStep === 'hook' ? 'Scopri il metodo rivoluzionario per trasformare il tuo corpo naturalmente' : currentStep === 'targeting' ? 'Identifica i tuoi obiettivi di fitness e trasformazione corporea' : 'Inizia il tuo percorso di trasformazione con il metodo RECOMP 365'}`}
         canonicalUrl={`${SITE_CONFIG.url}/funnel`}
       />

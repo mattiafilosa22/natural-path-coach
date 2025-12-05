@@ -8,6 +8,7 @@ import SEOMeta from "@/components/SEOMeta";
 import { SITE_CONFIG, generateBusinessSchema, getImageUrl } from "@/config/site";
 import ServicesIntroSection from "@/components/ServicesIntroSection";
 import Recomp365Section from "@/components/Recomp365Section";
+import VideoSection from "@/components/VideoSection";
 
 const Index = () => {
   // Usa la configurazione centralizzata per i dati strutturati
@@ -36,6 +37,7 @@ const Index = () => {
 
       <main id="main-content" role="main">
         <HeroSection />
+        <VideoSection />
         <ServicesIntroSection />
         <AboutSection />
         <NaturalHistorySection />

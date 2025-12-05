@@ -86,7 +86,7 @@ export const PromiseStep = ({ onNext, onBack }: PromiseStepProps) => {
         <TransformationGallery />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+      <div className="flex flex-col-reverse sm:flex-row gap-4 items-center justify-center">
         <SecondaryButton
           onClick={onBack}
           variant="dark"
