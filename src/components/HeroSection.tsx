@@ -28,7 +28,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className={`${designSystem.typography.h1} font-bold ${designSystem.spacing.marginTitle} leading-tight`}>
             Marco del Moro
-            <span className="block text-primary-glow">Natural bodybuilding</span>
+            <span className="block text-primary-glow">Personal Trainer a Piombino (LI)</span>
           </h1>
 
           <p className={`${designSystem.typography.body} ${designSystem.spacing.marginSection} opacity-90 max-w-2xl mx-auto`}>

@@ -194,6 +194,7 @@ const GalleryBeforeAfter: React.FC = () => {
               boxShadow:
                 "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
+            aria-label="Scorri galleria a sinistra"
           >
             <ChevronLeft
               className={`${designSystem.slider.navigation.icon}`}
@@ -208,6 +209,7 @@ const GalleryBeforeAfter: React.FC = () => {
               boxShadow:
                 "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
+            aria-label="Scorri galleria a destra"
           >
             <ChevronRight
               className="w-6 h-6 transition-colors duration-300"
@@ -300,6 +302,7 @@ const GalleryBeforeAfter: React.FC = () => {
                 style={{
                   boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
                 }}
+                aria-label="Immagine precedente"
               >
                 <ChevronLeft className="w-6 h-6 text-gray-800" />
               </button>
@@ -310,6 +313,7 @@ const GalleryBeforeAfter: React.FC = () => {
                 style={{
                   boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
                 }}
+                aria-label="Immagine successiva"
               >
                 <ChevronRight className="w-6 h-6 text-gray-800" />
               </button>
