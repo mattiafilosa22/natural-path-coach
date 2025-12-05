@@ -305,6 +305,7 @@ const NaturalHistorySection = () => {
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
+                aria-label="Scorri atleti a sinistra"
               >
                 <ChevronLeft
                   className={`${designSystem.slider.navigation.icon}`}
@@ -319,6 +320,7 @@ const NaturalHistorySection = () => {
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
+                aria-label="Scorri atleti a destra"
               >
                 <ChevronRight
                   className={`${designSystem.slider.navigation.icon}`}
@@ -495,6 +497,7 @@ const NaturalHistorySection = () => {
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
+                aria-label="Scorri atleti a sinistra"
               >
                 <ChevronLeft
                   className="w-6 h-6 transition-colors duration-300"
@@ -510,6 +513,7 @@ const NaturalHistorySection = () => {
                   boxShadow:
                     "0 8px 32px rgba(249, 112, 21, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1)",
                 }}
+                aria-label="Scorri atleti a destra"
               >
                 <ChevronRight
                   className="w-6 h-6 transition-colors duration-300"
