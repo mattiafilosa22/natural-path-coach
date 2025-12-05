@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Play } from "lucide-react";
 import mainVideo from "../assets/videos/main-video.mp4";
+import coverVideoHp from "../assets/cover-video-hp.jpeg";
 
 type VideoSectionProps = {
   videoSrc?: string;
@@ -66,6 +67,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({
                 ref={videoRef}
                 title={title}
                 src={videoSrc}
+                poster={coverVideoHp}
                 controls
                 onPlay={handleVideoPlay}
                 onPause={handleVideoPause}
