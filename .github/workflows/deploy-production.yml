@@ -35,7 +35,7 @@ jobs:
       env:
         VITE_APP_ENV: production
         VITE_APP_URL: https://www.marco-del-moro-personal-trainer.it
-        VITE_APP_NAME: Marco Del Moro - Natural Path Coach
+        VITE_APP_NAME: Marco Del Moro | Personal Trainer Piombino
         VITE_ALLOW_INDEXING: true
         VITE_IS_PRODUCTION: true
         VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
