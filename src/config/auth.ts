@@ -19,7 +19,7 @@ export const AUTH_CONFIG: AuthConfig = {
   password: 'Test123!',
   title: 'Marco Del Moro',
   description: 'Accesso riservato all\'area coaching',
-  sessionKey: 'natural-path-coach-auth',
+  sessionKey: 'marco-del-moro-pt-auth',
   enableLogoutButton: true,
   showCredentialsInDev: true,
   sessionTimeout: 24 * 60 * 60 * 1000 // 24 ore
