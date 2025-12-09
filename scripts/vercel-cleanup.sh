@@ -71,7 +71,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "📝 Impostando variabili di ambiente..."
     $VERCEL_CMD env add VITE_APP_ENV production natural-path-coach --force || true
     $VERCEL_CMD env add VITE_APP_URL https://natural-path-coach.vercel.app natural-path-coach --force || true
-    $VERCEL_CMD env add VITE_APP_NAME "Natural Path Coach (Test)" natural-path-coach --force || true
+    $VERCEL_CMD env add VITE_APP_NAME "Marco Del Moro PT (Test)" natural-path-coach --force || true
     $VERCEL_CMD env add VITE_ALLOW_INDEXING false natural-path-coach --force || true
     $VERCEL_CMD env add VITE_IS_PRODUCTION false natural-path-coach --force || true
 

@@ -35,7 +35,7 @@ jobs:
       env:
         VITE_APP_ENV: test
         VITE_APP_URL: https://natural-path-coach.vercel.app
-        VITE_APP_NAME: Natural Path Coach (Test)
+        VITE_APP_NAME: Marco Del Moro PT (Test)
         VITE_ALLOW_INDEXING: false
         VITE_IS_PRODUCTION: false
         VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}

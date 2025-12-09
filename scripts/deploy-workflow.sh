@@ -8,7 +8,7 @@ set -e
 ENVIRONMENT=${1:-help}
 
 show_help() {
-    echo "🚀 Natural Path Coach - Deploy Workflow"
+    echo "🚀 Marco Del Moro PT - Deploy Workflow"
     echo ""
     echo "Usage: ./scripts/deploy-workflow.sh [ENVIRONMENT]"
     echo ""

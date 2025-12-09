@@ -30,7 +30,7 @@ jobs:
       env:
         VITE_APP_ENV: development
         VITE_APP_URL: http://localhost:8080
-        VITE_APP_NAME: Natural Path Coach (Dev)
+        VITE_APP_NAME: Marco Del Moro PT (Dev)
         VITE_ALLOW_INDEXING: false
         VITE_IS_PRODUCTION: false
         VITE_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
