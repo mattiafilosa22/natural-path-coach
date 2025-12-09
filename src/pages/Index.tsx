@@ -17,7 +17,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOMeta
-        title={SITE_CONFIG.name + " | Trasforma il Tuo Corpo Naturalmente"}
+        title="Marco Del Moro | Personal Trainer Piombino (LI)"
         description={SITE_CONFIG.description}
         keywords={SITE_CONFIG.keywords}
         canonicalUrl={SITE_CONFIG.url}
