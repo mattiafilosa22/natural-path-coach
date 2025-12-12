@@ -44,10 +44,10 @@ const HeroSection = () => {
               style={{ animationDelay: "0.2s" }}
             >
               <a
-                href="#services-intro"
+                href="#video-section"
                 onClick={e => {
                   e.preventDefault();
-                  const el = document.getElementById("services-intro");
+                  const el = document.getElementById("video-section");
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth" });
                     // Focus management per accessibilità
