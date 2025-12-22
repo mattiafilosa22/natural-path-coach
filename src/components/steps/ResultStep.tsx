@@ -34,7 +34,7 @@ export const ResultStep = ({
 
   const handleCalendlyClick = () => {
     // Here you would integrate with Calendly
-    window.open("https://calendly.com/marcodelmoro50/60min", "_blank");
+    // window.open("https://calendly.com/marcodelmoro50/60min", "_blank");
     // Go directly to thank you page
     onNext();
   };
@@ -51,9 +51,9 @@ export const ResultStep = ({
 
         <div className="space-y-4">
           <p className="text-xl font-semibold text-gray-700">
-            Prenota ora la tua{" "}
+            Compila il form per{" "}
             <span className="text-fitness-orange font-bold">
-              consulenza gratuita!
+              essere ricontattato!
             </span>
           </p>
           <div className="flex flex-col-reverse sm:flex-row gap-4 items-center justify-center">
@@ -66,7 +66,7 @@ export const ResultStep = ({
               size="lg"
               className="text-xl px-6 py-6 sm:px-12 sm:py-8"
             >
-              Prenota Consulenza Gratuita
+              Vai!
             </FitnessButton>
           </div>
         </div>
