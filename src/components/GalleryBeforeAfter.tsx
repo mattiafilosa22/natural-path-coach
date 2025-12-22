@@ -58,13 +58,13 @@ const GalleryBeforeAfter: React.FC = () => {
       timeframe: "12 mesi",
       details: "",
     },
-    {
-      id: 5,
-      image: mirkoBack,
-      description: "Mirko",
-      timeframe: "6 mesi",
-      details: "",
-    },
+    // {
+    //   id: 5,
+    //   image: mirkoBack,
+    //   description: "Mirko",
+    //   timeframe: "6 mesi",
+    //   details: "",
+    // },
     {
       id: 6,
       image: gabriel,
