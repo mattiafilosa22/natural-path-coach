@@ -37,7 +37,7 @@ const Index = () => {
 
       <main id="main-content" role="main">
         <HeroSection />
-        <VideoSection />
+        {/* <VideoSection /> */}
         <ServicesIntroSection />
         <AboutSection />
         <NaturalHistorySection />

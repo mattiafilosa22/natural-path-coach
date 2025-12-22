@@ -44,7 +44,7 @@ export const ResultStep = ({
       <div className="max-w-3xl w-full text-center space-y-8">
         <div className="space-y-6">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Il Tuo Programma Personalizzato è Pronto!
+            Ecco la strategia adatta a te!
           </h1>
           {generatePersonalizedResult()}
         </div>
