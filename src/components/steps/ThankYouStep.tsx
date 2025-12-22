@@ -1,12 +1,13 @@
 import { SecondaryButton } from "@/components/SecondaryButton";
+import { ContactForm } from "@/components/ContactForm";
 
 export const ThankYouStep = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8 text-center">
-      <div className="max-w-2xl space-y-8">
+      <div className="w-full max-w-3xl space-y-8">
         <div className="text-6xl mb-8">🎉</div>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+        {/* <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           Grazie!
         </h1>
 
@@ -32,7 +33,11 @@ export const ThankYouStep = () => {
 
         <p className="text-sm text-gray-500">
           Non vedi l'email? Controlla anche la cartella spam.
-        </p>
+        </p> */}
+
+        <div className="text-left">
+          <ContactForm successRedirectTo={undefined} />
+        </div>
 
         <div className="flex justify-center mt-8">
           <SecondaryButton
