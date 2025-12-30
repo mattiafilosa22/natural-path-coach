@@ -151,7 +151,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <ContactForm successRedirectTo="/funnel" />
+          <ContactForm successRedirectTo={undefined} />
 
           {/* Contact Info */}
           <div className="space-y-6">
